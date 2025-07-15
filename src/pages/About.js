@@ -68,6 +68,11 @@ const About = () => {
 
   return (
     <div className="about">
+      {/* President's Welcome Section */}
+      <section>
+        
+      </section>
+
       {/* Hero Section */}
       <section className="about-hero">
         <div className="container">
