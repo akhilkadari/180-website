@@ -12,10 +12,12 @@ import {
 import './About.css';
 
 const About = () => {
+  const presidentRef = useRef(null);
   const missionRef = useRef(null);
   const differenceRef = useRef(null);
   const galleryRef = useRef(null);
   
+  const isPresidentInView = useInView(presidentRef, { once: true });
   const isMissionInView = useInView(missionRef, { once: true });
   const isDifferenceInView = useInView(differenceRef, { once: true });
   const isGalleryInView = useInView(galleryRef, { once: true });
@@ -68,11 +70,6 @@ const About = () => {
 
   return (
     <div className="about">
-      {/* President's Welcome Section */}
-      <section>
-        
-      </section>
-
       {/* Hero Section */}
       <section className="about-hero">
         <div className="container">
@@ -85,6 +82,59 @@ const About = () => {
             <h1>About 180° DC MSU</h1>
             <p>Empowering organizations through student-driven consulting excellence</p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* President's Welcome Section */}
+      <section ref={presidentRef} className="president-section">
+        <div className="container">
+          <div className="president-grid">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={isPresidentInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="president-image"
+            >
+              <img 
+                src="/sahib.webp" 
+                alt="President Sahib" 
+                className="president-photo"
+              />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={isPresidentInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="president-content"
+            >
+              <h2>President's Welcome</h2>
+              <p className="president-name">Daddy Sahib</p>
+              <p>
+                Welcome to 180 Degrees Consulting MSU! As the President of this incredible 
+                organization, I am proud to lead a team of dedicated students who are 
+                passionate about making a real impact in the business world.
+              </p>
+              <p>
+                Our organization represents the perfect blend of academic excellence and 
+                practical business experience. We believe that the best learning happens 
+                when theory meets practice, and that's exactly what we offer to both our 
+                clients and our members.
+              </p>
+              <p>
+                What sets us apart is our commitment to delivering high-quality consulting 
+                services while fostering a supportive environment where students can grow, 
+                learn, and develop their professional skills. Every project we undertake 
+                is an opportunity to create value for our clients while building the next 
+                generation of business leaders.
+              </p>
+              <p>
+                I invite you to explore our website and learn more about how we can help 
+                your organization achieve its goals, or how you can become part of our 
+                dynamic team.
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
 

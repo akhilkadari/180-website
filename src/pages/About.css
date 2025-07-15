@@ -25,6 +25,70 @@
   line-height: 1.6;
 }
 
+/* President's Welcome Section */
+.president-section {
+  padding: 5rem 0;
+  background: #f7fafc;
+}
+
+.president-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.president-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.president-photo {
+  width: 100%;
+  max-width: 400px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.president-photo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.president-content {
+  padding: 2rem 0;
+}
+
+.president-content h2 {
+  font-size: 2.5rem;
+  color: #000000;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.president-name {
+  font-size: 1.2rem;
+  color: #94C973;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.president-content p {
+  font-size: 1.1rem;
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.president-content p:last-child {
+  margin-bottom: 0;
+}
+
 /* Mission Section */
 .mission-section {
   padding: 5rem 0;
@@ -132,7 +196,7 @@
 
 .difference-icon {
   font-size: 3rem;
-  color: #1a365d;
+  color: #000000;
   margin-bottom: 1.5rem;
 }
 
@@ -223,7 +287,7 @@
 
 .history-content h2 {
   font-size: 2.5rem;
-  color: #1a365d;
+  color: #000000;
   margin-bottom: 2rem;
   font-weight: 600;
 }
@@ -247,6 +311,20 @@
   
   .about-hero-content p {
     font-size: 1.1rem;
+  }
+  
+  .president-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .president-content h2 {
+    font-size: 2rem;
+  }
+  
+  .president-photo {
+    max-width: 300px;
+    height: 400px;
   }
   
   .mission-grid {
@@ -287,6 +365,19 @@
   
   .about-hero-content p {
     font-size: 1rem;
+  }
+  
+  .president-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .president-name {
+    font-size: 1.1rem;
+  }
+  
+  .president-photo {
+    max-width: 250px;
+    height: 350px;
   }
   
   .mission-card h2,
