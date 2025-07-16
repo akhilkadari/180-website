@@ -134,13 +134,13 @@
 
 .benefit-icon {
   font-size: 3rem;
-  color: black;
+  color: #94C973;
   margin-bottom: 1.5rem;
 }
 
 .benefit-card h3 {
   font-size: 1.3rem;
-  color: black;
+  color: #94C973;
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -412,7 +412,7 @@
 /* Apply CTA */
 .apply-cta {
   padding: 5rem 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: black;
   color: white;
   text-align: center;
 }

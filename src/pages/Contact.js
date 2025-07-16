@@ -261,38 +261,6 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
-      {/* Office Hours */}
-      <section className="office-hours">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="hours-content"
-          >
-            <h2>Office Hours</h2>
-            <div className="hours-grid">
-              <div className="hours-item">
-                <h3>Monday - Friday</h3>
-                <p>9:00 AM - 5:00 PM</p>
-              </div>
-              <div className="hours-item">
-                <h3>Saturday</h3>
-                <p>10:00 AM - 2:00 PM</p>
-              </div>
-              <div className="hours-item">
-                <h3>Sunday</h3>
-                <p>Closed</p>
-              </div>
-            </div>
-            <p className="hours-note">
-              * Response times may vary during peak periods and academic breaks
-            </p>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 };
