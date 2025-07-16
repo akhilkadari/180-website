@@ -23,9 +23,9 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
+/* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
@@ -33,10 +33,16 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1a365d;
-  border-radius: 4px;
+  background: #94C973;
+  border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #2d3748;
+  background: #7ba05b;
+}
+
+/* Firefox scrollbar styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #94C973 #f1f1f1;
 }

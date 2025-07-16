@@ -1,8 +1,12 @@
 /* About Hero Section */
 .about-hero {
-  background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+  background-image: url('/public/silly_group_pic.jpeg'); 
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
   color: white;
-  padding: 8rem 0 5rem;
+  padding: 14rem 0 5rem;
   text-align: center;
 }
 
@@ -14,10 +18,75 @@
 
 .about-hero-content p {
   font-size: 1.3rem;
-  color: #cbd5e0;
+  color: white;
+  font-weight: 500;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+}
+
+/* President's Welcome Section */
+.president-section {
+  padding: 5rem 0;
+  background: #f7fafc;
+}
+
+.president-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.president-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.president-photo {
+  width: 100%;
+  max-width: 400px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.president-photo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.president-content {
+  padding: 2rem 0;
+}
+
+.president-content h2 {
+  font-size: 2.5rem;
+  color: #000000;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.president-name {
+  font-size: 1.2rem;
+  color: #94C973 !important;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.president-content p {
+  font-size: 1.1rem;
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.president-content p:last-child {
+  margin-bottom: 0;
 }
 
 /* Mission Section */
@@ -42,14 +111,14 @@
 }
 
 .mission-card {
-  background: #f7fafc;
-  border: 2px solid #e2e8f0;
+  background: #94C973;
+  border: 2px solid #94C973;
 }
 
 .vision-card {
-  background: #1a365d;
+  background: #f7fafc;
   color: white;
-  border: 2px solid #1a365d;
+  border: 2px solid #f7fafc;
 }
 
 .mission-card:hover,
@@ -65,11 +134,11 @@
 }
 
 .mission-icon {
-  color: #1a365d;
+  color: white;
 }
 
 .vision-icon {
-  color: #f7fafc;
+  color: #94C973;
 }
 
 .mission-card h2,
@@ -77,6 +146,11 @@
   font-size: 2rem;
   margin-bottom: 1.5rem;
   font-weight: 600;
+  color: #94C973;
+}
+
+.mission-card h2 {
+  color: white;
 }
 
 .mission-card p,
@@ -86,11 +160,11 @@
 }
 
 .mission-card p {
-  color: #4a5568;
+  color: white;
 }
 
 .vision-card p {
-  color: #e2e8f0;
+  color: #94C973;
 }
 
 /* Difference Section */
@@ -122,13 +196,13 @@
 
 .difference-icon {
   font-size: 3rem;
-  color: #1a365d;
+  color: #94C973;
   margin-bottom: 1.5rem;
 }
 
 .difference-card h3 {
   font-size: 1.5rem;
-  color: #2d3748;
+  color: #94C973;
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -213,7 +287,7 @@
 
 .history-content h2 {
   font-size: 2.5rem;
-  color: #1a365d;
+  color: #000000;
   margin-bottom: 2rem;
   font-weight: 600;
 }
@@ -229,6 +303,65 @@
   margin-bottom: 0;
 }
 
+/* Business Analyst Section */
+.business-analyst-section {
+  background: white;
+  padding: 5rem 0;
+}
+
+.ba-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-top: 0;
+}
+
+.ba-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ba-photo {
+  width: 100%;
+  max-width: 480px;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.ba-photo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.ba-content h3 {
+  font-size: 2rem;
+  color: #000000;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.ba-bullets {
+  list-style: disc inside;
+  color: #2d3748;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  padding-left: 1rem;
+}
+
+.ba-bullets li::marker {
+  color: #000000;
+}
+
+.ba-bullets strong {
+  color: #94C973;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .about-hero-content h1 {
@@ -237,6 +370,20 @@
   
   .about-hero-content p {
     font-size: 1.1rem;
+  }
+  
+  .president-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .president-content h2 {
+    font-size: 2rem;
+  }
+  
+  .president-photo {
+    max-width: 300px;
+    height: 400px;
   }
   
   .mission-grid {
@@ -266,6 +413,20 @@
   }
 }
 
+@media (max-width: 900px) {
+  .ba-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .ba-photo {
+    max-width: 360px;
+    height: 300px;
+  }
+  .ba-content h3 {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 480px) {
   .about-hero {
     padding: 6rem 0 3rem;
@@ -277,6 +438,19 @@
   
   .about-hero-content p {
     font-size: 1rem;
+  }
+  
+  .president-content h2 {
+    font-size: 1.8rem;
+  }
+  
+  .president-name {
+    font-size: 1.1rem;
+  }
+  
+  .president-photo {
+    max-width: 250px;
+    height: 350px;
   }
   
   .mission-card h2,
@@ -296,4 +470,20 @@
   .history-content p {
     font-size: 1rem;
   }
+  .ba-photo {
+    max-width: 260px;
+    height: 180px;
+  }
+  .ba-content h3 {
+    font-size: 1.2rem;
+  }
+  .ba-bullets {
+    font-size: 1rem;
+  }
+} 
+
+/* Make captions for What Makes Us Different and Business Analysts green */
+.difference-section .section-header p,
+.business-analyst-section .section-header p {
+  color: #94C973 !important;
 } 
