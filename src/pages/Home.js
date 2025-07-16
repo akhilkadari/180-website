@@ -152,7 +152,7 @@ const Home = () => {
               <span className="hero-logo"> <span style={{ color: '#94C973' }}>Transforming</span> Organizations. Creating <span style={{ color: '#94C973' }}>Impact</span>.</span>
             </h1>
             <p className="hero-tagline">
-            180 Degrees Consulting at Michigan State University provides high-quality consulting 
+            <span style={{color: '#94C973'}}>180 Degrees Consulting</span> at Michigan State University provides high-quality consulting 
             services to nonprofits and social enterprises, helping them maximize their social impact.
             </p>
             <div className="hero-buttons">
