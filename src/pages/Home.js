@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   FaUsers, 
@@ -8,9 +7,20 @@ import {
   FaLightbulb, 
   FaHandshake, 
   FaStar,
-  FaArrowRight 
+  FaArrowRight,
+  FaChevronLeft,
+  FaChevronRight
 } from 'react-icons/fa';
 import './Home.css';
+import Pic1 from '../assets/180Pic1.jpg';
+import Pic2 from '../assets/180Pic2.jpg';
+import Pic3 from '../assets/180Pic3.jpg';
+import Pic4 from '../assets/180Pic4.jpg';
+import MinskoffPavilion from '../assets/MinskoffPavilion.jpg';
+
+const heroImages = [
+  Pic1, Pic2, Pic3, Pic4
+];
 
 const Home = () => {
   const statsRef = useRef(null);
@@ -26,6 +36,26 @@ const Home = () => {
     members: 0,
     impact: 0
   });
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slideTimeout = useRef();
+
+  useEffect(() => {
+    slideTimeout.current = setTimeout(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearTimeout(slideTimeout.current);
+  }, [currentSlide]);
+
+  const goToSlide = (idx) => {
+    setCurrentSlide(idx);
+  };
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  };
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+  };
 
   useEffect(() => {
     if (isStatsInView) {
@@ -88,8 +118,28 @@ const Home = () => {
     <div className="home">
       {/* Hero Section */}
       <section className="hero">
-        <div className="hero-background">
+        <div className="hero-slideshow">
+          {heroImages.map((img, idx) => (
+            <div
+              key={idx}
+              className={`hero-slide${idx === currentSlide ? ' active' : ''}`}
+              style={{ backgroundImage: `url(${img})` }}
+              aria-hidden={idx !== currentSlide}
+            />
+          ))}
           <div className="hero-overlay"></div>
+          <button className="hero-arrow left" onClick={prevSlide} aria-label="Previous slide"><FaChevronLeft /></button>
+          <button className="hero-arrow right" onClick={nextSlide} aria-label="Next slide"><FaChevronRight /></button>
+          <div className="hero-dots">
+            {heroImages.map((_, idx) => (
+              <button
+                key={idx}
+                className={`hero-dot${idx === currentSlide ? ' active' : ''}`}
+                onClick={() => goToSlide(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
         <div className="hero-content">
           <motion.div
@@ -99,11 +149,11 @@ const Home = () => {
             className="hero-text"
           >
             <h1 className="hero-title">
-              <span className="hero-logo">180°</span>
-              <span className="hero-brand">DC MSU</span>
+              <span className="hero-logo"> <span style={{ color: '#94C973' }}>Transforming</span> Organizations. Creating <span style={{ color: '#94C973' }}>Impact</span>.</span>
             </h1>
             <p className="hero-tagline">
-              Empowering organizations through strategic consulting and innovative solutions
+            180 Degrees Consulting at Michigan State University provides high-quality consulting 
+            services to nonprofits and social enterprises, helping them maximize their social impact.
             </p>
             <div className="hero-buttons">
               <Link to="/for-clients" className="btn btn-primary">
@@ -119,8 +169,40 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Core Values Section */}
+      <section ref={valuesRef} className="values-section">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isValuesInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="section-header"
+          >
+            <h2 style={{ color: '#94C973' }}>Our Core Values</h2>
+            <p>The principles that guide everything we do</p>
+          </motion.div>
+          
+          <div className="values-grid">
+            {coreValues.map((value, index) => (
+              <motion.div
+                key={index}
+                className="value-card"
+                initial={{ opacity: 0, y: 30 }}
+                animate={isValuesInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <div className="value-icon">{value.icon}</div>
+                <h3>{value.title}</h3>
+                <p>{value.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Quick Stats Section */}
       <section ref={statsRef} className="stats-section">
+        <div className="stats-background" style={{ backgroundImage: `url(${MinskoffPavilion})` }}></div>
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -144,36 +226,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Core Values Section */}
-      <section ref={valuesRef} className="values-section">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isValuesInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="section-header"
-          >
-            <h2>Our Core Values</h2>
-            <p>The principles that guide everything we do</p>
-          </motion.div>
-          
-          <div className="values-grid">
-            {coreValues.map((value, index) => (
-              <motion.div
-                key={index}
-                className="value-card"
-                initial={{ opacity: 0, y: 30 }}
-                animate={isValuesInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                <div className="value-icon">{value.icon}</div>
-                <h3>{value.title}</h3>
-                <p>{value.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Testimonials Section */}
       <section ref={testimonialsRef} className="testimonials-section">
@@ -184,7 +237,7 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             className="section-header"
           >
-            <h2>What Our Clients Say</h2>
+            <h2 style={{ color: '#94C973' }}>What Our Clients Say</h2>
             <p>Success stories from organizations we've helped</p>
           </motion.div>
           

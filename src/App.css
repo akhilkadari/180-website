@@ -66,26 +66,27 @@ main {
 }
 
 .btn-primary {
-  background: #1a365d;
+  background: #94C973;
   color: white;
+  border-color: #94C973;
 }
 
 .btn-primary:hover {
-  background: #2d3748;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(26, 54, 93, 0.3);
+  background: #7bbf5e;
+  color: white;
+  box-shadow: 0 10px 25px #94C97344;
 }
 
 .btn-secondary {
   background: transparent;
-  color: #1a365d;
-  border-color: #1a365d;
+  color: #94C973;
+  border-color: #94C973;
 }
 
 .btn-secondary:hover {
-  background: #1a365d;
+  background: #94C973;
   color: white;
-  transform: translateY(-2px);
+  border-color: #94C973;
 }
 
 /* Utility Classes */

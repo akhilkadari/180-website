@@ -1,6 +1,10 @@
 /* Clients Hero Section */
 .clients-hero {
-  background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+  position: relative;
+  background: linear-gradient(135deg, #94C973 0%, rgba(45, 55, 72, 0.8) 100%), url('../assets/MSU_Broad_College_of_Business_Pavilion_01.jpg');
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
   color: white;
   padding: 8rem 0 5rem;
   text-align: center;
@@ -235,7 +239,7 @@
 /* Why Choose Section */
 .why-choose-section {
   padding: 5rem 0;
-  background: white;
+  background: #f8fafc;
 }
 
 .advantages-grid {
@@ -261,13 +265,13 @@
 
 .advantage-icon {
   font-size: 3rem;
-  color: #1a365d;
+  color: #94C973;
   margin-bottom: 1.5rem;
 }
 
 .advantage-card h3 {
   font-size: 1.3rem;
-  color: #2d3748;
+  color: #94C973;
   margin-bottom: 1rem;
   font-weight: 600;
 }

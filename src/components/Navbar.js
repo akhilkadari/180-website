@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import './Navbar.css';
+import Logo from '../assets/180_degrees_consulting_logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,8 +39,7 @@ const Navbar = () => {
       <div className="nav-container">
         <Link to="/" className="nav-logo">
           <div className="logo-container">
-            <span className="logo-text">180°</span>
-            <span className="logo-subtext">DC MSU</span>
+            <img src={Logo} alt="180 Degrees Consulting MSU Logo" className="logo-img" />
           </div>
         </Link>
 

@@ -10,6 +10,7 @@ import {
   FaArrowRight
 } from 'react-icons/fa';
 import './ForClients.css';
+import MinskoffPavilion from '../assets/MSU_Broad_College_of_Business_Pavilion_01.jpg';  
 
 const ForClients = () => {
   const timelineRef = useRef(null);
@@ -98,6 +99,7 @@ const ForClients = () => {
   return (
     <div className="for-clients">
       {/* Hero Section */}
+  
       <section className="clients-hero">
         <div className="container">
           <motion.div
@@ -109,6 +111,80 @@ const ForClients = () => {
             <h1>For Clients</h1>
             <p>Transform your organization with student-driven consulting excellence</p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="why-choose-section">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="section-header"
+          >
+            <h2 style={{ color: '#94C973' }}>Why Choose 180° DC MSU?</h2>
+            <p>The unique advantages of working with student consultants</p>
+          </motion.div>
+
+          <div className="advantages-grid">
+            <motion.div
+              className="advantage-card"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="advantage-icon">
+                <FaUsers />
+              </div>
+              <h3>Fresh Perspectives</h3>
+              <p>Young, innovative minds bring new ideas and approaches to traditional business challenges.</p>
+            </motion.div>
+
+            <motion.div
+              className="advantage-card"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <div className="advantage-icon">
+                <FaChartLine />
+              </div>
+              <h3>Cost-Effective</h3>
+              <p>High-quality consulting services at a fraction of traditional consulting firm costs.</p>
+            </motion.div>
+
+            <motion.div
+              className="advantage-card"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <div className="advantage-icon">
+                <FaLightbulb />
+              </div>
+              <h3>Innovation Focus</h3>
+              <p>Students are trained in the latest business methodologies and technologies.</p>
+            </motion.div>
+
+            <motion.div
+              className="advantage-card"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <div className="advantage-icon">
+                <FaCheckCircle />
+              </div>
+              <h3>Proven Results</h3>
+              <p>Track record of delivering measurable impact for organizations across various industries.</p>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -207,79 +283,7 @@ const ForClients = () => {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="why-choose-section">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="section-header"
-          >
-            <h2>Why Choose 180° DC MSU?</h2>
-            <p>The unique advantages of working with student consultants</p>
-          </motion.div>
-
-          <div className="advantages-grid">
-            <motion.div
-              className="advantage-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="advantage-icon">
-                <FaUsers />
-              </div>
-              <h3>Fresh Perspectives</h3>
-              <p>Young, innovative minds bring new ideas and approaches to traditional business challenges.</p>
-            </motion.div>
-
-            <motion.div
-              className="advantage-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="advantage-icon">
-                <FaChartLine />
-              </div>
-              <h3>Cost-Effective</h3>
-              <p>High-quality consulting services at a fraction of traditional consulting firm costs.</p>
-            </motion.div>
-
-            <motion.div
-              className="advantage-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <div className="advantage-icon">
-                <FaLightbulb />
-              </div>
-              <h3>Innovation Focus</h3>
-              <p>Students are trained in the latest business methodologies and technologies.</p>
-            </motion.div>
-
-            <motion.div
-              className="advantage-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <div className="advantage-icon">
-                <FaCheckCircle />
-              </div>
-              <h3>Proven Results</h3>
-              <p>Track record of delivering measurable impact for organizations across various industries.</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* CTA Section */}
       <section className="cta-section">
