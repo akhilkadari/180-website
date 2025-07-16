@@ -72,7 +72,7 @@
 
 .president-name {
   font-size: 1.2rem;
-  color: #94C973;
+  color: #94C973 !important;
   font-weight: 600;
   margin-bottom: 2rem;
   font-style: italic;
@@ -196,13 +196,13 @@
 
 .difference-icon {
   font-size: 3rem;
-  color: #000000;
+  color: #94C973;
   margin-bottom: 1.5rem;
 }
 
 .difference-card h3 {
   font-size: 1.5rem;
-  color: #2d3748;
+  color: #94C973;
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -303,6 +303,65 @@
   margin-bottom: 0;
 }
 
+/* Business Analyst Section */
+.business-analyst-section {
+  background: white;
+  padding: 5rem 0;
+}
+
+.ba-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-top: 0;
+}
+
+.ba-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ba-photo {
+  width: 100%;
+  max-width: 480px;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.ba-photo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.ba-content h3 {
+  font-size: 2rem;
+  color: #000000;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  margin-top: 0;
+}
+
+.ba-bullets {
+  list-style: disc inside;
+  color: #2d3748;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  padding-left: 1rem;
+}
+
+.ba-bullets li::marker {
+  color: #000000;
+}
+
+.ba-bullets strong {
+  color: #94C973;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .about-hero-content h1 {
@@ -354,6 +413,20 @@
   }
 }
 
+@media (max-width: 900px) {
+  .ba-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .ba-photo {
+    max-width: 360px;
+    height: 300px;
+  }
+  .ba-content h3 {
+    font-size: 1.5rem;
+  }
+}
+
 @media (max-width: 480px) {
   .about-hero {
     padding: 6rem 0 3rem;
@@ -397,4 +470,20 @@
   .history-content p {
     font-size: 1rem;
   }
+  .ba-photo {
+    max-width: 260px;
+    height: 180px;
+  }
+  .ba-content h3 {
+    font-size: 1.2rem;
+  }
+  .ba-bullets {
+    font-size: 1rem;
+  }
+} 
+
+/* Make captions for What Makes Us Different and Business Analysts green */
+.difference-section .section-header p,
+.business-analyst-section .section-header p {
+  color: #94C973 !important;
 } 

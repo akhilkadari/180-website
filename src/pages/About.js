@@ -45,29 +45,6 @@ const About = () => {
     }
   ];
 
-  const galleryImages = [
-    {
-      id: 1,
-      title: "Team Meeting",
-      description: "Collaborative strategy session with our consulting team"
-    },
-    {
-      id: 2,
-      title: "Client Presentation",
-      description: "Delivering impactful recommendations to stakeholders"
-    },
-    {
-      id: 3,
-      title: "Workshop",
-      description: "Interactive workshop with community partners"
-    },
-    {
-      id: 4,
-      title: "Award Ceremony",
-      description: "Celebrating our team's achievements and recognition"
-    }
-  ];
-
   return (
     <div className="about">
       {/* Hero Section */}
@@ -109,7 +86,7 @@ const About = () => {
               className="president-content"
             >
               <h2>President's Welcome</h2>
-              <p className="president-name">Daddy Sahib</p>
+              <p className="president-name">Sahib Sekhon</p>
               <p>
                 Welcome to 180 Degrees Consulting MSU! As the President of this incredible 
                 organization, I am proud to lead a team of dedicated students who are 
@@ -210,8 +187,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section ref={galleryRef} className="gallery-section">
+      {/* Gallery Section (now Business Analysts Section) */}
+      <section ref={galleryRef} className="gallery-section business-analyst-section">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -219,63 +196,29 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="section-header"
           >
-            <h2>Our Journey</h2>
-            <p>Capturing moments from our projects, events, and team activities</p>
+            <h2>Business Analysts</h2>
           </motion.div>
 
-          <div className="gallery-grid">
-            {galleryImages.map((image, index) => (
-              <motion.div
-                key={image.id}
-                className="gallery-item"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isGalleryInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="gallery-placeholder">
-                  <div className="placeholder-content">
-                    <span className="placeholder-text">{image.title}</span>
-                  </div>
-                </div>
-                <div className="gallery-caption">
-                  <h4>{image.title}</h4>
-                  <p>{image.description}</p>
-                </div>
-              </motion.div>
-            ))}
+          <div className="ba-grid">
+            <div className="ba-image">
+              <img 
+                src="/ba_pic.jpeg" 
+                alt="Business Analyst Team" 
+                className="ba-photo"
+              />
+            </div>
+            <div className="ba-content">
+              <h3>Professional Development</h3>
+              <ul className="ba-bullets">
+                {/* Add bullet points here */}
+                <li><strong>Comprehensive Training:</strong> Workshops on problem-solving, consulting frameworks, and client communication.</li>
+                <li><strong>Mentorship and Support:</strong> Access to experienced project managers and mentors who provide guidance throughout your consulting journey.</li>
+                <li><strong>Career Development:</strong> Resume reviews and interview preparation tailored to your industry.</li>
+                <li><strong>Real-World Project Experience:</strong> Collaboration on meaningful projects with socially conscious organizations, locally and globally.</li>
+                <li><strong>Community and Connections:</strong> ccess to a diverse and supportive network of current members and alumni who have excelled in consulting, finance, tech, and more.</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* History Section */}
-      <section className="history-section">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="history-content"
-          >
-            <h2>Our Story</h2>
-            <p>
-              180 Degrees Consulting MSU was founded with a vision to bridge the gap between 
-              academic learning and real-world business challenges. Since our establishment, 
-              we have grown from a small group of passionate students to a thriving organization 
-              that has made a significant impact on numerous organizations across Michigan.
-            </p>
-            <p>
-              Our journey has been marked by continuous learning, innovation, and a commitment 
-              to excellence. We've worked with startups, nonprofits, and established businesses, 
-              helping them navigate complex challenges and achieve their strategic objectives.
-            </p>
-            <p>
-              Today, we continue to uphold our founding principles while embracing new 
-              technologies and methodologies to deliver even greater value to our clients 
-              and provide our members with unparalleled learning experiences.
-            </p>
-          </motion.div>
         </div>
       </section>
     </div>

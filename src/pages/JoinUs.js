@@ -3,8 +3,6 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { 
   FaUsers, 
-  FaChartLine, 
-  FaLightbulb, 
   FaCalendarAlt,
   FaChevronDown,
   FaChevronUp,
@@ -50,51 +48,51 @@ const JoinUs = () => {
 
   const roles = [
     {
-      title: "Consultant",
-      description: "Work directly with clients to analyze problems and develop solutions",
-      responsibilities: [
-        "Conduct research and data analysis",
-        "Develop strategic recommendations",
-        "Present findings to clients",
-        "Collaborate with team members"
-      ],
-      requirements: [
-        "Strong analytical skills",
-        "Excellent communication abilities",
-        "Ability to work in teams",
-        "Minimum 3.0 GPA"
-      ]
-    },
-    {
       title: "Business Analyst",
       description: "Focus on data analysis and market research to support consulting projects",
-      responsibilities: [
-        "Perform quantitative analysis",
-        "Create financial models",
-        "Conduct market research",
-        "Prepare detailed reports"
-      ],
       requirements: [
         "Proficiency in Excel and data analysis",
         "Strong quantitative skills",
         "Attention to detail",
         "Minimum 3.2 GPA"
+      ],
+      responsibilities: [
+        "Perform quantitative analysis",
+        "Create financial models",
+        "Conduct market research",
+        "Prepare detailed reports"
+      ]
+    },
+    {
+      title: "Consultant",
+      description: "Work directly with clients to analyze problems and develop solutions",
+      requirements: [
+        "Strong analytical skills",
+        "Excellent communication abilities",
+        "Ability to work in teams",
+        "Minimum 3.0 GPA"
+      ],
+      responsibilities: [
+        "Conduct research and data analysis",
+        "Develop strategic recommendations",
+        "Present findings to clients",
+        "Collaborate with team members"
       ]
     },
     {
       title: "Project Manager",
       description: "Lead consulting teams and manage client relationships",
-      responsibilities: [
-        "Lead project teams",
-        "Manage client relationships",
-        "Ensure project deliverables",
-        "Mentor junior team members"
-      ],
       requirements: [
         "Previous consulting experience",
         "Strong leadership skills",
         "Excellent project management",
         "Minimum 3.3 GPA"
+      ],
+      responsibilities: [
+        "Lead project teams",
+        "Manage client relationships",
+        "Ensure project deliverables",
+        "Mentor junior team members"
       ]
     }
   ];
@@ -173,15 +171,53 @@ const JoinUs = () => {
     <div className="join-us">
       {/* Hero Section */}
       <section className="join-hero">
+        <div className="hero-background"></div>
+        <div className="container">
+          <div className="hero-content-grid">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="hero-text-box"
+            >
+              <h1>Join Our Team</h1>
+              <p>Become part of the premier student consulting organization at MSU</p>
+              <p>We're looking for passionate students who want to make a real impact in the business world while developing their professional skills.</p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="hero-image-circle"
+            >
+              <div className="circle-container">
+                <img 
+                  src="/banquet.jpeg" 
+                  alt="Banquet Event" 
+                  className="circle-image"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Apply CTA */}
+      <section className="apply-cta">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="join-hero-content"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="cta-content"
           >
-            <h1>Join Our Team</h1>
-            <p>Become part of the premier student consulting organization at MSU</p>
+            <h2>Ready to Join Our Team?</h2>
+            <p>Take the first step towards an exciting consulting career with 180° DC MSU</p>
+            <a href="/contact" className="btn btn-primary">
+              Apply Now <FaArrowRight />
+            </a>
           </motion.div>
         </div>
       </section>
@@ -227,43 +263,46 @@ const JoinUs = () => {
             transition={{ duration: 0.6 }}
             className="section-header"
           >
-            <h2>Available Roles</h2>
-            <p>Find the perfect role that matches your skills and interests</p>
+            <h2>Roles & Progression</h2>
+            <p>Explore the different roles and how you can grow within 180° DC MSU</p>
           </motion.div>
 
           <div className="roles-grid">
-            {roles.map((role, index) => (
-              <motion.div
-                key={index}
-                className="role-card"
-                initial={{ opacity: 0, y: 30 }}
-                animate={isRolesInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-              >
-                <h3>{role.title}</h3>
-                <p className="role-description">{role.description}</p>
-                
-                <div className="role-details">
-                  <div className="responsibilities">
-                    <h4>Responsibilities</h4>
-                    <ul>
-                      {role.responsibilities.map((item, i) => (
-                        <li key={i}>{item}</li>
-                      ))}
-                    </ul>
+            {roles.map((role, idx) => (
+              <React.Fragment key={role.title}>
+                <motion.div
+                  className="role-card"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isRolesInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                >
+                  <h3>{role.title}</h3>
+                  <p className="role-description">{role.description}</p>
+                  <div className="role-details">
+                    <div className="requirements">
+                      <h4>Requirements</h4>
+                      <ul>
+                        {role.requirements.map((req, i) => (
+                          <li key={i}>{req}</li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="responsibilities">
+                      <h4>Responsibilities</h4>
+                      <ul>
+                        {role.responsibilities.map((resp, i) => (
+                          <li key={i}>{resp}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  
-                  <div className="requirements">
-                    <h4>Requirements</h4>
-                    <ul>
-                      {role.requirements.map((item, i) => (
-                        <li key={i}>{item}</li>
-                      ))}
-                    </ul>
+                </motion.div>
+                {idx < roles.length - 1 && (
+                  <div className="role-arrow">
+                    <span style={{ fontSize: '2.5rem', color: '#94C973', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>&#8594;</span>
                   </div>
-                </div>
-              </motion.div>
+                )}
+              </React.Fragment>
             ))}
           </div>
         </div>
@@ -348,25 +387,6 @@ const JoinUs = () => {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Apply CTA */}
-      <section className="apply-cta">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="cta-content"
-          >
-            <h2>Ready to Join Our Team?</h2>
-            <p>Take the first step towards an exciting consulting career with 180° DC MSU</p>
-            <a href="/contact" className="btn btn-primary">
-              Apply Now <FaArrowRight />
-            </a>
-          </motion.div>
         </div>
       </section>
     </div>
