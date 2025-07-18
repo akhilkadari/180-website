@@ -389,6 +389,41 @@ const JoinUs = () => {
           </div>
         </div>
       </section>
+
+      {/* Business Analysts Section */}
+      <section className="business-analyst-section">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="section-header"
+          >
+            <h2>Business Analysts</h2>
+          </motion.div>
+
+          <div className="ba-grid">
+            <div className="ba-image">
+              <img 
+                src="/ba_pic.jpeg" 
+                alt="Business Analyst Team" 
+                className="ba-photo"
+              />
+            </div>
+            <div className="ba-content">
+              <h3>Professional Development</h3>
+              <ul className="ba-bullets">
+                <li><strong>Comprehensive Training:</strong> Workshops on problem-solving, consulting frameworks, and client communication.</li>
+                <li><strong>Mentorship and Support:</strong> Access to experienced project managers and mentors who provide guidance throughout your consulting journey.</li>
+                <li><strong>Career Development:</strong> Resume reviews and interview preparation tailored to your industry.</li>
+                <li><strong>Real-World Project Experience:</strong> Collaboration on meaningful projects with socially conscious organizations, locally and globally.</li>
+                <li><strong>Community and Connections:</strong> Access to a diverse and supportive network of current members and alumni who have excelled in consulting, finance, tech, and more.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
