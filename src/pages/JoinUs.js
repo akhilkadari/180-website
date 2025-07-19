@@ -9,7 +9,14 @@ import {
   FaArrowRight,
   FaStar,
   FaGraduationCap,
-  FaHandshake
+  FaHandshake,
+  FaClipboardList,
+  FaComments,
+  FaUserTie,
+  FaNewspaper,
+  FaPagelines,
+  FaParagraph,
+  FaAddressCard
 } from 'react-icons/fa';
 import './JoinUs.css';
 
@@ -101,35 +108,48 @@ const JoinUs = () => {
     {
       id: 1,
       title: "Application Submission",
-      description: "Submit your application with resume and cover letter",
+      description: "Submit your application form with your updated resume.",
+      tips: "Remember to submit your application as soon as you can as we get a lot of applicants, but don't rush and make sure to craft thoughful responses to all the questions.",
       date: "September 15-30",
       icon: <FaCalendarAlt />
     },
     {
       id: 2,
-      title: "Initial Screening",
-      description: "Applications reviewed by our recruitment team",
+      title: "Initial Resume Screening",
+      description: "Applications are reviewed and you will be notified if you are selected for an interview.",
+      tips: "Ensure your resume is well-formatted and error-free. Make sure your resume highlights any relevant experiences that you can talk to.",
       date: "October 1-7",
-      icon: <FaUsers />
+      icon: <FaAddressCard />
     },
     {
       id: 3,
       title: "First Round Interview",
-      description: "Behavioral and case interview with team members",
+      description: "Behavioral interview with our recruitment team.",
+      tips: "Prepare examples of your leadership and teamwork experiences. Also make sure to attend our behavioral interview workshop for the utmost preparation.",
       date: "October 8-15",
       icon: <FaHandshake />
     },
     {
       id: 4,
-      title: "Final Round Interview",
-      description: "Case study presentation and team fit assessment",
+      title: "Second Round Interview",
+      description: "Case study interview with our recruitment team.",
+      tips: "Practice doing consulting case studies on youtube. Don't panic and just do your best, you got this! Nobody is expected to be perfect at casing but come in confident and be able to explain your ideas thoroughly. Make sure to take advantage of our case study workshop as it will give you a good idea of what to expect.",
       date: "October 16-22",
-      icon: <FaStar />
+      icon: <FaUserTie />
     },
     {
       id: 5,
+      title: "Final Round Interview",
+      description: "Group case study interview with our recruitment team.",
+      tips: "Make sure to come in with a positive attitude and be able to work well with others. Make sure to do some practice case studies with friends to best equip yourself for the group case setting.",
+      date: "October 23-25",
+      icon: <FaStar />
+    },
+    {
+      id: 6,
       title: "Offers Extended",
-      description: "Successful candidates receive offers to join the team",
+      description: "Successful candidates receive offers to join the team.",
+      // tips: "Congratulations! We can't wait to have you on the team and we're excited to see what you'll bring to the table.",
       date: "October 23-25",
       icon: <FaGraduationCap />
     }
@@ -317,25 +337,40 @@ const JoinUs = () => {
             transition={{ duration: 0.6 }}
             className="section-header"
           >
-            <h2>Application Timeline</h2>
-            <p>Important dates for the Fall 2024 recruitment cycle</p>
+            <h2>Application Process</h2>
+            
           </motion.div>
 
-          <div className="timeline">
+          <div className="timeline-cards">
             {timelineSteps.map((step, index) => (
               <motion.div
                 key={step.id}
-                className={`timeline-step ${index % 2 === 0 ? 'left' : 'right'}`}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={isTimelineInView ? { opacity: 1, x: 0 } : {}}
+                className="timeline-card"
+                initial={{ opacity: 0, y: 30 }}
+                animate={isTimelineInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -5, scale: 1.02 }}
               >
-                <div className="step-content">
+                <div className="timeline-card-header">
+                  <div className="step-number">{step.id}</div>
                   <div className="step-icon">{step.icon}</div>
+                </div>
+                <div className="timeline-card-content">
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>
-                  <div className="step-date">{step.date}</div>
+                  {step.tips && (
+                    <div className="timeline-tips">
+                      <h4>Tips:</h4>
+                      <p>{step.tips}</p>
+                    </div>
+                  )}
                 </div>
+                {index < timelineSteps.length - 1 && (
+                  <div className="timeline-connector">
+                    <div className="connector-line"></div>
+                    <div className="connector-arrow">→</div>
+                  </div>
+                )}
               </motion.div>
             ))}
           </div>
