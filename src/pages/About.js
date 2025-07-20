@@ -187,6 +187,87 @@ const About = () => {
         </div>
       </section>
 
+      {/* Fun Moments Section */}
+      <section className="fun-moments-section">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="section-header"
+          >
+            <h2>Fun Moments</h2>
+            <p>Capturing the memories and experiences that make our team special</p>
+          </motion.div>
+
+          <div className="fun-moments-grid">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="fun-moment-item"
+            >
+              <div className="fun-moment-image">
+                <img src="/silly_group_pic.jpeg" alt="Team Fun Moment" />
+              </div>
+              <div className="fun-moment-caption">
+                <h4>Team Building</h4>
+                <p>Building lasting friendships while solving complex business challenges</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="fun-moment-item"
+            >
+              <div className="fun-moment-image">
+                <img src="/broad night.jpg" alt="Professional Development" />
+              </div>
+              <div className="fun-moment-caption">
+                <h4>Professional Growth</h4>
+                <p>Developing skills and confidence through real-world consulting projects</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="fun-moment-item"
+            >
+              <div className="fun-moment-image">
+                <img src="/banquet.jpeg" alt="Celebration" />
+              </div>
+              <div className="fun-moment-caption">
+                <h4>Celebrating Success</h4>
+                <p>Recognizing achievements and milestones together as a team</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="fun-moment-item"
+            >
+              <div className="fun-moment-image">
+                <img src="/minskoff.jpg" alt="Collaboration" />
+              </div>
+              <div className="fun-moment-caption">
+                <h4>Collaboration</h4>
+                <p>Working together to deliver exceptional results for our clients</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
     </div>
   );

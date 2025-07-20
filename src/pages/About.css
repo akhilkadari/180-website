@@ -480,10 +480,88 @@
   .ba-bullets {
     font-size: 1rem;
   }
+  
+  .fun-moments-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .fun-moment-caption h4 {
+    font-size: 1.1rem;
+  }
+  
+  .fun-moment-caption p {
+    font-size: 0.9rem;
+  }
 } 
 
 /* Make captions for What Makes Us Different and Business Analysts green */
 .difference-section .section-header p,
 .business-analyst-section .section-header p {
   color: #94C973 !important;
+}
+
+/* Fun Moments Section */
+.fun-moments-section {
+  background: #f7fafc;
+  padding: 5rem 0;
+}
+
+.fun-moments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.fun-moment-item {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.fun-moment-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.fun-moment-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.fun-moment-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.fun-moment-item:hover .fun-moment-image img {
+  transform: scale(1.05);
+}
+
+.fun-moment-caption {
+  padding: 1.5rem;
+}
+
+.fun-moment-caption h4 {
+  color: #94C973;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.fun-moment-caption p {
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.fun-moments-section .section-header p {
+  color: #94C973;
 } 
