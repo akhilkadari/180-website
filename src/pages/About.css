@@ -481,16 +481,30 @@
     font-size: 1rem;
   }
   
-  .fun-moments-grid {
+  .fun-moments-collage {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-rows: repeat(4, 200px);
+    height: auto;
+    gap: 0.5rem;
   }
   
-  .fun-moment-caption h4 {
+  .collage-item.large,
+  .collage-item.medium,
+  .collage-item.small {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  
+  .collage-caption {
+    transform: translateY(0);
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+  .collage-caption h4 {
     font-size: 1.1rem;
   }
   
-  .fun-moment-caption p {
+  .collage-caption p {
     font-size: 0.9rem;
   }
 } 
@@ -503,62 +517,91 @@
 
 /* Fun Moments Section */
 .fun-moments-section {
-  background: #f7fafc;
+  background: white;
   padding: 5rem 0;
 }
 
-.fun-moments-grid {
+.fun-moments-collage {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0;
   margin-top: 3rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 500px;
 }
 
-.fun-moment-item {
-  background: white;
-  border-radius: 15px;
+.collage-item {
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
 }
 
-.fun-moment-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+.collage-item:hover {
+  transform: scale(1.02);
+  z-index: 2;
 }
 
-.fun-moment-image {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
-
-.fun-moment-image img {
+.collage-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-.fun-moment-item:hover .fun-moment-image img {
+.collage-item:hover img {
   transform: scale(1.05);
 }
 
-.fun-moment-caption {
-  padding: 1.5rem;
+.collage-item.large {
+  grid-column: 1;
+  grid-row: 1 / 3;
 }
 
-.fun-moment-caption h4 {
+.collage-item.medium {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.collage-item.medium:nth-of-type(3) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.collage-item.small {
+  grid-column: 3;
+  grid-row: 1 / 3;
+}
+
+.collage-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.75rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.collage-item:hover .collage-caption {
+  transform: translateY(0);
+}
+
+.collage-caption h4 {
   color: #94C973;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
-.fun-moment-caption p {
-  color: #4a5568;
-  font-size: 1rem;
-  line-height: 1.6;
+.collage-caption p {
+  color: white;
+  font-size: 0.85rem;
+  line-height: 1.4;
   margin: 0;
 }
 
