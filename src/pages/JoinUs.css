@@ -1,8 +1,7 @@
 /* Join Hero Section */
 .join-hero {
   position: relative;
-  height: 80vh;
-  min-height: 600px;
+  height: 100vh;
   color: white;
   display: flex;
   align-items: center;
@@ -107,7 +106,7 @@
 
 /* Benefits Section */
 .benefits-section {
-  padding: 5rem 0;
+  padding: 3rem 0 5rem 0;
   background: white;
 }
 
@@ -179,6 +178,9 @@
   min-width: 320px;
   max-width: 350px;
   flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
 }
 
 .role-arrow {
@@ -205,12 +207,14 @@
   line-height: 1.6;
   margin-bottom: 2rem;
   font-size: 1rem;
+  flex-shrink: 0;
 }
 
 .role-details {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  flex: 1;
 }
 
 .responsibilities,
@@ -218,6 +222,9 @@
   background: #f7fafc;
   padding: 1.5rem;
   border-radius: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .responsibilities h4,
@@ -709,4 +716,78 @@
 .requirements li::before,
 .responsibilities li::before {
   color: #000000 !important;
+}
+
+/* Business Analyst Section */
+.business-analyst-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/public/minskoff.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 5rem 0;
+  position: relative;
+}
+
+.business-analyst-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/public/minskoff.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+.business-analyst-section .section-header h2 {
+  color: white;
+}
+
+.business-analyst-section .section-header p {
+  color: #f7fafc;
+}
+
+/* Testimonial Placeholders */
+.testimonial-placeholder {
+  background: #f8fafc;
+  border-left: 4px solid #94C973;
+  padding: 1.5rem;
+  border-radius: 0 10px 10px 0;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.testimonial-placeholder:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(148, 201, 115, 0.2);
+}
+
+.testimonial-placeholder h4 {
+  color: #94C973;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.testimonial-placeholder p {
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  color: #94C973;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: block;
+  text-align: right;
 } 

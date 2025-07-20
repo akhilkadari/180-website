@@ -88,7 +88,7 @@ const JoinUs = () => {
     },
     {
       title: "Project Manager",
-      description: "Lead consulting teams and manage client relationships",
+      description: "Lead consulting teams and manage all contact with clients and the team",
       requirements: [
         "Previous consulting experience",
         "Strong leadership skills",
@@ -203,6 +203,9 @@ const JoinUs = () => {
               <h1>Join Our Team</h1>
               <p>Become part of the premier student consulting organization at MSU</p>
               <p>We're looking for passionate students who want to make a real impact in the business world while developing their professional skills.</p>
+              <a href="/contact" className="btn btn-primary">
+                Apply Now <FaArrowRight />
+              </a>
             </motion.div>
             
             <motion.div
@@ -223,24 +226,7 @@ const JoinUs = () => {
         </div>
       </section>
 
-      {/* Apply CTA */}
-      <section className="apply-cta">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="cta-content"
-          >
-            <h2>Ready to Join Our Team?</h2>
-            <p>Take the first step towards an exciting consulting career with 180° DC MSU</p>
-            <a href="/contact" className="btn btn-primary">
-              Apply Now <FaArrowRight />
-            </a>
-          </motion.div>
-        </div>
-      </section>
+
 
       {/* Why Join Section */}
       <section ref={benefitsRef} className="benefits-section">
@@ -252,7 +238,6 @@ const JoinUs = () => {
             className="section-header"
           >
             <h2>Why Join 180° DC MSU?</h2>
-            <p>Discover the benefits of being part of our consulting team</p>
           </motion.div>
 
           <div className="benefits-grid">
@@ -270,6 +255,50 @@ const JoinUs = () => {
                 <p>{benefit.description}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Business Analysts Section */}
+      <section className="business-analyst-section">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="section-header"
+          >
+            <h2>Business Analyst Testimonials</h2>
+          </motion.div>
+
+          <div className="ba-grid">
+            <div className="ba-image">
+              <img 
+                src="/ba_pic.jpeg" 
+                alt="Business Analyst Team" 
+                className="ba-photo"
+              />
+            </div>
+            <div className="ba-content">
+              <div className="testimonial-placeholder">
+                <h4>Testimonial 1</h4>
+                <p>"180° DC MSU provided me with invaluable consulting experience that directly contributed to my internship success. The hands-on projects and mentorship were game-changers for my career development."</p>
+                <span className="testimonial-author">- Former Business Analyst</span>
+              </div>
+              
+              <div className="testimonial-placeholder">
+                <h4>Testimonial 2</h4>
+                <p>"The skills I developed as a Business Analyst here opened doors I never thought possible. The real client work and professional network I built were instrumental in landing my dream job."</p>
+                <span className="testimonial-author">- Former Business Analyst</span>
+              </div>
+              
+              <div className="testimonial-placeholder">
+                <h4>Testimonial 3</h4>
+                <p>"Being part of 180° DC MSU's Business Analyst team taught me how to think strategically and communicate complex ideas effectively. The experience was transformative for my professional growth."</p>
+                <span className="testimonial-author">- Former Business Analyst</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -425,40 +454,6 @@ const JoinUs = () => {
         </div>
       </section>
 
-      {/* Business Analysts Section */}
-      <section className="business-analyst-section">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="section-header"
-          >
-            <h2>Business Analysts</h2>
-          </motion.div>
-
-          <div className="ba-grid">
-            <div className="ba-image">
-              <img 
-                src="/ba_pic.jpeg" 
-                alt="Business Analyst Team" 
-                className="ba-photo"
-              />
-            </div>
-            <div className="ba-content">
-              <h3>Professional Development</h3>
-              <ul className="ba-bullets">
-                <li><strong>Comprehensive Training:</strong> Workshops on problem-solving, consulting frameworks, and client communication.</li>
-                <li><strong>Mentorship and Support:</strong> Access to experienced project managers and mentors who provide guidance throughout your consulting journey.</li>
-                <li><strong>Career Development:</strong> Resume reviews and interview preparation tailored to your industry.</li>
-                <li><strong>Real-World Project Experience:</strong> Collaboration on meaningful projects with socially conscious organizations, locally and globally.</li>
-                <li><strong>Community and Connections:</strong> Access to a diverse and supportive network of current members and alumni who have excelled in consulting, finance, tech, and more.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
