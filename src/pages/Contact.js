@@ -214,7 +214,7 @@ const Contact = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h2>Get in Touch</h2>
-              <p>We'd love to hear from you. Here are the best ways to reach us.</p>
+              <p style={{ color: '#6E9F32' }}>We'd love to hear from you. Here are the best ways to reach us.</p>
 
               <div className="contact-info-list">
                 {contactInfo.map((info, index) => (

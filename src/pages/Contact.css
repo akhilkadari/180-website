@@ -1,8 +1,8 @@
 /* Contact Hero Section */
 .contact-hero {
-  background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+  background: linear-gradient(135deg, #94C973 0%, rgba(45, 55, 72, 0.8) 100%);
   color: white;
-  padding: 8rem 0 5rem;
+  padding: 4rem 0 2rem;
   text-align: center;
 }
 
@@ -36,13 +36,13 @@
 /* Contact Form */
 .contact-form-section h2 {
   font-size: 2rem;
-  color: #1a365d;
+  color: #6E9F32;
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
 .contact-form-section p {
-  color: #4a5568;
+  color: #6E9F32;
   margin-bottom: 2rem;
   line-height: 1.6;
 }
@@ -61,7 +61,7 @@
 
 .form-group label {
   font-weight: 500;
-  color: #2d3748;
+  color: #6E9F32;
   font-size: 0.9rem;
 }
 
@@ -80,8 +80,8 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #1a365d;
-  box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
+  border-color: #6E9F32;
+  box-shadow: 0 0 0 3px #cbed9e;
 }
 
 .form-group textarea {
@@ -90,7 +90,7 @@
 }
 
 .submit-btn {
-  background: #1a365d;
+  background: #6E9F32;
   color: white;
   border: none;
   padding: 1rem 2rem;
@@ -107,7 +107,7 @@
 }
 
 .submit-btn:hover:not(:disabled) {
-  background: #2d3748;
+  background: #6E9F32;
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(26, 54, 93, 0.3);
 }
@@ -130,7 +130,7 @@
 /* Contact Info */
 .contact-info-section h2 {
   font-size: 2rem;
-  color: #1a365d;
+  color: #6E9F32;
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -166,7 +166,7 @@
 
 .info-icon {
   font-size: 1.5rem;
-  color: #1a365d;
+  color: #6E9F32;
   background: white;
   padding: 1rem;
   border-radius: 50%;
@@ -178,26 +178,26 @@
 
 .info-content h3 {
   font-size: 1.1rem;
-  color: #2d3748;
+  color: #6E9F32;
   margin-bottom: 0.25rem;
   font-weight: 600;
 }
 
 .info-content a {
-  color: #1a365d;
+  color: #6E9F32;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .info-content a:hover {
-  color: #2d3748;
+  color: #6E9F32;
 }
 
 /* Social Links */
 .social-links h3 {
   font-size: 1.3rem;
-  color: #2d3748;
+  color: #6E9F32;
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -239,7 +239,7 @@
 
 .hours-content h2 {
   font-size: 2.5rem;
-  color: #1a365d;
+  color: #6E9F32;
   margin-bottom: 3rem;
   font-weight: 600;
 }
@@ -266,7 +266,7 @@
 
 .hours-item h3 {
   font-size: 1.2rem;
-  color: #2d3748;
+  color: #6E9F32;
   margin-bottom: 0.5rem;
   font-weight: 600;
 }

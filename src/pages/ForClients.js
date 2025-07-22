@@ -1,21 +1,21 @@
-import React from 'react';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { 
-  FaCalendarAlt, 
-  FaUsers, 
-  FaChartLine, 
+import React from "react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import {
+  FaCalendarAlt,
+  FaUsers,
+  FaChartLine,
   FaLightbulb,
   FaCheckCircle,
-  FaArrowRight
-} from 'react-icons/fa';
-import './ForClients.css';
-import MinskoffPavilion from '../assets/MSU_Broad_College_of_Business_Pavilion_01.jpg';  
+  FaArrowRight,
+} from "react-icons/fa";
+import "./ForClients.css";
+import MinskoffPavilion from "../assets/MSU_Broad_College_of_Business_Pavilion_01.jpg";
 
 const ForClients = () => {
   const timelineRef = useRef(null);
   const projectsRef = useRef(null);
-  
+
   const isTimelineInView = useInView(timelineRef, { once: true });
   const isProjectsInView = useInView(projectsRef, { once: true });
 
@@ -23,38 +23,42 @@ const ForClients = () => {
     {
       id: 1,
       title: "Initial Consultation",
-      description: "We meet to understand your organization's challenges and objectives",
+      description:
+        "We meet to understand your organization's challenges and objectives",
       duration: "1-2 weeks",
-      icon: <FaUsers />
+      icon: <FaUsers />,
     },
     {
       id: 2,
       title: "Project Planning",
-      description: "Our team develops a comprehensive project plan and timeline",
+      description:
+        "Our team develops a comprehensive project plan and timeline",
       duration: "1 week",
-      icon: <FaCalendarAlt />
+      icon: <FaCalendarAlt />,
     },
     {
       id: 3,
       title: "Research & Analysis",
       description: "In-depth research and data analysis to identify solutions",
       duration: "4-6 weeks",
-      icon: <FaChartLine />
+      icon: <FaChartLine />,
     },
     {
       id: 4,
       title: "Solution Development",
-      description: "Creating innovative strategies and actionable recommendations",
+      description:
+        "Creating innovative strategies and actionable recommendations",
       duration: "3-4 weeks",
-      icon: <FaLightbulb />
+      icon: <FaLightbulb />,
     },
     {
       id: 5,
       title: "Implementation Support",
-      description: "Guiding you through the implementation of our recommendations",
+      description:
+        "Guiding you through the implementation of our recommendations",
       duration: "2-3 weeks",
-      icon: <FaCheckCircle />
-    }
+      icon: <FaCheckCircle />,
+    },
   ];
 
   const projectCards = [
@@ -62,44 +66,55 @@ const ForClients = () => {
       id: 1,
       clientName: "TechStart Inc.",
       clientLogo: "https://via.placeholder.com/100x100/1a365d/ffffff?text=TS",
-      challenge: "Struggling with market expansion and customer acquisition in competitive tech sector",
-      solution: "Developed comprehensive market entry strategy with targeted customer segmentation and digital marketing optimization",
-      impact: "40% increase in customer acquisition, 25% improvement in market share within 6 months",
-      industry: "Technology"
+      challenge:
+        "Struggling with market expansion and customer acquisition in competitive tech sector",
+      solution:
+        "Developed comprehensive market entry strategy with targeted customer segmentation and digital marketing optimization",
+      impact:
+        "40% increase in customer acquisition, 25% improvement in market share within 6 months",
+      industry: "Technology",
     },
     {
       id: 2,
       clientName: "GreenSolutions",
       clientLogo: "https://via.placeholder.com/100x100/38b2ac/ffffff?text=GS",
-      challenge: "Needed to optimize supply chain operations and reduce environmental impact",
-      solution: "Implemented sustainable supply chain practices with cost optimization and carbon footprint reduction strategies",
-      impact: "30% reduction in operational costs, 50% decrease in carbon emissions",
-      industry: "Sustainability"
+      challenge:
+        "Needed to optimize supply chain operations and reduce environmental impact",
+      solution:
+        "Implemented sustainable supply chain practices with cost optimization and carbon footprint reduction strategies",
+      impact:
+        "30% reduction in operational costs, 50% decrease in carbon emissions",
+      industry: "Sustainability",
     },
     {
       id: 3,
       clientName: "CommunityFirst",
       clientLogo: "https://via.placeholder.com/100x100/f6ad55/ffffff?text=CF",
-      challenge: "Required strategic planning for nonprofit growth and donor engagement",
-      solution: "Created comprehensive fundraising strategy with donor relationship management and program expansion plan",
-      impact: "60% increase in donor contributions, 35% growth in program reach",
-      industry: "Nonprofit"
+      challenge:
+        "Required strategic planning for nonprofit growth and donor engagement",
+      solution:
+        "Created comprehensive fundraising strategy with donor relationship management and program expansion plan",
+      impact:
+        "60% increase in donor contributions, 35% growth in program reach",
+      industry: "Nonprofit",
     },
     {
       id: 4,
       clientName: "Local Retail Chain",
       clientLogo: "https://via.placeholder.com/100x100/e53e3e/ffffff?text=LR",
       challenge: "Facing declining sales and need for digital transformation",
-      solution: "Developed omnichannel retail strategy with e-commerce integration and customer experience optimization",
-      impact: "45% increase in online sales, 20% improvement in customer retention",
-      industry: "Retail"
-    }
+      solution:
+        "Developed omnichannel retail strategy with e-commerce integration and customer experience optimization",
+      impact:
+        "45% increase in online sales, 20% improvement in customer retention",
+      industry: "Retail",
+    },
   ];
 
   return (
     <div className="for-clients">
       {/* Hero Section */}
-  
+
       <section className="clients-hero">
         <div className="container">
           <motion.div
@@ -109,7 +124,10 @@ const ForClients = () => {
             className="clients-hero-content"
           >
             <h1>For Clients</h1>
-            <p>Transform your organization with student-driven consulting excellence</p>
+            <p>
+              Transform your organization with student-driven consulting
+              excellence
+            </p>
           </motion.div>
         </div>
       </section>
@@ -124,7 +142,7 @@ const ForClients = () => {
             viewport={{ once: true }}
             className="section-header"
           >
-            <h2 style={{ color: '#94C973' }}>Why Choose 180° DC MSU?</h2>
+            <h2 style={{ color: "#94C973" }}>Why Choose 180° DC MSU?</h2>
             <p>The unique advantages of working with student consultants</p>
           </motion.div>
 
@@ -140,7 +158,10 @@ const ForClients = () => {
                 <FaUsers />
               </div>
               <h3>Fresh Perspectives</h3>
-              <p>Young, innovative minds bring new ideas and approaches to traditional business challenges.</p>
+              <p>
+                Young, innovative minds bring new ideas and approaches to
+                traditional business challenges.
+              </p>
             </motion.div>
 
             <motion.div
@@ -154,7 +175,10 @@ const ForClients = () => {
                 <FaChartLine />
               </div>
               <h3>Cost-Effective</h3>
-              <p>High-quality consulting services at a fraction of traditional consulting firm costs.</p>
+              <p>
+                High-quality consulting services at a fraction of traditional
+                consulting firm costs.
+              </p>
             </motion.div>
 
             <motion.div
@@ -168,7 +192,10 @@ const ForClients = () => {
                 <FaLightbulb />
               </div>
               <h3>Innovation Focus</h3>
-              <p>Students are trained in the latest business methodologies and technologies.</p>
+              <p>
+                Students are trained in the latest business methodologies and
+                technologies.
+              </p>
             </motion.div>
 
             <motion.div
@@ -182,7 +209,10 @@ const ForClients = () => {
                 <FaCheckCircle />
               </div>
               <h3>Proven Results</h3>
-              <p>Track record of delivering measurable impact for organizations across various industries.</p>
+              <p>
+                Track record of delivering measurable impact for organizations
+                across various industries.
+              </p>
             </motion.div>
           </div>
         </div>
@@ -190,31 +220,64 @@ const ForClients = () => {
 
       {/* Project Timeline */}
       <section ref={timelineRef} className="timeline-section">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isTimelineInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="section-header"
-          >
-            <h2>Our Project Timeline</h2>
-            <p>From initial consultation to implementation, we guide you through every step</p>
-          </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isTimelineInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="section-header"
+        >
+          <h2>Our Project Journey</h2>
+          <p>
+            Experience our streamlined approach to delivering exceptional
+            results
+          </p>
+        </motion.div>
 
-          <div className="timeline">
+        <div className="modern-timeline">
+          <div className="timeline-progress-container">
+            <motion.div
+              className="timeline-progress-bar"
+              initial={{ width: 0 }}
+              animate={isTimelineInView ? { width: "100%" } : {}}
+              transition={{ duration: 2, delay: 0.5 }}
+            />
+          </div>
+
+          <div className="timeline-steps-container">
             {timelineSteps.map((step, index) => (
               <motion.div
                 key={step.id}
-                className={`timeline-step ${index % 2 === 0 ? 'left' : 'right'}`}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={isTimelineInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                className="modern-timeline-step"
+                initial={{ opacity: 0, y: 50, scale: 0.8 }}
+                animate={isTimelineInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                transition={{
+                  duration: 0.7,
+                  delay: index * 0.15,
+                  type: "spring",
+                  stiffness: 100,
+                }}
+                whileHover={{
+                  y: -10,
+                  scale: 1.05,
+                  transition: { duration: 0.2 },
+                }}
               >
-                <div className="step-content">
-                  <div className="step-icon">{step.icon}</div>
+                <div className="step-number">{step.id}</div>
+                <div className="modern-step-content">
+                  <div className="step-icon-modern">{step.icon}</div>
                   <h3>{step.title}</h3>
                   <p>{step.description}</p>
-                  <div className="step-duration">{step.duration}</div>
+                  <div className="step-duration-modern">
+                    <span>{step.duration}</span>
+                  </div>
+                </div>
+                <div className="step-connector">
+                  <motion.div
+                    className="connector-dot"
+                    initial={{ scale: 0 }}
+                    animate={isTimelineInView ? { scale: 1 } : {}}
+                    transition={{ delay: index * 0.15 + 0.3, type: "spring" }}
+                  />
                 </div>
               </motion.div>
             ))}
@@ -283,8 +346,6 @@ const ForClients = () => {
         </div>
       </section>
 
-      
-
       {/* CTA Section */}
       <section className="cta-section">
         <div className="container">
@@ -296,7 +357,10 @@ const ForClients = () => {
             className="cta-content"
           >
             <h2>Ready to Transform Your Organization?</h2>
-            <p>Let's discuss how our student consulting team can help you achieve your goals.</p>
+            <p>
+              Let's discuss how our student consulting team can help you achieve
+              your goals.
+            </p>
             <a href="/contact" className="btn btn-primary">
               Get Started
             </a>
@@ -307,4 +371,4 @@ const ForClients = () => {
   );
 };
 
-export default ForClients; 
+export default ForClients;

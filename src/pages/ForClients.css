@@ -1,7 +1,8 @@
 /* Clients Hero Section */
 .clients-hero {
   position: relative;
-  background: linear-gradient(135deg, #94C973 0%, rgba(45, 55, 72, 0.8) 100%), url('../assets/MSU_Broad_College_of_Business_Pavilion_01.jpg');
+  background: linear-gradient(135deg, #94c973 0%, rgba(45, 55, 72, 0.8) 100%),
+    url("../assets/MSU_Broad_College_of_Business_Pavilion_01.jpg");
   background-size: cover;
   background-position: bottom;
   background-attachment: fixed;
@@ -26,103 +27,183 @@
 
 /* Timeline Section */
 .timeline-section {
-  padding: 5rem 0;
-  background: white;
-}
-
-.timeline {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
   position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem 0;
+  overflow: hidden;
 }
 
-.timeline::before {
-  content: '';
+.timeline-section .section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  padding: 0 2rem;
+}
+
+.timeline-section::before {
+  content: "";
   position: absolute;
+  top: -50%;
+  left: -10%;
+  width: 120%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(148, 201, 115, 0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.modern-timeline {
+  position: relative;
+  width: 100%;
+  padding: 3rem 2rem;
+  padding-top: 0;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.timeline-progress-container {
+  position: relative;
+  height: 4px;
+  background: rgba(148, 201, 115, 0.2);
+  border-radius: 2px;
+  margin: 2rem 0 4rem;
+  overflow: hidden;
+}
+
+.timeline-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #94c973, #68a653, #4a7c59);
+  border-radius: 2px;
+  box-shadow: 0 0 20px rgba(148, 201, 115, 0.4);
+}
+
+.timeline-steps-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  position: relative;
+}
+
+.modern-timeline-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.step-number {
+  position: absolute;
+  top: -20px;
   left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #94c973, #68a653);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  box-shadow: 0 8px 25px rgba(148, 201, 115, 0.3);
+  z-index: 10;
+}
+
+.modern-step-content {
+  background: white;
+  padding: 3rem 2rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(148, 201, 115, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modern-step-content::before {
+  content: "";
+  position: absolute;
   top: 0;
-  bottom: 0;
-  width: 4px;
-  background: #1a365d;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #94c973, #68a653);
+}
+
+.modern-step-content:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  border-color: rgba(148, 201, 115, 0.3);
+}
+
+.step-icon-modern {
+  font-size: 2.5rem;
+  color: #94c973;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+}
+
+.modern-step-content h3 {
+  font-size: 1.4rem;
+  color: #2d3748;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.modern-step-content p {
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.step-duration-modern {
+  background: linear-gradient(135deg, #f7fafc, #edf2f7);
+  border: 2px solid rgba(148, 201, 115, 0.2);
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  display: inline-block;
+  margin-top: auto;
+  align-self: center;
+}
+
+.step-duration-modern span {
+  color: #2d3748;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.step-connector {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
   transform: translateX(-50%);
 }
 
-.timeline-step {
-  position: relative;
-  margin-bottom: 3rem;
-  width: 45%;
-}
-
-.timeline-step.left {
-  left: 0;
-}
-
-.timeline-step.right {
-  left: 55%;
-}
-
-.timeline-step::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  width: 20px;
-  height: 20px;
-  background: #1a365d;
+.connector-dot {
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(135deg, #94c973, #68a653);
   border-radius: 50%;
-  border: 4px solid white;
-  box-shadow: 0 0 0 4px #1a365d;
-}
-
-.timeline-step.left::before {
-  right: -60px;
-}
-
-.timeline-step.right::before {
-  left: -60px;
-}
-
-.step-content {
-  background: #f7fafc;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e2e8f0;
-  transition: all 0.3s ease;
-}
-
-.step-content:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-.step-icon {
-  font-size: 2rem;
-  color: #1a365d;
-  margin-bottom: 1rem;
-}
-
-.step-content h3 {
-  font-size: 1.3rem;
-  color: #2d3748;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-
-.step-content p {
-  color: #4a5568;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.step-duration {
-  background: #1a365d;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  display: inline-block;
+  box-shadow: 0 4px 15px rgba(148, 201, 115, 0.4);
 }
 
 /* Projects Section */
@@ -265,13 +346,13 @@
 
 .advantage-icon {
   font-size: 3rem;
-  color: #94C973;
+  color: #94c973;
   margin-bottom: 1.5rem;
 }
 
 .advantage-card h3 {
   font-size: 1.3rem;
-  color: #94C973;
+  color: #94c973;
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -333,48 +414,48 @@
   .clients-hero-content h1 {
     font-size: 2.5rem;
   }
-  
+
   .clients-hero-content p {
     font-size: 1.1rem;
   }
-  
-  .timeline::before {
-    left: 20px;
+
+  .timeline-steps-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
-  
-  .timeline-step {
-    width: 100%;
-    left: 0 !important;
-    margin-left: 50px;
+
+  .modern-step-content {
+    padding: 2.5rem 1.5rem 2rem;
+    height: 320px;
   }
-  
-  .timeline-step::before {
-    left: -45px !important;
-    right: auto !important;
+
+  .step-icon-modern {
+    font-size: 2.2rem;
+    height: 60px;
   }
-  
+
   .projects-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .project-header {
     flex-direction: column;
     text-align: center;
     gap: 0.5rem;
   }
-  
+
   .advantages-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .cta-content h2 {
     font-size: 2rem;
   }
-  
+
   .cta-content p {
     font-size: 1.1rem;
   }
-  
+
   .container {
     padding: 0 1rem;
   }
@@ -384,52 +465,69 @@
   .clients-hero {
     padding: 6rem 0 3rem;
   }
-  
+
   .clients-hero-content h1 {
     font-size: 2rem;
   }
-  
+
   .clients-hero-content p {
     font-size: 1rem;
   }
-  
-  .timeline-step {
-    margin-left: 40px;
+
+  .timeline-section {
+    padding: 4rem 0;
   }
-  
-  .timeline-step::before {
-    left: -35px !important;
+
+  .modern-timeline {
+    padding: 2rem 1rem;
   }
-  
-  .step-content {
-    padding: 1.5rem;
+
+  .timeline-steps-container {
+    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
-  
-  .step-content h3 {
+
+  .modern-step-content {
+    padding: 2rem 1rem 1.5rem;
+    height: 300px;
+  }
+
+  .modern-step-content h3 {
     font-size: 1.2rem;
   }
-  
+
+  .step-icon-modern {
+    font-size: 2rem;
+    height: 50px;
+  }
+
+  .step-number {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
   .project-card {
     margin: 0 1rem;
   }
-  
+
   .project-content {
     padding: 1rem;
   }
-  
+
   .advantage-card {
     padding: 1.5rem;
   }
-  
+
   .advantage-card h3 {
     font-size: 1.2rem;
   }
-  
+
   .cta-content h2 {
     font-size: 1.8rem;
   }
-  
+
   .cta-content p {
     font-size: 1rem;
   }
-} 
+}
