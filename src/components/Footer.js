@@ -38,33 +38,23 @@ const Footer = () => {
     {
       icon: <FaLinkedin />,
       name: 'LinkedIn',
-      url: 'https://linkedin.com/company/180dcmsu',
+      url: 'https://www.linkedin.com/company/180-degrees-consulting-msu/',
       color: '#0077b5'
     },
     {
       icon: <FaInstagram />,
       name: 'Instagram',
-      url: 'https://instagram.com/180dcmsu',
+      url: 'https://www.instagram.com/msu180dc/?hl=en',
       color: '#e4405f'
     },
-    {
-      icon: <FaTwitter />,
-      name: 'Twitter',
-      url: 'https://twitter.com/180dcmsu',
-      color: '#1da1f2'
-    }
+    
   ];
 
   const contactInfo = [
     {
       icon: <FaEnvelope />,
-      text: 'contact@180dcmsu.org',
-      link: 'mailto:contact@180dcmsu.org'
-    },
-    {
-      icon: <FaPhone />,
-      text: '(517) 355-0000',
-      link: 'tel:+15173550000'
+      text: 'msu@180dc.org',
+      link: 'mailto:msu@180dc.org'
     },
     {
       icon: <FaMapMarkerAlt />,
