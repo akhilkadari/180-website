@@ -1,8 +1,7 @@
 /* Join Hero Section */
 .join-hero {
   position: relative;
-  height: 80vh;
-  min-height: 600px;
+  height: 100vh;
   color: white;
   display: flex;
   align-items: center;
@@ -107,7 +106,7 @@
 
 /* Benefits Section */
 .benefits-section {
-  padding: 5rem 0;
+  padding: 3rem 0 5rem 0;
   background: white;
 }
 
@@ -179,6 +178,9 @@
   min-width: 320px;
   max-width: 350px;
   flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
 }
 
 .role-arrow {
@@ -205,12 +207,14 @@
   line-height: 1.6;
   margin-bottom: 2rem;
   font-size: 1rem;
+  flex-shrink: 0;
 }
 
 .role-details {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  flex: 1;
 }
 
 .responsibilities,
@@ -218,6 +222,9 @@
   background: #f7fafc;
   padding: 1.5rem;
   border-radius: 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .responsibilities h4,
@@ -254,103 +261,192 @@
 
 /* Timeline Section */
 .timeline-section {
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: white;
 }
 
-.timeline {
-  position: relative;
-  max-width: 1000px;
+.timeline-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 2rem 0;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: #94C973;
-  transform: translateX(-50%);
-}
-
-.timeline-step {
   position: relative;
-  margin-bottom: 3rem;
-  width: 45%;
 }
 
-.timeline-step.left {
-  left: 0;
+.timeline-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f1f5f9;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.timeline-step.right {
-  left: 55%;
-}
-
-.timeline-step::before {
+.timeline-card::before {
   content: '';
   position: absolute;
-  top: 20px;
-  width: 20px;
-  height: 20px;
-  background: #94C973;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #94C973, #7ba05b);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.timeline-card:hover::before {
+  transform: scaleX(1);
+}
+
+.timeline-card:hover {
+  box-shadow: 0 20px 40px rgba(148, 201, 115, 0.2);
+  border-color: #94C973;
+}
+
+.timeline-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #94C973, #7ba05b);
+  color: white;
   border-radius: 50%;
-  border: 4px solid white;
-  box-shadow: 0 0 0 4px #94C973;
-}
-
-.timeline-step.left::before {
-  right: -60px;
-}
-
-.timeline-step.right::before {
-  left: -60px;
-}
-
-.step-content {
-  background: #f7fafc;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e2e8f0;
-  transition: all 0.3s ease;
-}
-
-.step-content:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 15px rgba(148, 201, 115, 0.3);
 }
 
 .step-icon {
   font-size: 2rem;
   color: #94C973;
-  margin-bottom: 1rem;
+  background: #f8fafc;
+  padding: 0.75rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
-.step-content h3 {
-  font-size: 1.3rem;
-  color: #2d3748;
+.timeline-card-content h3 {
+  font-size: 1.4rem;
+  color: #1a202c;
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
 
-.step-content p {
+.timeline-card-content p {
   color: #4a5568;
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.timeline-tips {
+  background: #f8fafc;
+  border-left: 4px solid #94C973;
+  padding: 0.75rem;
+  border-radius: 0 8px 8px 0;
+  margin-top: 0.75rem;
+}
+
+.timeline-tips h4 {
+  color: #94C973;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.timeline-tips p {
+  color: #4a5568;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+  font-style: italic;
 }
 
 .step-date {
-  background: #94C973;
+  background: linear-gradient(135deg, #94C973, #7ba05b);
   color: white;
   padding: 0.5rem 1rem;
-  border-radius: 20px;
+  border-radius: 25px;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   display: inline-block;
+  box-shadow: 0 4px 15px rgba(148, 201, 115, 0.3);
+}
+
+.timeline-connector {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+.connector-line {
+  width: 3px;
+  height: 1.5rem;
+  background: linear-gradient(180deg, #94C973, #e2e8f0);
+  border-radius: 2px;
+}
+
+.connector-arrow {
+  color: #94C973;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 0.25rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Responsive Design for Timeline */
+@media (max-width: 768px) {
+  .timeline-cards {
+    gap: 1rem;
+  }
+  
+  .timeline-card {
+    padding: 1.25rem;
+  }
+  
+  .timeline-card-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .step-icon {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+  
+  .step-number {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
 }
 
 /* FAQ Section */
@@ -620,4 +716,78 @@
 .requirements li::before,
 .responsibilities li::before {
   color: #000000 !important;
+}
+
+/* Business Analyst Section */
+.business-analyst-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/public/minskoff.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 5rem 0;
+  position: relative;
+}
+
+.business-analyst-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/public/minskoff.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+.business-analyst-section .section-header h2 {
+  color: white;
+}
+
+.business-analyst-section .section-header p {
+  color: #f7fafc;
+}
+
+/* Testimonial Placeholders */
+.testimonial-placeholder {
+  background: #f8fafc;
+  border-left: 4px solid #94C973;
+  padding: 1.5rem;
+  border-radius: 0 10px 10px 0;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.testimonial-placeholder:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(148, 201, 115, 0.2);
+}
+
+.testimonial-placeholder h4 {
+  color: #94C973;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.testimonial-placeholder p {
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  color: #94C973;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: block;
+  text-align: right;
 } 

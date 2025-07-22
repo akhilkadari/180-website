@@ -187,40 +187,80 @@ const About = () => {
         </div>
       </section>
 
-      {/* Gallery Section (now Business Analysts Section) */}
-      <section ref={galleryRef} className="gallery-section business-analyst-section">
+      {/* Fun Moments Section */}
+      <section className="fun-moments-section">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={isGalleryInView ? { opacity: 1, y: 0 } : {}}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
             className="section-header"
           >
-            <h2>Business Analysts</h2>
+            <h2>Fun Moments</h2>
+            <p>Capturing the memories and experiences that make our team special</p>
           </motion.div>
 
-          <div className="ba-grid">
-            <div className="ba-image">
-              <img 
-                src="/ba_pic.jpeg" 
-                alt="Business Analyst Team" 
-                className="ba-photo"
-              />
-            </div>
-            <div className="ba-content">
-              <h3>Professional Development</h3>
-              <ul className="ba-bullets">
-                {/* Add bullet points here */}
-                <li><strong>Comprehensive Training:</strong> Workshops on problem-solving, consulting frameworks, and client communication.</li>
-                <li><strong>Mentorship and Support:</strong> Access to experienced project managers and mentors who provide guidance throughout your consulting journey.</li>
-                <li><strong>Career Development:</strong> Resume reviews and interview preparation tailored to your industry.</li>
-                <li><strong>Real-World Project Experience:</strong> Collaboration on meaningful projects with socially conscious organizations, locally and globally.</li>
-                <li><strong>Community and Connections:</strong> ccess to a diverse and supportive network of current members and alumni who have excelled in consulting, finance, tech, and more.</li>
-              </ul>
-            </div>
+          <div className="fun-moments-collage">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="collage-item large"
+            >
+              <img src="/silly_group_pic.jpeg" alt="Team Fun Moment" />
+              <div className="collage-caption">
+                <h4>Team Building</h4>
+                <p>Building lasting friendships while solving complex business challenges</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="collage-item medium"
+            >
+              <img src="/broad night.jpg" alt="Professional Development" />
+              <div className="collage-caption">
+                <h4>Professional Growth</h4>
+                <p>Developing skills and confidence through real-world consulting projects</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="collage-item medium"
+            >
+              <img src="/banquet.jpeg" alt="Celebration" />
+              <div className="collage-caption">
+                <h4>Celebrating Success</h4>
+                <p>Recognizing achievements and milestones together as a team</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="collage-item small"
+            >
+              <img src="/minskoff.jpg" alt="Collaboration" />
+              <div className="collage-caption">
+                <h4>Collaboration</h4>
+                <p>Working together to deliver exceptional results for our clients</p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
+
     </div>
   );
 };

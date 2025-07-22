@@ -54,15 +54,10 @@ const Contact = () => {
     {
       icon: <FaEnvelope />,
       title: "Email",
-      value: "contact@180dcmsu.org",
-      link: "mailto:contact@180dcmsu.org"
+      value: "msu@180dc.org",
+      link: "mailto:msu@180dc.org"
     },
-    {
-      icon: <FaPhone />,
-      title: "Phone",
-      value: "(517) 355-0000",
-      link: "tel:+15173550000"
-    },
+   
     {
       icon: <FaMapMarkerAlt />,
       title: "Location",
@@ -75,21 +70,16 @@ const Contact = () => {
     {
       icon: <FaLinkedin />,
       name: "LinkedIn",
-      url: "https://linkedin.com/company/180dcmsu",
+      url: "https://www.linkedin.com/company/180-degrees-consulting-msu/",
       color: "#0077b5"
     },
     {
       icon: <FaInstagram />,
       name: "Instagram",
-      url: "https://instagram.com/180dcmsu",
+      url: "https://www.instagram.com/msu180dc/?hl=en",
       color: "#e4405f"
     },
-    {
-      icon: <FaTwitter />,
-      name: "Twitter",
-      url: "https://twitter.com/180dcmsu",
-      color: "#1da1f2"
-    }
+    
   ];
 
   return (
@@ -237,7 +227,7 @@ const Contact = () => {
               </div>
 
               <div className="social-links">
-                <h3>Follow Us</h3>
+            
                 <div className="social-icons">
                   {socialLinks.map((social, index) => (
                     <motion.a
