@@ -238,21 +238,18 @@ const Team = () => {
             <h2>Our Team at a Glance</h2>
             <div className="stats-grid">
               <div className="stat-item">
-                <div className="stat-number">6</div>
-                <div className="stat-label">Executive Board Members</div>
+                <div className="stat-number">40</div>
+                <div className="stat-label">Team Members</div>
               </div>
               <div className="stat-item">
-                <div className="stat-number">45+</div>
-                <div className="stat-label">Total Team Members</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">15+</div>
-                <div className="stat-label">Majors Represented</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">3.8</div>
+                <div className="stat-number">3.78</div>
                 <div className="stat-label">Average GPA</div>
               </div>
+              <div className="stat-item">
+                <div className="stat-number">8+</div>
+                <div className="stat-label">Majors Represented</div>
+              </div>
+              
             </div>
           </motion.div>
         </div>

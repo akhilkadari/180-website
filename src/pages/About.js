@@ -7,7 +7,15 @@ import {
   FaRocket, 
   FaUsers, 
   FaChartLine, 
-  FaLightbulb 
+  FaLightbulb, 
+  FaGlobe,
+  FaHands,
+  FaWrench,
+  FaBuilding,
+  FaHandsHelping,
+  FaForward,
+  FaLongArrowAltRight,
+  FaRegArrowAltCircleRight
 } from 'react-icons/fa';
 import './About.css';
 
@@ -24,24 +32,34 @@ const About = () => {
 
   const differences = [
     {
+      icon: <FaGlobe />,
+      title: "Global Network, Local Focus",
+      description: "We’re part of a global consulting network, but tailor every project to meet the needs of our diverse clients."
+    },
+    {
       icon: <FaUsers />,
-      title: "Student-Driven",
-      description: "Our team consists of talented MSU students who bring fresh perspectives and innovative solutions to every project."
+      title: "Interdisciplinary Teams",
+      description: "Our members come from diverse academic backgrounds—engineering, pre-med, business, and more—bringing unique perspectives to each project."
+    },
+    {
+      icon: <FaHandsHelping />,
+      title: "Hands-On Leadership",
+      description: "All team members contribute directly to projects with real responsibility and opportunities to grow."
+    },
+    {
+      icon: <FaForward />,
+      title: "Best Foot Forward",
+      description: "We maintain high standards for recruitment, with an extremely selective application process to ensure quality across every engagement."
+    },
+    {
+      icon: <FaBullseye />,
+      title: "Client-Centered Approach",
+      description: "We structure our work around the goals and capacity of each client with every solution is tailored and actionable."
     },
     {
       icon: <FaChartLine />,
-      title: "Data-Driven Approach",
-      description: "We leverage advanced analytics and research methodologies to provide evidence-based recommendations."
-    },
-    {
-      icon: <FaLightbulb />,
-      title: "Innovative Solutions",
-      description: "We think outside the box to create unique strategies that set our clients apart from the competition."
-    },
-    {
-      icon: <FaRocket />,
-      title: "Proven Results",
-      description: "Our track record speaks for itself - we've helped numerous organizations achieve measurable success."
+      title: "Long-Term Growth",
+      description: "We go beyond deliverables to help organizations build sustainable strategies and roadmaps for the future."
     }
   ];
 
@@ -130,9 +148,7 @@ const About = () => {
               </div>
               <h2>Our Mission</h2>
               <p>
-                To provide high-quality, student-driven consulting services that empower 
-                organizations to achieve their strategic goals while developing the next 
-                generation of business leaders through hands-on experience and mentorship.
+              We provide mission-driven organizations with high-quality consulting services that help them overcome challenges, scale their impact, and operate more effectively. Our team is committed to producing work that is thoughtful, well-researched, and actionable.
               </p>
             </motion.div>
 
@@ -147,9 +163,7 @@ const About = () => {
               </div>
               <h2>Our Vision</h2>
               <p>
-                To be the premier student consulting organization at Michigan State University, 
-                recognized for delivering exceptional value to our clients while fostering 
-                a community of innovative thinkers and future business leaders.
+              We envision a world where every organization driving positive social change—regardless of size, sector, or location—has access to high-quality strategic support that empowers them to maximize their impact and achieve lasting transformation.
               </p>
             </motion.div>
           </div>
