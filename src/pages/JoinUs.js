@@ -16,7 +16,11 @@ import {
   FaNewspaper,
   FaPagelines,
   FaParagraph,
-  FaAddressCard
+  FaAddressCard,
+  FaTrain,
+  FaChalkboardTeacher,
+  FaNetworkWired,
+  FaWrench
 } from 'react-icons/fa';
 import './JoinUs.css';
 
@@ -32,24 +36,24 @@ const JoinUs = () => {
 
   const benefits = [
     {
+      icon: <FaWrench />,
+      title: "Real-World Experience",
+      description: "Our teams don’t work on hypotheticals. We’ve helped startups refine go-to-market strategies, guided nonprofits through growth planning, and delivered client-ready solutions that have been implemented within weeks."
+    },
+    {
+      icon: <FaNetworkWired />,
+      title: "Global and Local Networks",
+      description: "With 150 branches worldwide, you’ll join a consulting ecosystem that spans five continents. From project mentorship to alumni chats with consultants around the globe, the connections extend far beyond East Lansing."
+    },
+    {
       icon: <FaGraduationCap />,
-      title: "Professional Development",
-      description: "Gain hands-on consulting experience and develop critical business skills"
+      title: "Growth and Leadership",
+      description: "You’ll learn to lead client calls, build models, and present to real executives. Many of our consultants take on some type of leadership roles in their second semester, shaping client outcomes and internal strategy before most clubs let you vote."
     },
     {
-      icon: <FaHandshake />,
-      title: "Networking Opportunities",
-      description: "Connect with industry professionals, alumni, and fellow students"
-    },
-    {
-      icon: <FaStar />,
-      title: "Resume Enhancement",
-      description: "Add valuable consulting experience to your professional portfolio"
-    },
-    {
-      icon: <FaUsers />,
-      title: "Leadership Experience",
-      description: "Take on leadership roles and manage real client projects"
+      icon: <FaChalkboardTeacher />,
+      title: "Tailored Training That Meets You Where You Are",
+      description: "From pre-med to computer science to business, our onboarding is designed to match your background and build your confidence. Every analyst receives hands-on training customized to their experience level and academic strengths."
     }
   ];
 

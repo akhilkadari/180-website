@@ -9,7 +9,8 @@ import {
   FaStar,
   FaArrowRight,
   FaChevronLeft,
-  FaChevronRight
+  FaChevronRight,
+  
 } from 'react-icons/fa';
 import './Home.css';
 import Pic1 from '../assets/180Pic1.jpg';
@@ -61,9 +62,9 @@ const Home = () => {
     if (isStatsInView) {
       const timer = setTimeout(() => {
         setStats({
-          projects: 25,
+          projects: 50,
           members: 45,
-          impact: 1500
+          impact: 500
         });
       }, 500);
       return () => clearTimeout(timer);
@@ -72,24 +73,24 @@ const Home = () => {
 
   const coreValues = [
     {
-      icon: <FaUsers />,
-      title: "Collaboration",
-      description: "Working together to achieve exceptional results"
+      icon: <FaChartLine />,
+      title: "Impact-Driven",
+      description: "We prioritize measurable, lasting change for our clients."
     },
     {
-      icon: <FaChartLine />,
-      title: "Excellence",
-      description: "Delivering the highest quality solutions"
+      icon: <FaUsers />,
+      title: "Collaborative",
+      description: "Our interdisciplinary teams bring diverse perspectives to every project."
     },
     {
       icon: <FaLightbulb />,
-      title: "Innovation",
-      description: "Creative problem-solving approaches"
+      title: "Learning-Oriented",
+      description: "We equip our members with real-world skills through hands-on consulting experience."
     },
     {
       icon: <FaHandshake />,
       title: "Integrity",
-      description: "Building trust through honest partnerships"
+      description: "We work with transparency and accountability across every engagement."
     }
   ];
 
@@ -179,7 +180,7 @@ const Home = () => {
             className="section-header"
           >
             <h2 style={{ color: '#94C973' }}>Our Core Values</h2>
-            <p>The principles that guide everything we do</p>
+            <p>The principles that shape the culture here at 180 DC MSU.</p>
           </motion.div>
           
           <div className="values-grid">
@@ -215,12 +216,12 @@ const Home = () => {
               <div className="stat-label">Projects Completed</div>
             </div>
             <div className="stat-item">
-              <div className="stat-number">{stats.members}</div>
-              <div className="stat-label">Team Members</div>
+              <div className="stat-number">{stats.members}+</div>
+              <div className="stat-label">Active Members</div>
             </div>
             <div className="stat-item">
               <div className="stat-number">{stats.impact}+</div>
-              <div className="stat-label">Hours of Impact</div>
+              <div className="stat-label">180 DC Alumni</div>
             </div>
           </motion.div>
         </div>
