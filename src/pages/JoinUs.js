@@ -60,23 +60,23 @@ const JoinUs = () => {
   const roles = [
     {
       title: "Business Analyst",
-      description: "Focus on data analysis and market research to support consulting projects",
+      description: "Engage in a professional development program that provides industry-tailored recruitment expertise and a consulting skill set",
       requirements: [
-        "Proficiency in Excel and data analysis",
-        "Strong quantitative skills",
-        "Attention to detail",
-        "Minimum 3.2 GPA"
+        "Well formatted and up-to-date resume",
+        "Strong communication skills",
+        "Great work ethic",
+        "Minimum 3.5 GPA"
       ],
       responsibilities: [
-        "Perform quantitative analysis",
-        "Create financial models",
-        "Conduct market research",
-        "Prepare detailed reports"
+        "Attend weekly training sessions with VP of Recruitment",
+        "Engage in mentorship meetings with senior mentors",
+        "Work on and deliver industry-based presentations",
+        "Support consulting projects when necessary"
       ]
     },
     {
       title: "Consultant",
-      description: "Work directly with clients to analyze problems and develop solutions",
+      description: "Work directly with clients to analyze problems and develop sound recommendations based on bottlenecks and inefficiencies within organizations",
       requirements: [
         "Strong analytical skills",
         "Excellent communication abilities",
@@ -92,7 +92,7 @@ const JoinUs = () => {
     },
     {
       title: "Project Manager",
-      description: "Lead consulting teams and manage all contact with clients and the team",
+      description: "Oversee consulting teams and create project roadmap while being the first point of contact between clients and team members",
       requirements: [
         "Previous consulting experience",
         "Strong leadership skills",
@@ -162,26 +162,33 @@ const JoinUs = () => {
   const faqs = [
     {
       id: 1,
+      question: "What is the application process like?",
+      answer: "The process includes submitting an application, participating in interviews, and completing a case study. We look for analytical thinking, communication skills, and team collaboration."
+    },
+
+    {
+      id: 2,
       question: "What majors are eligible to apply?",
       answer: "We welcome students from all majors! Our team includes students from Business, Engineering, Arts & Sciences, and more. We value diverse perspectives and skills."
     },
     {
-      id: 2,
-      question: "How much time commitment is required?",
-      answer: "Team members typically spend 8-12 hours per week on consulting projects, including client meetings, research, and team collaboration."
-    },
-    {
       id: 3,
-      question: "Do I need previous consulting experience?",
-      answer: "No previous consulting experience is required! We provide comprehensive training and mentorship to help you succeed."
+      question: "How much time commitment is required?",
+      answer: "Team members typically spend 7-10 hours per week on consulting projects, including client meetings, research, and team collaboration. Business analysts can expect to meet 1-2 times a week for their training sessions. "
     },
     {
       id: 4,
-      question: "What is the application process like?",
-      answer: "The process includes submitting an application, participating in interviews, and completing a case study. We look for analytical thinking, communication skills, and team collaboration."
+      question: "Who do we work with?",
+      answer: "We partner with both for-profit and nonprofit organizations across a diverse range of industries, serving entities that span from local enterprises to nationally recognized institutions."
     },
     {
       id: 5,
+      question: "Do I need previous consulting experience?",
+      answer: "No previous consulting experience is required! We provide comprehensive training and mentorship to help you succeed."
+    },
+    
+    {
+      id: 6,
       question: "Are there opportunities for leadership roles?",
       answer: "Yes! We offer various leadership opportunities including Project Manager positions and Executive Board roles for experienced team members."
     }

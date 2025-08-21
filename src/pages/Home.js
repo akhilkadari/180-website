@@ -102,9 +102,9 @@ const Home = () => {
       rating: 5
     },
     {
-      name: "Michael Chen",
-      role: "Founder, GreenSolutions",
-      content: "The team's analytical approach and innovative solutions exceeded our expectations. Highly recommended!",
+      name: "Rusty Singh",
+      role: "CEO, BTS Carrier",
+      content: "The team at 180 Degrees Consulting combined strategic analysis with practical solutions. Their work helped us identify inefficiencies in our digital strategy and offered concrete steps to enhance both our internal operations and external visibility.",
       rating: 5
     },
     {
@@ -180,7 +180,7 @@ const Home = () => {
             className="section-header"
           >
             <h2 style={{ color: '#94C973' }}>Our Core Values</h2>
-            <p>The principles that shape the culture here at 180 DC MSU.</p>
+            <p>The principles that shape the culture here at 180 DC MSU</p>
           </motion.div>
           
           <div className="values-grid">
@@ -259,6 +259,7 @@ const Home = () => {
                 <p className="testimonial-content">"{testimonial.content}"</p>
                 <div className="testimonial-author">
                   <strong>{testimonial.name}</strong>
+                  <br />
                   <span>{testimonial.role}</span>
                 </div>
               </motion.div>

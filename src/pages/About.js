@@ -221,12 +221,12 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="collage-item large"
+              className="collage-item"
             >
-              <img src="/silly_group_pic.jpeg" alt="Team Fun Moment" />
+              <img src="/bidnight.jpeg" alt="Bid Night" />
               <div className="collage-caption">
-                <h4>Team Building</h4>
-                <p>Building lasting friendships while solving complex business challenges</p>
+                <h4>Bid Night</h4>
+                <p>Celebrating our new members is a huge part of our culture.</p>
               </div>
             </motion.div>
 
@@ -235,7 +235,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="collage-item medium"
+              className="collage-item"
             >
               <img src="/broad night.jpg" alt="Professional Development" />
               <div className="collage-caption">
@@ -249,7 +249,7 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="collage-item medium"
+              className="collage-item"
             >
               <img src="/banquet.jpeg" alt="Celebration" />
               <div className="collage-caption">
@@ -263,12 +263,82 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="collage-item small"
+              className="collage-item"
             >
               <img src="/minskoff.jpg" alt="Collaboration" />
               <div className="collage-caption">
                 <h4>Collaboration</h4>
                 <p>Working together to deliver exceptional results for our clients</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="collage-item"
+            >
+              <img src="/eboardbanquet.JPG" alt="E-board Banquet" />
+              <div className="collage-caption">
+                <h4>Banquet</h4>
+                <p>We always have a great time at our annual end of year banquet.</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="collage-item"
+            >
+              <img src="/retreat.JPG" alt="Retreat" />
+              <div className="collage-caption">
+                <h4>Team Retreat</h4>
+                <p>From gingerbread houses to team bonding activities, our retreats are always a blast.</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              viewport={{ once: true }}
+              className="collage-item"
+            >
+              <img src="/silly_group_pic.jpeg" alt="Fun Times" />
+              <div className="collage-caption">
+                <h4>Fun Times</h4>
+                <p>Enjoying the journey together with laughter and joy</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              viewport={{ once: true }}
+              className="collage-item"
+            >
+              <img src="/sahib.webp" alt="Networking" />
+              <div className="collage-caption">
+                <h4>Networking</h4>
+                <p>Connecting with industry professionals and expanding horizons</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+              viewport={{ once: true }}
+              className="collage-item"
+            >
+              <img src="/180Pic1.jpg" alt="Growth" />
+              <div className="collage-caption">
+                <h4>Growth</h4>
+                <p>Continuous learning and development as a team</p>
               </div>
             </motion.div>
           </div>

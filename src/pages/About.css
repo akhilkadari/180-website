@@ -482,17 +482,15 @@
   }
   
   .fun-moments-collage {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 200px);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 150px);
     height: auto;
     gap: 0.5rem;
   }
   
-  .collage-item.large,
-  .collage-item.medium,
-  .collage-item.small {
-    grid-column: 1;
-    grid-row: auto;
+  .collage-item:nth-child(9) {
+    grid-column: 1 / -1;
+    grid-row: 5;
   }
   
   .collage-caption {
@@ -523,14 +521,14 @@
 
 .fun-moments-collage {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.5rem;
   margin-top: 3rem;
-  max-width: 1000px;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  height: 500px;
+  height: 600px;
 }
 
 .collage-item {
@@ -555,25 +553,7 @@
   transform: scale(1.05);
 }
 
-.collage-item.large {
-  grid-column: 1;
-  grid-row: 1 / 3;
-}
-
-.collage-item.medium {
-  grid-column: 2;
-  grid-row: 1;
-}
-
-.collage-item.medium:nth-of-type(3) {
-  grid-column: 2;
-  grid-row: 2;
-}
-
-.collage-item.small {
-  grid-column: 3;
-  grid-row: 1 / 3;
-}
+/* All collage items are now the same size in a 3x3 grid */
 
 .collage-caption {
   position: absolute;
