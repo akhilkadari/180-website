@@ -65,7 +65,7 @@ const JoinUs = () => {
         "Well formatted and up-to-date resume",
         "Strong communication skills",
         "Great work ethic",
-        "Minimum 3.5 GPA"
+        "Preferrably above a 3.5 GPA"
       ],
       responsibilities: [
         "Attend weekly training sessions with VP of Recruitment",
@@ -78,31 +78,31 @@ const JoinUs = () => {
       title: "Consultant",
       description: "Work directly with clients to analyze problems and develop sound recommendations based on bottlenecks and inefficiencies within organizations",
       requirements: [
-        "Strong analytical skills",
-        "Excellent communication abilities",
-        "Ability to work in teams",
-        "Minimum 3.0 GPA"
+        "Completion of Business Analyst Semester",
+        "Excellent communication and teamwork skills",
+        "Ability to meet tight deadlines",
+        "Availability for project meetings"
       ],
       responsibilities: [
-        "Conduct research and data analysis",
-        "Develop strategic recommendations",
-        "Present findings to clients",
-        "Collaborate with team members"
+        "Conduct research on problems within client organizations",
+        "Meet project managers' deadlines and requirements",
+        "Collaborate with team members to develop project deliverables",
+        "Present findings to clients"
       ]
     },
     {
       title: "Project Manager",
       description: "Oversee consulting teams and create project roadmap while being the first point of contact between clients and team members",
       requirements: [
-        "Previous consulting experience",
+        "Previous consulting project experience",
         "Strong leadership skills",
-        "Excellent project management",
-        "Minimum 3.3 GPA"
+        "Astounding communication skills",
+        "Active within organization"
       ],
       responsibilities: [
         "Lead project teams",
         "Manage client relationships",
-        "Ensure project deliverables",
+        "Set deadlines and expectations for team members",
         "Mentor junior team members"
       ]
     }
