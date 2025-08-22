@@ -113,7 +113,7 @@ const JoinUs = () => {
       id: 1,
       title: "Application Submission",
       description: "Submit your application form with your updated resume.",
-      tips: "Remember to submit your application as soon as you can as we get a lot of applicants, but don't rush and make sure to craft thoughful responses to all the questions.",
+      tips: "Remember to submit your application as soon as you can as we get a lot of applicants, and make sure to craft thoughful responses to all the questions.",
       date: "September 15-30",
       icon: <FaCalendarAlt />
     },

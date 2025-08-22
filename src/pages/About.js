@@ -237,10 +237,10 @@ const About = () => {
               viewport={{ once: true }}
               className="collage-item"
             >
-              <img src="/broad night.jpg" alt="Professional Development" />
+              <img src="/chicago.jpeg" alt="Chicago Roadshow" />
               <div className="collage-caption">
-                <h4>Professional Growth</h4>
-                <p>Developing skills and confidence through real-world consulting projects</p>
+                <h4>Chicago Roadshow</h4>
+                <p>We take many trips to places like Chicago to network with top firms and other consulting organizations.</p>
               </div>
             </motion.div>
 
@@ -251,10 +251,10 @@ const About = () => {
               viewport={{ once: true }}
               className="collage-item"
             >
-              <img src="/banquet.jpeg" alt="Celebration" />
+              <img src="/bcg.jpeg" alt="BCG Visit" />
               <div className="collage-caption">
-                <h4>Celebrating Success</h4>
-                <p>Recognizing achievements and milestones together as a team</p>
+                <h4>Company Visits</h4>
+                <p>We visit firms like BCG to learn more about their processes and culture.</p>
               </div>
             </motion.div>
 

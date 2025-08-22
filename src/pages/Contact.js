@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailjs';
 import { 
   FaEnvelope, 
-  FaPhone, 
   FaMapMarkerAlt, 
   FaLinkedin, 
   FaInstagram, 
-  FaTwitter,
   FaPaperPlane
 } from 'react-icons/fa';
 import './Contact.css';
 
 const Contact = () => {
+  const form = useRef();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -24,9 +25,15 @@ const Contact = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    
+    // Map form field names to state keys
+    let stateKey = name;
+    if (name === 'user_name') stateKey = 'name';
+    if (name === 'user_email') stateKey = 'email';
+    
     setFormData(prev => ({
       ...prev,
-      [name]: value
+      [stateKey]: value
     }));
   };
 
@@ -34,9 +41,23 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // Log the configuration being used
+      console.log('Attempting to send email with config:', {
+        SERVICE_ID: EMAILJS_CONFIG.SERVICE_ID,
+        TEMPLATE_ID: EMAILJS_CONFIG.TEMPLATE_ID,
+        PUBLIC_KEY: EMAILJS_CONFIG.PUBLIC_KEY ? '***' + EMAILJS_CONFIG.PUBLIC_KEY.slice(-4) : 'NOT_SET'
+      });
+      
+      // Send email using EmailJS
+      const result = await emailjs.sendForm(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        form.current,
+        EMAILJS_CONFIG.PUBLIC_KEY
+      );
+      
+      console.log('Email sent successfully:', result.text);
       setSubmitStatus('success');
       setFormData({
         name: '',
@@ -44,10 +65,30 @@ const Contact = () => {
         subject: '',
         message: ''
       });
+    } catch (error) {
+      console.error('Email sending failed:', error);
+      console.error('Error details:', {
+        message: error.message,
+        text: error.text,
+        status: error.status,
+        stack: error.stack
+      });
       
-      // Reset status after 3 seconds
-      setTimeout(() => setSubmitStatus(null), 3000);
-    }, 1500);
+      // Show more specific error message
+      if (error.text) {
+        console.error('EmailJS error text:', error.text);
+      }
+      if (error.message) {
+        console.error('Error message:', error.message);
+      }
+      
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      
+      // Reset status after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000);
+    }
   };
 
   const contactInfo = [
@@ -113,13 +154,16 @@ const Contact = () => {
               <h2>Send Us a Message</h2>
               <p>Fill out the form below and we'll get back to you as soon as possible.</p>
               
-              <form onSubmit={handleSubmit} className="contact-form">
+              <form onSubmit={handleSubmit} className="contact-form" ref={form}>
+                {/* Hidden recipient field for EmailJS */}
+                <input type="hidden" name="to_email" value="msu@180dc.org" />
+                
                 <div className="form-group">
                   <label htmlFor="name">Full Name *</label>
                   <input
                     type="text"
                     id="name"
-                    name="name"
+                    name="user_name"
                     value={formData.name}
                     onChange={handleInputChange}
                     required
@@ -132,7 +176,7 @@ const Contact = () => {
                   <input
                     type="email"
                     id="email"
-                    name="email"
+                    name="user_email"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
@@ -191,6 +235,16 @@ const Contact = () => {
                     animate={{ opacity: 1, y: 0 }}
                   >
                     Thank you! Your message has been sent successfully.
+                  </motion.div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <motion.div
+                    className="error-message"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    Sorry! There was an error sending your message. Please try again or contact us directly.
                   </motion.div>
                 )}
               </form>
