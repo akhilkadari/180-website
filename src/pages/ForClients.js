@@ -8,9 +8,15 @@ import {
   FaLightbulb,
   FaCheckCircle,
   FaArrowRight,
+  FaDollarSign,
+  FaSearch,
+  FaExpand,
+  FaCogs,
+  FaSitemap,
+  FaLaptopCode,
 } from "react-icons/fa";
 import "./ForClients.css";
-import MinskoffPavilion from "../assets/MSU_Broad_College_of_Business_Pavilion_01.jpg";
+import MinskoffPavilion from "../assets/Minskoff-Pavilion-Lawn.jpg";
 
 const ForClients = () => {
   const timelineRef = useRef(null);
@@ -24,39 +30,48 @@ const ForClients = () => {
       id: 1,
       title: "Initial Consultation",
       description:
-        "We meet to understand your organization's challenges and objectives",
+        "We will get to know your organization, its mission, operations, and both short-term and long-term goals. We will also discuss any challenges you're facing and how we can assist.",
       duration: "1-2 weeks",
       icon: <FaUsers />,
     },
     {
       id: 2,
-      title: "Project Planning",
+      title: "Team Introduction",
       description:
-        "Our team develops a comprehensive project plan and timeline",
+        "Meet the team who will work with you over the next 7–9 weeks. This first call will involve introductions, discussions about pain points, clarifying questions, and drafting a project roadmap and framework.",
       duration: "1 week",
       icon: <FaCalendarAlt />,
     },
     {
       id: 3,
-      title: "Research & Analysis",
-      description: "In-depth research and data analysis to identify solutions",
+      title: "Development Phase",
+      description:
+        "The team works to develop personalized recommendations through ideation, research, data analysis, and synthesis, with weekly updates on their progress.",
       duration: "4-6 weeks",
       icon: <FaChartLine />,
     },
     {
       id: 4,
-      title: "Solution Development",
+      title: "Mid-Project Check-In",
       description:
-        "Creating innovative strategies and actionable recommendations",
+        "A formal review to ensure the team is on track, followed by a presentation or written deliverable, providing enough time to adjust strategy if needed.",
       duration: "3-4 weeks",
       icon: <FaLightbulb />,
     },
     {
       id: 5,
-      title: "Implementation Support",
+      title: "Final Presentation",
       description:
-        "Guiding you through the implementation of our recommendations",
+        "After review by the Director of Quality Assurance, E-Board, and Project Advisors, the team will present their findings and recommendations.",
       duration: "2-3 weeks",
+      icon: <FaCheckCircle />,
+    },
+    {
+      id: 6,
+      title: "Feedback Collection",
+      description:
+        "We will obtain feedback on the team's performance, our branch's onboarding process, communication, and the quality deliverables.",
+      duration: "1 week",
       icon: <FaCheckCircle />,
     },
   ];
@@ -134,6 +149,10 @@ const ForClients = () => {
 
       {/* Why Choose Us */}
       <section className="why-choose-section">
+        <div
+          className="why-choose-background"
+          style={{ backgroundImage: `url(${MinskoffPavilion})` }}
+        ></div>
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -142,8 +161,10 @@ const ForClients = () => {
             viewport={{ once: true }}
             className="section-header"
           >
-            <h2 style={{ color: "#94C973" }}>Why Choose 180° DC MSU?</h2>
-            <p>The unique advantages of working with student consultants</p>
+            <h2 style={{ color: "#94c973" }}>Why Choose 180° DC MSU?</h2>
+            <p>
+              Comprehensive consulting expertise across all key business areas
+            </p>
           </motion.div>
 
           <div className="advantages-grid">
@@ -155,12 +176,13 @@ const ForClients = () => {
               viewport={{ once: true }}
             >
               <div className="advantage-icon">
-                <FaUsers />
+                <FaDollarSign />
               </div>
-              <h3>Fresh Perspectives</h3>
+              <h3>Revenue Generation</h3>
               <p>
-                Young, innovative minds bring new ideas and approaches to
-                traditional business challenges.
+                Strategic pricing models, sales funnel optimization, and new
+                revenue stream identification to maximize your organization's
+                financial performance.
               </p>
             </motion.div>
 
@@ -172,12 +194,12 @@ const ForClients = () => {
               viewport={{ once: true }}
             >
               <div className="advantage-icon">
-                <FaChartLine />
+                <FaSearch />
               </div>
-              <h3>Cost-Effective</h3>
+              <h3>Market Research</h3>
               <p>
-                High-quality consulting services at a fraction of traditional
-                consulting firm costs.
+                Competitive analysis, consumer behavior studies, and market
+                opportunity assessment to inform strategic decision-making.
               </p>
             </motion.div>
 
@@ -189,12 +211,12 @@ const ForClients = () => {
               viewport={{ once: true }}
             >
               <div className="advantage-icon">
-                <FaLightbulb />
+                <FaExpand />
               </div>
-              <h3>Innovation Focus</h3>
+              <h3>Expansion Strategy</h3>
               <p>
-                Students are trained in the latest business methodologies and
-                technologies.
+                Market entry planning, growth opportunity analysis, and
+                scalability assessment to drive sustainable business expansion.
               </p>
             </motion.div>
 
@@ -206,12 +228,47 @@ const ForClients = () => {
               viewport={{ once: true }}
             >
               <div className="advantage-icon">
-                <FaCheckCircle />
+                <FaCogs />
               </div>
-              <h3>Proven Results</h3>
+              <h3>Operational Efficiency</h3>
               <p>
-                Track record of delivering measurable impact for organizations
-                across various industries.
+                Process optimization, resource allocation, and cost reduction
+                strategies to streamline operations and improve productivity.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="advantage-card"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <div className="advantage-icon">
+                <FaSitemap />
+              </div>
+              <h3>Organization</h3>
+              <p>
+                Organizational structure design, team development strategies,
+                and change management to optimize your human capital.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="advantage-card"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="advantage-icon">
+                <FaLaptopCode />
+              </div>
+              <h3>Technology</h3>
+              <p>
+                Digital transformation, tech stack assessment, and
+                implementation roadmap to modernize your technological
+                infrastructure.
               </p>
             </motion.div>
           </div>
