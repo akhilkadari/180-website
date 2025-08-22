@@ -370,6 +370,8 @@
 .why-choose-section .section-header p {
   color: #94c973;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+  font-weight: 700;
+  font-size: 1.4rem;
 }
 
 .advantages-grid {
@@ -421,7 +423,7 @@
 /* CTA Section */
 .cta-section {
   padding: 5rem 0;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #94C973 0%, #7ba05b 100%);
   color: white;
   text-align: center;
 }

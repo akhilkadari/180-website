@@ -3,13 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { 
   FaLinkedin, 
-  FaEnvelope, 
-  FaTwitter, 
-  FaInstagram,
-  FaCrown,
-  FaUserTie,
-  FaUsers,
-  FaChartLine
+  FaEnvelope
 } from 'react-icons/fa';
 import './Team.css';
 
@@ -20,104 +14,98 @@ const Team = () => {
   const executiveBoard = [
     {
       id: 1,
-      name: "Alex Johnson",
+      name: "Sahib Sekhon",
       role: "President",
       image: "https://via.placeholder.com/300x300/1a365d/ffffff?text=AJ",
-      bio: "Senior studying Business Administration with a passion for strategic consulting and team leadership.",
-      major: "Business Administration",
+      bio: "Sahib is a senior who joined 180 in Spring '23. He has a background in investment banking and was most recently a summer restructuring analyst at Alvarez & Marsal!",
+      major: "Finance",
       year: "Senior",
       social: {
-        linkedin: "https://linkedin.com/in/alexjohnson",
-        email: "alex.johnson@msu.edu",
-        twitter: "https://twitter.com/alexjohnson"
+        linkedin: "https://www.linkedin.com/in/sahibsekhon/",
+        email: "sekhons1@msu.edu"
       }
     },
     {
       id: 2,
-      name: "Sarah Chen",
+      name: "Puja Patel",
       role: "Vice President",
       image: "https://via.placeholder.com/300x300/2d3748/ffffff?text=SC",
       bio: "Dedicated to fostering innovation and excellence in our consulting projects and team development.",
       major: "Finance",
       year: "Senior",
       social: {
-        linkedin: "https://linkedin.com/in/sarahchen",
-        email: "sarah.chen@msu.edu"
+        linkedin: "https://www.linkedin.com/in/pujapatel2026/",
+        email: "patelpu6@msu.edu"
       }
     },
     {
       id: 3,
-      name: "Michael Rodriguez",
-      role: "Director of Operations",
+      name: "Ethan Oliven",
+      role: "Vice President of External Affairs",
       image: "https://via.placeholder.com/300x300/4a5568/ffffff?text=MR",
       bio: "Ensuring smooth operations and maintaining the highest standards of project delivery and client satisfaction.",
-      major: "Supply Chain Management",
+      major: "Accounting",
       year: "Junior",
       social: {
-        linkedin: "https://linkedin.com/in/michaelrodriguez",
-        email: "michael.rodriguez@msu.edu"
+        linkedin: "https://www.linkedin.com/in/ethanoliven/",
+        email: "olivenet@msu.edu"
       }
     },
     {
       id: 4,
-      name: "Emily Davis",
-      role: "Director of Marketing",
+      name: "Rucha Deshpande",
+      role: "Vice President of Operations",
       image: "https://via.placeholder.com/300x300/667eea/ffffff?text=ED",
       bio: "Creative strategist focused on building our brand and expanding our reach in the consulting community.",
-      major: "Marketing",
-      year: "Junior",
+      major: "Supply Chain Management",
+      year: "Senior",
       social: {
-        linkedin: "https://linkedin.com/in/emilydavis",
-        email: "emily.davis@msu.edu",
-        instagram: "https://instagram.com/emilydavis"
+        linkedin: "https://www.linkedin.com/in/rucha-deshpande-/",
+        email: "deshpa48@msu.edu"
       }
     },
     {
       id: 5,
-      name: "David Kim",
-      role: "Director of Finance",
+      name: "Ava Solysiak",
+      role: "Vice President of Events",
       image: "https://via.placeholder.com/300x300/764ba2/ffffff?text=DK",
       bio: "Financial expert ensuring sustainable growth and responsible resource management for our organization.",
-      major: "Accounting",
-      year: "Senior",
+      major: "Finance",
+      year: "Junior",
       social: {
-        linkedin: "https://linkedin.com/in/davidkim",
-        email: "david.kim@msu.edu"
+        linkedin: "https://www.linkedin.com/in/ava-soltysiak/",
+        email: "soltysi9@msu.edu"
       }
     },
     {
       id: 6,
-      name: "Lisa Thompson",
-      role: "Director of Recruitment",
+      name: "Shivang Kapoor",
+      role: "Vice President of Recruitment and Training",
       image: "https://via.placeholder.com/300x300/f6ad55/ffffff?text=LT",
       bio: "Passionate about attracting and developing the next generation of consulting talent at MSU.",
-      major: "Human Resources",
-      year: "Junior",
+      major: "Supply Chain Management",
+      year: "Senior",
       social: {
-        linkedin: "https://linkedin.com/in/lisathompson",
-        email: "lisa.thompson@msu.edu"
+        linkedin: "https://www.linkedin.com/in/shivangkapoor1/",
+        email: "kapoors6@msu.edu"
+      }
+    },
+    {
+      id: 7,
+      name: "Pranav Bellad",
+      role: "Vice President of Quality Assurance",
+      image: "https://via.placeholder.com/300x300/f6ad55/ffffff?text=LT",
+      bio: "Passionate about attracting and developing the next generation of consulting talent at MSU.",
+      major: "Computer Engineering",
+      year: "Senior",
+      social: {
+        linkedin: "https://www.linkedin.com/in/pranav-bellad/",
+        email: "belladpr@msu.edu"
       }
     }
   ];
 
-  const getRoleIcon = (role) => {
-    switch (role) {
-      case "President":
-        return <FaCrown />;
-      case "Vice President":
-        return <FaUserTie />;
-      case "Director of Operations":
-        return <FaChartLine />;
-      case "Director of Marketing":
-        return <FaUsers />;
-      case "Director of Finance":
-        return <FaChartLine />;
-      case "Director of Recruitment":
-        return <FaUsers />;
-      default:
-        return <FaUserTie />;
-    }
-  };
+
 
   return (
     <div className="team">
@@ -131,7 +119,7 @@ const Team = () => {
             className="team-hero-content"
           >
             <h1>Meet Our Executive Board</h1>
-            <p>Dedicated leaders driving innovation and excellence in student consulting</p>
+            <p>Our leaders here at 180DC MSU driving innovation and excellence in student consulting</p>
           </motion.div>
         </div>
       </section>
@@ -169,9 +157,6 @@ const Team = () => {
                 
                 <div className="member-info">
                   <div className="member-header">
-                    <div className="role-icon">
-                      {getRoleIcon(member.role)}
-                    </div>
                     <div className="member-details">
                       <h3>{member.name}</h3>
                       <span className="role">{member.role}</span>
@@ -195,26 +180,6 @@ const Team = () => {
                         className="social-link email"
                       >
                         <FaEnvelope />
-                      </a>
-                    )}
-                    {member.social.twitter && (
-                      <a 
-                        href={member.social.twitter} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="social-link twitter"
-                      >
-                        <FaTwitter />
-                      </a>
-                    )}
-                    {member.social.instagram && (
-                      <a 
-                        href={member.social.instagram} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="social-link instagram"
-                      >
-                        <FaInstagram />
                       </a>
                     )}
                   </div>

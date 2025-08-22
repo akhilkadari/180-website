@@ -7,6 +7,7 @@ import {
   FaChevronDown,
   FaChevronUp,
   FaArrowRight,
+  FaArrowLeft,
   FaStar,
   FaGraduationCap,
   FaHandshake,
@@ -26,6 +27,7 @@ import './JoinUs.css';
 
 const JoinUs = () => {
   const [openFaq, setOpenFaq] = useState(null);
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const benefitsRef = useRef(null);
   const rolesRef = useRef(null);
   const timelineRef = useRef(null);
@@ -33,6 +35,14 @@ const JoinUs = () => {
   const isBenefitsInView = useInView(benefitsRef, { once: true });
   const isRolesInView = useInView(rolesRef, { once: true });
   const isTimelineInView = useInView(timelineRef, { once: true });
+
+  const nextRole = () => {
+    setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+  };
+
+  const prevRole = () => {
+    setCurrentRoleIndex((prev) => (prev - 1 + roles.length) % roles.length);
+  };
 
   const benefits = [
     {
@@ -328,42 +338,106 @@ const JoinUs = () => {
           </motion.div>
 
           <div className="roles-grid">
-            {roles.map((role, idx) => (
-              <React.Fragment key={role.title}>
-                <motion.div
-                  className="role-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={isRolesInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+            {/* Desktop view - show all roles */}
+            <div className="roles-desktop">
+              {roles.map((role, idx) => (
+                <React.Fragment key={role.title}>
+                  <motion.div
+                    className="role-card"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isRolesInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  >
+                    <h3>{role.title}</h3>
+                    <p className="role-description">{role.description}</p>
+                    <div className="role-details">
+                      <div className="requirements">
+                        <h4>Requirements</h4>
+                        <ul>
+                          {role.requirements.map((req, i) => (
+                            <li key={i}>{req}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="responsibilities">
+                        <h4>Responsibilities</h4>
+                        <ul>
+                          {role.responsibilities.map((resp, i) => (
+                            <li key={i}>{resp}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </motion.div>
+                  {idx < roles.length - 1 && (
+                    <div className="role-arrow">
+                      <span style={{ fontSize: '2.5rem', color: '#94C973', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>&#8594;</span>
+                    </div>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+
+            {/* Mobile view - carousel with navigation */}
+            <div className="roles-mobile">
+              <motion.div
+                className="role-card"
+                key={currentRoleIndex}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3>{roles[currentRoleIndex].title}</h3>
+                <p className="role-description">{roles[currentRoleIndex].description}</p>
+                <div className="role-details">
+                  <div className="requirements">
+                    <h4>Requirements</h4>
+                    <ul>
+                      {roles[currentRoleIndex].requirements.map((req, i) => (
+                        <li key={i}>{req}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="responsibilities">
+                    <h4>Responsibilities</h4>
+                    <ul>
+                      {roles[currentRoleIndex].responsibilities.map((resp, i) => (
+                        <li key={i}>{resp}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </motion.div>
+              
+              <div className="roles-navigation">
+                <button 
+                  className="nav-arrow prev-arrow" 
+                  onClick={prevRole}
+                  disabled={currentRoleIndex === 0}
+                  aria-label="Previous role"
                 >
-                  <h3>{role.title}</h3>
-                  <p className="role-description">{role.description}</p>
-                  <div className="role-details">
-                    <div className="requirements">
-                      <h4>Requirements</h4>
-                      <ul>
-                        {role.requirements.map((req, i) => (
-                          <li key={i}>{req}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="responsibilities">
-                      <h4>Responsibilities</h4>
-                      <ul>
-                        {role.responsibilities.map((resp, i) => (
-                          <li key={i}>{resp}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </motion.div>
-                {idx < roles.length - 1 && (
-                  <div className="role-arrow">
-                    <span style={{ fontSize: '2.5rem', color: '#94C973', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>&#8594;</span>
-                  </div>
-                )}
-              </React.Fragment>
-            ))}
+                  <FaArrowLeft />
+                </button>
+                <div className="role-indicators">
+                  {roles.map((_, idx) => (
+                    <button
+                      key={idx}
+                      className={`role-indicator ${idx === currentRoleIndex ? 'active' : ''}`}
+                      onClick={() => setCurrentRoleIndex(idx)}
+                      aria-label={`Go to ${roles[idx].title} role`}
+                    />
+                  ))}
+                </div>
+                <button 
+                  className="nav-arrow next-arrow" 
+                  onClick={nextRole}
+                  disabled={currentRoleIndex === roles.length - 1}
+                  aria-label="Next role"
+                >
+                  <FaArrowRight />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
