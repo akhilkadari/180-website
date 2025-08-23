@@ -636,6 +636,15 @@
     height: auto;
     min-height: 500px;
     padding: 4rem 0;
+    background: linear-gradient(135deg, #94C973 0%, rgba(45, 55, 72, 0.8) 100%) !important;
+    background-image: none !important;
+    background-size: auto !important;
+    background-position: auto !important;
+    background-attachment: auto !important;
+  }
+  
+  .hero-background {
+    display: none !important;
   }
   
   .hero-content-grid {
