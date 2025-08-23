@@ -10,7 +10,7 @@ import './Team.css';
 const Team = () => {
   const teamRef = useRef(null);
   const isTeamInView = useInView(teamRef, { once: true });
-
+  // eboard things
   const executiveBoard = [
     {
       id: 1,
