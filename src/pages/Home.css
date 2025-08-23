@@ -49,7 +49,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255,255,255,0.6);
+  background: rgba(255, 255, 255, 0.6);
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -63,9 +63,15 @@
   z-index: 4;
   transition: background 0.3s;
 }
-.hero-arrow.left { left: 2rem; }
-.hero-arrow.right { right: 2rem; }
-.hero-arrow:hover { background: #94C973; }
+.hero-arrow.left {
+  left: 2rem;
+}
+.hero-arrow.right {
+  right: 2rem;
+}
+.hero-arrow:hover {
+  background: #94c973;
+}
 
 .hero-dots {
   position: absolute;
@@ -81,13 +87,13 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.6);
+  background: rgba(255, 255, 255, 0.6);
   border: none;
   cursor: pointer;
   transition: background 0.3s, transform 0.3s;
 }
 .hero-dot.active {
-  background: #94C973;
+  background: #94c973;
   transform: scale(1.2);
 }
 
@@ -155,15 +161,15 @@
 }
 
 .btn-primary {
-  background: #94C973;
+  background: #94c973;
   color: white;
-  border-color: #94C973;
+  border-color: #94c973;
 }
 
 .btn-primary:hover {
   background: #7bbf5e;
   color: white;
-  box-shadow: 0 10px 25px #94C97344;
+  box-shadow: 0 10px 25px #94c97344;
 }
 
 .btn-secondary {
@@ -174,8 +180,8 @@
 
 .btn-secondary:hover {
   background: white;
-  color: #94C973;
-  border-color: #94C973;
+  color: #94c973;
+  border-color: #94c973;
 }
 
 /* Stats Section */
@@ -206,13 +212,17 @@
 }
 
 .stats-section::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(26, 54, 93, 0.85) 0%, rgba(0, 0, 0, 0.8) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(26, 54, 93, 0.85) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
   z-index: 1;
 }
 
@@ -232,17 +242,19 @@
 .stat-item {
   color: white;
   padding: 2rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15) !important;
   border-radius: 15px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .stat-item:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.2);
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(20px);
 }
 
 .stat-number {
@@ -264,7 +276,7 @@
 /* Values Section */
 .values-section {
   padding: 5rem 0;
-  
+
   background: #f7fafc;
 }
 
@@ -275,13 +287,13 @@
 
 .section-header h2 {
   font-size: 2.5rem;
-  color: #94C973;
+  color: #94c973;
   margin-bottom: 1rem;
 }
 
 .section-header p {
   font-size: 1.2rem;
-  color: #94C973;
+  color: #94c973;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -309,19 +321,20 @@
 
 .value-icon {
   font-size: 3rem;
-  color: #94C973;
+  color: #94c973;
   margin-bottom: 1.5rem;
 }
 
 .value-card h3 {
-  font-size: 1.5rem;
-  color: #94C973;
+  font-size: 1.8rem;
+  color: #94c973;
   margin-bottom: 1rem;
 }
 
 .value-card p {
   color: #4a5568;
   line-height: 1.6;
+  font-size: 1.3rem;
 }
 
 /* Testimonials Section */
@@ -376,12 +389,12 @@
 }
 
 .testimonial-author strong {
-  color: #94C973;
+  color: #94c973;
   font-size: 1.1rem;
 }
 
 .testimonial-author span {
-  color: #94C973;
+  color: #94c973;
   font-size: 0.9rem;
 }
 
@@ -390,85 +403,91 @@
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .hero-logo {
     font-size: 4rem;
   }
-  
+
   .hero-brand {
     font-size: 1.8rem;
   }
-  
+
   .hero-tagline {
     font-size: 1.2rem;
   }
-  
+
   .hero-buttons {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .btn {
     width: 100%;
     max-width: 300px;
     justify-content: center;
   }
-  
+
   .stats-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .stat-number {
     font-size: 2.5rem;
   }
-  
+
   .values-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .testimonials-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .section-header h2 {
     font-size: 2rem;
   }
-  
+
   .container {
     padding: 0 1rem;
   }
 
-  .hero-arrow.left { left: 1rem; }
-  .hero-arrow.right { right: 1rem; }
-  .hero-dots { bottom: 1rem; }
+  .hero-arrow.left {
+    left: 1rem;
+  }
+  .hero-arrow.right {
+    right: 1rem;
+  }
+  .hero-dots {
+    bottom: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
   .hero-content {
     padding: 0 1rem;
   }
-  
+
   .hero-title {
     font-size: 2rem;
   }
-  
+
   .hero-logo {
     font-size: 3rem;
   }
-  
+
   .hero-brand {
     font-size: 1.5rem;
   }
-  
+
   .hero-tagline {
     font-size: 1rem;
   }
-  
+
   .stat-number {
     font-size: 2rem;
   }
-  
+
   .value-card,
   .testimonial-card {
     padding: 2rem 1.5rem;
@@ -483,4 +502,4 @@
     width: 9px;
     height: 9px;
   }
-} 
+}

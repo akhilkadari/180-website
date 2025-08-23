@@ -1,33 +1,30 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { 
-  FaUsers, 
-  FaChartLine, 
-  FaLightbulb, 
-  FaHandshake, 
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Link } from "react-router-dom";
+import {
+  FaUsers,
+  FaChartLine,
+  FaLightbulb,
+  FaHandshake,
   FaStar,
   FaArrowRight,
   FaChevronLeft,
   FaChevronRight,
-  
-} from 'react-icons/fa';
-import './Home.css';
-import Pic1 from '../assets/180Pic1.jpg';
-import Pic2 from '../assets/180Pic2.jpg';
-import Pic3 from '../assets/180Pic3.jpg';
-import Pic4 from '../assets/180Pic4.jpg';
-import MinskoffPavilion from '../assets/MinskoffPavilion.jpg';
+} from "react-icons/fa";
+import "./Home.css";
+import Pic1 from "../assets/180Pic1.jpg";
+import Pic2 from "../assets/180Pic2.jpg";
+import Pic3 from "../assets/180Pic3.jpg";
+import Pic4 from "../assets/180Pic4.jpg";
+import MinskoffPavilion from "../assets/MinskoffPavilion.jpg";
 
-const heroImages = [
-  Pic1, Pic2, Pic3, Pic4
-];
+const heroImages = [Pic1, Pic2, Pic3, Pic4];
 
 const Home = () => {
   const statsRef = useRef(null);
   const valuesRef = useRef(null);
   const testimonialsRef = useRef(null);
-  
+
   const isStatsInView = useInView(statsRef, { once: true });
   const isValuesInView = useInView(valuesRef, { once: true });
   const isTestimonialsInView = useInView(testimonialsRef, { once: true });
@@ -35,7 +32,7 @@ const Home = () => {
   const [stats, setStats] = useState({
     projects: 0,
     members: 0,
-    impact: 0
+    impact: 0,
   });
 
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -52,7 +49,9 @@ const Home = () => {
     setCurrentSlide(idx);
   };
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+    setCurrentSlide(
+      (prev) => (prev - 1 + heroImages.length) % heroImages.length
+    );
   };
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % heroImages.length);
@@ -64,7 +63,7 @@ const Home = () => {
         setStats({
           projects: 50,
           members: 45,
-          impact: 500
+          impact: 500,
         });
       }, 500);
       return () => clearTimeout(timer);
@@ -75,44 +74,50 @@ const Home = () => {
     {
       icon: <FaChartLine />,
       title: "Impact-Driven",
-      description: "We prioritize measurable, lasting change for our clients."
+      description: "We prioritize measurable, lasting change for our clients.",
     },
     {
       icon: <FaUsers />,
       title: "Collaborative",
-      description: "Our interdisciplinary teams bring diverse perspectives to every project."
+      description:
+        "Our interdisciplinary teams bring diverse perspectives to every project.",
     },
     {
       icon: <FaLightbulb />,
       title: "Learning-Oriented",
-      description: "We equip our members with real-world skills through hands-on consulting experience."
+      description:
+        "We equip our members with real-world skills through hands-on consulting experience.",
     },
     {
       icon: <FaHandshake />,
       title: "Integrity",
-      description: "We work with transparency and accountability across every engagement."
-    }
+      description:
+        "We work with transparency and accountability across every engagement.",
+    },
   ];
 
   const testimonials = [
     {
       name: "Sarah Johnson",
       role: "CEO, TechStart Inc.",
-      content: "180 DC MSU transformed our business strategy and helped us increase revenue by 40% in just 6 months.",
-      rating: 5
+      content:
+        "180 DC MSU transformed our business strategy and helped us increase revenue by 40% in just 6 months.",
+      rating: 5,
     },
     {
       name: "Rusty Singh",
       role: "CEO, BTS Carrier",
-      content: "The team at 180 Degrees Consulting combined strategic analysis with practical solutions. Their work helped us identify inefficiencies in our digital strategy and offered concrete steps to enhance both our internal operations and external visibility.",
-      rating: 5
+      content:
+        "The team at 180 Degrees Consulting combined strategic analysis with practical solutions. Their work helped us identify inefficiencies in our digital strategy and offered concrete steps to enhance both our internal operations and external visibility.",
+      rating: 5,
     },
     {
       name: "Emily Rodriguez",
       role: "Director, CommunityFirst",
-      content: "Working with 180 DC MSU was a game-changer for our nonprofit organization. Their insights were invaluable.",
-      rating: 5
-    }
+      content:
+        "Working with 180 DC MSU was a game-changer for our nonprofit organization. Their insights were invaluable.",
+      rating: 5,
+    },
   ];
 
   return (
@@ -123,19 +128,31 @@ const Home = () => {
           {heroImages.map((img, idx) => (
             <div
               key={idx}
-              className={`hero-slide${idx === currentSlide ? ' active' : ''}`}
+              className={`hero-slide${idx === currentSlide ? " active" : ""}`}
               style={{ backgroundImage: `url(${img})` }}
               aria-hidden={idx !== currentSlide}
             />
           ))}
           <div className="hero-overlay"></div>
-          <button className="hero-arrow left" onClick={prevSlide} aria-label="Previous slide"><FaChevronLeft /></button>
-          <button className="hero-arrow right" onClick={nextSlide} aria-label="Next slide"><FaChevronRight /></button>
+          <button
+            className="hero-arrow left"
+            onClick={prevSlide}
+            aria-label="Previous slide"
+          >
+            <FaChevronLeft />
+          </button>
+          <button
+            className="hero-arrow right"
+            onClick={nextSlide}
+            aria-label="Next slide"
+          >
+            <FaChevronRight />
+          </button>
           <div className="hero-dots">
             {heroImages.map((_, idx) => (
               <button
                 key={idx}
-                className={`hero-dot${idx === currentSlide ? ' active' : ''}`}
+                className={`hero-dot${idx === currentSlide ? " active" : ""}`}
                 onClick={() => goToSlide(idx)}
                 aria-label={`Go to slide ${idx + 1}`}
               />
@@ -150,11 +167,18 @@ const Home = () => {
             className="hero-text"
           >
             <h1 className="hero-title">
-              <span className="hero-logo"> <span style={{ color: '#94C973' }}>Transforming</span> Organizations. Creating <span style={{ color: '#94C973' }}>Impact</span>.</span>
+              <span className="hero-logo">
+                {" "}
+                <span style={{ color: "#94C973" }}>Transforming</span>{" "}
+                Organizations. Creating{" "}
+                <span style={{ color: "#94C973" }}>Impact</span>.
+              </span>
             </h1>
             <p className="hero-tagline">
-            <span style={{color: '#94C973'}}>180 Degrees Consulting</span> at Michigan State University provides high-quality consulting 
-            services to nonprofits and social enterprises, helping them maximize their social impact.
+              <span style={{ color: "#94C973" }}>180 Degrees Consulting</span>{" "}
+              at Michigan State University provides high-quality consulting
+              services to nonprofits and social enterprises, helping them
+              maximize their social impact.
             </p>
             <div className="hero-buttons">
               <Link to="/for-clients" className="btn btn-primary">
@@ -179,10 +203,10 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             className="section-header"
           >
-            <h2 style={{ color: '#94C973' }}>Our Core Values</h2>
+            <h2 style={{ color: "#94C973" }}>Our Core Values</h2>
             <p>The principles that shape the culture here at 180 DC MSU</p>
           </motion.div>
-          
+
           <div className="values-grid">
             {coreValues.map((value, index) => (
               <motion.div
@@ -201,9 +225,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Quick Stats Section */}
+      {/* Quick Stats  Section */}
       <section ref={statsRef} className="stats-section">
-        <div className="stats-background" style={{ backgroundImage: `url(${MinskoffPavilion})` }}></div>
+        <div
+          className="stats-background"
+          style={{ backgroundImage: `url(${MinskoffPavilion})` }}
+        ></div>
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -227,8 +254,6 @@ const Home = () => {
         </div>
       </section>
 
-      
-
       {/* Testimonials Section */}
       <section ref={testimonialsRef} className="testimonials-section">
         <div className="container">
@@ -238,10 +263,10 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             className="section-header"
           >
-            <h2 style={{ color: '#94C973' }}>What Our Clients Say</h2>
+            <h2 style={{ color: "#94C973" }}>What Our Clients Say</h2>
             <p>Success stories from organizations we've helped</p>
           </motion.div>
-          
+
           <div className="testimonials-grid">
             {testimonials.map((testimonial, index) => (
               <motion.div
@@ -271,4 +296,4 @@ const Home = () => {
   );
 };
 
-export default Home; 
+export default Home;
