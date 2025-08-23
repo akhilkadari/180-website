@@ -148,7 +148,7 @@ const ForClients = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="why-choose-section">
+      <section id="why-choose-section" className="why-choose-section">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

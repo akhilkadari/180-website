@@ -17,20 +17,15 @@ const Footer = () => {
     organization: [
       { name: 'About Us', path: '/about' },
       { name: 'Our Team', path: '/team' },
-      { name: 'Consulting Team', path: '/consulting-team' },
       { name: 'Join Us', path: '/join-us' }
     ],
     services: [
       { name: 'For Clients', path: '/for-clients' },
-      { name: 'Our Process', path: '/for-clients' },
-      { name: 'Success Stories', path: '/for-clients' },
-      { name: 'Industries', path: '/for-clients' }
+      { name: 'Our Expertise', path: '/for-clients#why-choose-section' }
     ],
     resources: [
-      { name: 'Blog', path: '/blog' },
-      { name: 'Case Studies', path: '/case-studies' },
-      { name: 'Resources', path: '/resources' },
-      { name: 'FAQ', path: '/join-us' }
+      { name: 'FAQ', path: '/join-us#faq-section' },
+      { name: 'Application Process', path: '/join-us#timeline-section' }
     ]
   };
 
@@ -150,8 +145,6 @@ const Footer = () => {
             <div className="footer-bottom-content">
               <p>&copy; {currentYear} 180 Degrees Consulting MSU. All rights reserved.</p>
               <div className="footer-bottom-links">
-                <Link to="/privacy">Privacy Policy</Link>
-                <Link to="/terms">Terms of Service</Link>
                 <Link to="/contact">Contact</Link>
               </div>
             </div>

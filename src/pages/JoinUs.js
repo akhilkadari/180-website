@@ -443,7 +443,7 @@ const JoinUs = () => {
       </section>
 
       {/* Application Timeline */}
-      <section ref={timelineRef} className="timeline-section">
+      <section id="timeline-section" ref={timelineRef} className="timeline-section">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -492,7 +492,7 @@ const JoinUs = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="faq-section">
+      <section id="faq-section" className="faq-section">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
