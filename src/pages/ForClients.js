@@ -149,10 +149,6 @@ const ForClients = () => {
 
       {/* Why Choose Us */}
       <section className="why-choose-section">
-        <div
-          className="why-choose-background"
-          style={{ backgroundImage: `url(${MinskoffPavilion})` }}
-        ></div>
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -161,7 +157,7 @@ const ForClients = () => {
             viewport={{ once: true }}
             className="section-header"
           >
-            <h2 style={{ color: "#94c973" }}>Why Choose 180° DC MSU?</h2>
+            <h2 style={{ color: "#94C973" }}>Why Choose 180° DC MSU?</h2>
             <p>
               Comprehensive consulting expertise across all key business areas
             </p>
@@ -276,7 +272,7 @@ const ForClients = () => {
       </section>
 
       {/* Project Timeline */}
-      <section ref={timelineRef} className="timeline-section">
+      {/* <section ref={timelineRef} className="timeline-section">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isTimelineInView ? { opacity: 1, y: 0 } : {}}
@@ -340,10 +336,10 @@ const ForClients = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Project Cards */}
-      <section ref={projectsRef} className="projects-section">
+      {/* <section ref={projectsRef} className="projects-section">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -401,7 +397,7 @@ const ForClients = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="cta-section">
