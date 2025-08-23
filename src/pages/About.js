@@ -106,27 +106,16 @@ const About = () => {
               <h2>President's Welcome</h2>
               <p className="president-name">Sahib Sekhon</p>
               <p>
-                Welcome to 180 Degrees Consulting MSU! As the President of this incredible 
-                organization, I am proud to lead a team of dedicated students who are 
-                passionate about making a real impact in the business world.
+              Welcome to 180 Degrees Consulting at Michigan State University. As President, I’m proud to lead a diverse and driven team of students who are passionate about creating real-world impact through strategic problem solving.
               </p>
               <p>
-                Our organization represents the perfect blend of academic excellence and 
-                practical business experience. We believe that the best learning happens 
-                when theory meets practice, and that's exactly what we offer to both our 
-                clients and our members.
+              Offering the best of the best at MSU, what makes 180DC MSU unique is the way we bridge academic insight with hands-on consulting experience. Our members don’t just learn in the classroom—they apply those lessons to help startups, nonprofits, and businesses tackle real challenges across industries.
               </p>
               <p>
-                What sets us apart is our commitment to delivering high-quality consulting 
-                services while fostering a supportive environment where students can grow, 
-                learn, and develop their professional skills. Every project we undertake 
-                is an opportunity to create value for our clients while building the next 
-                generation of business leaders.
+              Every project is an opportunity to generate meaningful results for our clients while developing the next generation of leaders. We take pride not only in the work we deliver, but in the collaborative, growth-focused environment we’ve built for our team.
               </p>
               <p>
-                I invite you to explore our website and learn more about how we can help 
-                your organization achieve its goals, or how you can become part of our 
-                dynamic team.
+              Whether you’re a prospective client, a student interested in joining, or simply curious about our work, I invite you to explore our website and discover what makes 180DC MSU one of the most impactful organizations on campus.
               </p>
             </motion.div>
           </div>
@@ -215,16 +204,16 @@ const About = () => {
             <p>Capturing the memories and experiences that make our team special</p>
           </motion.div>
 
-          <div className="fun-moments-collage">
+          <div className="fun-moments-gallery">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
-              className="collage-item"
+              className="gallery-item"
             >
               <img src="/bidnight.jpeg" alt="Bid Night" />
-              <div className="collage-caption">
+              <div className="gallery-caption">
                 <h4>Bid Night</h4>
                 <p>Celebrating our new members is a huge part of our culture.</p>
               </div>
@@ -235,10 +224,10 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="collage-item"
+              className="gallery-item"
             >
               <img src="/chicago.jpeg" alt="Chicago Roadshow" />
-              <div className="collage-caption">
+              <div className="gallery-caption">
                 <h4>Chicago Roadshow</h4>
                 <p>We take many trips to places like Chicago to network with top firms and other consulting organizations.</p>
               </div>
@@ -249,10 +238,10 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="collage-item"
+              className="gallery-item"
             >
               <img src="/bcg.jpeg" alt="BCG Visit" />
-              <div className="collage-caption">
+              <div className="gallery-caption">
                 <h4>Company Visits</h4>
                 <p>We visit firms like BCG to learn more about their processes and culture.</p>
               </div>
@@ -263,10 +252,10 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
-              className="collage-item"
+              className="gallery-item"
             >
               <img src="/minskoff.jpg" alt="Collaboration" />
-              <div className="collage-caption">
+              <div className="gallery-caption">
                 <h4>Collaboration</h4>
                 <p>Working together to deliver exceptional results for our clients</p>
               </div>
@@ -277,10 +266,10 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
               viewport={{ once: true }}
-              className="collage-item"
+              className="gallery-item"
             >
               <img src="/eboardbanquet.JPG" alt="E-board Banquet" />
-              <div className="collage-caption">
+              <div className="gallery-caption">
                 <h4>Banquet</h4>
                 <p>We always have a great time at our annual end of year banquet.</p>
               </div>
@@ -291,54 +280,12 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
               viewport={{ once: true }}
-              className="collage-item"
+              className="gallery-item"
             >
               <img src="/retreat.JPG" alt="Retreat" />
-              <div className="collage-caption">
+              <div className="gallery-caption">
                 <h4>Team Retreat</h4>
                 <p>From gingerbread houses to team bonding activities, our retreats are always a blast.</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              viewport={{ once: true }}
-              className="collage-item"
-            >
-              <img src="/silly_group_pic.jpeg" alt="Fun Times" />
-              <div className="collage-caption">
-                <h4>Fun Times</h4>
-                <p>Enjoying the journey together with laughter and joy</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              viewport={{ once: true }}
-              className="collage-item"
-            >
-              <img src="/sahib.webp" alt="Networking" />
-              <div className="collage-caption">
-                <h4>Networking</h4>
-                <p>Connecting with industry professionals and expanding horizons</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.9 }}
-              viewport={{ once: true }}
-              className="collage-item"
-            >
-              <img src="/180Pic1.jpg" alt="Growth" />
-              <div className="collage-caption">
-                <h4>Growth</h4>
-                <p>Continuous learning and development as a team</p>
               </div>
             </motion.div>
           </div>

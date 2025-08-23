@@ -452,12 +452,11 @@
     padding: 0 1rem;
   }
 
-  .hero-arrow.left {
-    left: 1rem;
+  /* Hide navigation arrows on mobile - let images auto-cycle */
+  .hero-arrow {
+    display: none;
   }
-  .hero-arrow.right {
-    right: 1rem;
-  }
+  
   .hero-dots {
     bottom: 1rem;
   }
@@ -493,11 +492,11 @@
     padding: 2rem 1.5rem;
   }
 
+  /* Ensure arrows are hidden on very small screens */
   .hero-arrow {
-    width: 36px;
-    height: 36px;
-    font-size: 1.1rem;
+    display: none;
   }
+  
   .hero-dot {
     width: 9px;
     height: 9px;

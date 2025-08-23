@@ -224,9 +224,9 @@ const JoinUs = () => {
               <h1>Join Our Team</h1>
               <p>Become part of the premier student consulting organization at MSU</p>
               <p>We're looking for passionate students who want to make a real impact in the business world while developing their professional skills.</p>
-              <a href="/contact" className="btn btn-primary">
-                Apply Now <FaArrowRight />
-              </a>
+              <button className="btn btn-primary" disabled>
+                Application Dropping Soon
+              </button>
             </motion.div>
             
             <motion.div
@@ -304,20 +304,20 @@ const JoinUs = () => {
             <div className="ba-content">
               <div className="testimonial-placeholder">
                 <h4>Testimonial 1</h4>
-                <p>"180° DC MSU provided me with invaluable consulting experience that directly contributed to my internship success. The hands-on projects and mentorship were game-changers for my career development."</p>
-                <span className="testimonial-author">- Former Business Analyst</span>
+                <p>"180° DC MSU provided me with invaluable experience that directly contributed to my success at my internship with Cherry Republic. The hands-on projects and mentorship were game-changers for my career development."</p>
+                <span className="testimonial-author">- Andrew Mossington</span>
               </div>
               
               <div className="testimonial-placeholder">
                 <h4>Testimonial 2</h4>
-                <p>"The skills I developed as a Business Analyst here opened doors I never thought possible. The real client work and professional network I built were instrumental in landing my dream job."</p>
-                <span className="testimonial-author">- Former Business Analyst</span>
+                <p>"My semester as a Business Analyst at 180 Degrees Consulting gave me hands-on experience solving real client challenges, sharpening the problem-solving and data skills that prepared me to hit the ground running at Delta Dental"</p>
+                <span className="testimonial-author">- Kavin Chana</span>
               </div>
               
               <div className="testimonial-placeholder">
                 <h4>Testimonial 3</h4>
                 <p>"Being part of 180° DC MSU's Business Analyst team taught me how to think strategically and communicate complex ideas effectively. The experience was transformative for my professional growth."</p>
-                <span className="testimonial-author">- Former Business Analyst</span>
+                <span className="testimonial-author">- Neha Khedekar</span>
               </div>
             </div>
           </div>

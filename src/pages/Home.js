@@ -254,7 +254,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials Section - Commented out for future use
       <section ref={testimonialsRef} className="testimonials-section">
         <div className="container">
           <motion.div
@@ -292,6 +292,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+      */}
     </div>
   );
 };

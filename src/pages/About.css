@@ -364,12 +364,32 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .about-hero,
+  .about-hero.about-hero {
+    background: linear-gradient(135deg, #94C973 0%, rgba(45, 55, 72, 0.8) 100%) !important;
+    background-image: none !important;
+    background-size: auto !important;
+    background-position: auto !important;
+    background-attachment: auto !important;
+    background-repeat: no-repeat !important;
+  }
+  
+  .about-hero::before {
+    display: none !important;
+  }
+  
+  .about-hero::after {
+    display: none !important;
+  }
+  
   .about-hero-content h1 {
     font-size: 2.5rem;
+    color: #94C973 !important;
   }
   
   .about-hero-content p {
     font-size: 1.1rem;
+    color: #94C973 !important;
   }
   
   .president-grid {
@@ -430,14 +450,22 @@
 @media (max-width: 480px) {
   .about-hero {
     padding: 6rem 0 3rem;
+    background: linear-gradient(135deg, #94C973 0%, rgba(45, 55, 72, 0.8) 100%) !important;
+    background-image: none !important;
+    background-size: auto !important;
+    background-position: auto !important;
+    background-attachment: auto !important;
+    background-repeat: no-repeat !important;
   }
   
   .about-hero-content h1 {
     font-size: 2rem;
+    color: #94C973 !important;
   }
   
   .about-hero-content p {
     font-size: 1rem;
+    color: #94C973 !important;
   }
   
   .president-content h2 {
@@ -481,28 +509,24 @@
     font-size: 1rem;
   }
   
-  .fun-moments-collage {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, 150px);
-    height: auto;
-    gap: 0.5rem;
+  .fun-moments-gallery {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
   
-  .collage-item:nth-child(9) {
-    grid-column: 1 / -1;
-    grid-row: 5;
+  .gallery-item img {
+    height: 200px;
   }
   
-  .collage-caption {
-    transform: translateY(0);
-    background: rgba(0, 0, 0, 0.7);
+  .gallery-caption {
+    padding: 1rem;
   }
   
-  .collage-caption h4 {
+  .gallery-caption h4 {
     font-size: 1.1rem;
   }
   
-  .collage-caption p {
+  .gallery-caption p {
     font-size: 0.9rem;
   }
 } 
@@ -519,72 +543,56 @@
   padding: 5rem 0;
 }
 
-.fun-moments-collage {
+.fun-moments-gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 0.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
   margin-top: 3rem;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
-  height: 600px;
 }
 
-.collage-item {
+.gallery-item {
   position: relative;
+  border-radius: 15px;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  background: white;
 }
 
-.collage-item:hover {
-  transform: scale(1.02);
-  z-index: 2;
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
-.collage-item img {
+.gallery-item img {
   width: 100%;
-  height: 100%;
+  height: 250px;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-.collage-item:hover img {
+.gallery-item:hover img {
   transform: scale(1.05);
 }
 
-/* All collage items are now the same size in a 3x3 grid */
-
-.collage-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 0.75rem;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
+.gallery-caption {
+  padding: 1.5rem;
+  background: white;
 }
 
-.collage-item:hover .collage-caption {
-  transform: translateY(0);
-}
-
-.collage-caption h4 {
+.gallery-caption h4 {
   color: #94C973;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 
-.collage-caption p {
-  color: white;
-  font-size: 0.85rem;
-  line-height: 1.4;
+.gallery-caption p {
+  color: #4a5568;
+  font-size: 0.95rem;
+  line-height: 1.5;
   margin: 0;
-}
-
-.fun-moments-section .section-header p {
-  color: #94C973;
 } 

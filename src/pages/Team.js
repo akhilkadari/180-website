@@ -16,7 +16,7 @@ const Team = () => {
       id: 1,
       name: "Sahib Sekhon",
       role: "President",
-      image: "https://via.placeholder.com/300x300/1a365d/ffffff?text=AJ",
+      image: "/eboard headshots/sahib.webp",
       bio: "Sahib is a senior who joined 180 in Spring '23. He has a background in investment banking and was most recently a summer restructuring analyst at Alvarez & Marsal!",
       major: "Finance",
       year: "Senior",
@@ -29,7 +29,7 @@ const Team = () => {
       id: 2,
       name: "Puja Patel",
       role: "Vice President",
-      image: "https://via.placeholder.com/300x300/2d3748/ffffff?text=SC",
+      image: "/eboard headshots/puja.JPG",
       bio: "Dedicated to fostering innovation and excellence in our consulting projects and team development.",
       major: "Finance",
       year: "Senior",
@@ -42,7 +42,7 @@ const Team = () => {
       id: 3,
       name: "Ethan Oliven",
       role: "Vice President of External Affairs",
-      image: "https://via.placeholder.com/300x300/4a5568/ffffff?text=MR",
+      image: "/eboard headshots/Ethan Oliven Headshot.jpg",
       bio: "Ensuring smooth operations and maintaining the highest standards of project delivery and client satisfaction.",
       major: "Accounting",
       year: "Junior",
@@ -55,7 +55,7 @@ const Team = () => {
       id: 4,
       name: "Rucha Deshpande",
       role: "Vice President of Operations",
-      image: "https://via.placeholder.com/300x300/667eea/ffffff?text=ED",
+      image: "/eboard headshots/rucha.jpg",
       bio: "Creative strategist focused on building our brand and expanding our reach in the consulting community.",
       major: "Supply Chain Management",
       year: "Senior",
@@ -68,7 +68,7 @@ const Team = () => {
       id: 5,
       name: "Ava Solysiak",
       role: "Vice President of Events",
-      image: "https://via.placeholder.com/300x300/764ba2/ffffff?text=DK",
+      image: "/eboard headshots/ava.jpeg",
       bio: "Financial expert ensuring sustainable growth and responsible resource management for our organization.",
       major: "Finance",
       year: "Junior",
@@ -81,7 +81,7 @@ const Team = () => {
       id: 6,
       name: "Shivang Kapoor",
       role: "Vice President of Recruitment and Training",
-      image: "https://via.placeholder.com/300x300/f6ad55/ffffff?text=LT",
+      image: "/eboard headshots/shiv.jpeg",
       bio: "Passionate about attracting and developing the next generation of consulting talent at MSU.",
       major: "Supply Chain Management",
       year: "Senior",
@@ -94,7 +94,7 @@ const Team = () => {
       id: 7,
       name: "Pranav Bellad",
       role: "Vice President of Quality Assurance",
-      image: "https://via.placeholder.com/300x300/f6ad55/ffffff?text=LT",
+      image: "/eboard headshots/pranav.jpeg",
       bio: "Passionate about attracting and developing the next generation of consulting talent at MSU.",
       major: "Computer Engineering",
       year: "Senior",
@@ -144,6 +144,7 @@ const Team = () => {
               >
                 <div className="member-image">
                   <img src={member.image} alt={member.name} />
+                  {/* Bio overlay - commented out for later addition
                   <div className="member-overlay">
                     <div className="member-bio">
                       <p>{member.bio}</p>
@@ -153,6 +154,7 @@ const Team = () => {
                       </div>
                     </div>
                   </div>
+                  */}
                 </div>
                 
                 <div className="member-info">
