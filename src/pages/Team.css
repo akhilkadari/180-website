@@ -130,6 +130,7 @@
   color: #000000 !important;
   margin-bottom: 0.25rem;
   font-weight: 600;
+  text-align: center;
 }
 
 .role {
@@ -308,6 +309,7 @@
     font-size: 1.4rem;
     color: #000000 !important;
     margin-bottom: 0.5rem;
+    text-align: center;
   }
   
   .role {
@@ -397,6 +399,7 @@
     font-size: 1.3rem;
     color: #000000 !important;
     margin-bottom: 0.4rem;
+    text-align: center;
   }
   
   .role {

@@ -224,9 +224,14 @@ const JoinUs = () => {
               <h1>Join Our Team</h1>
               <p>Become part of the premier student consulting organization at MSU</p>
               <p>We're looking for passionate students who want to make a real impact in the business world while developing their professional skills.</p>
-              <button className="btn btn-primary" disabled>
-                Application Dropping Soon
-              </button>
+              <a 
+                href="https://docs.google.com/forms/d/e/1FAIpQLSed2NBqFvHgO8Ys5m-HixlTEYLsU7ZMKqy03ye0KuthZcfOMg/viewform?pli=1" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="btn btn-primary"
+              >
+                Apply Now
+              </a>
             </motion.div>
             
             <motion.div
@@ -258,7 +263,7 @@ const JoinUs = () => {
             transition={{ duration: 0.6 }}
             className="section-header"
           >
-            <h2>Why Join 180° DC MSU?</h2>
+            <h2>Why Join 180 DC MSU?</h2>
           </motion.div>
 
           <div className="benefits-grid">
@@ -304,7 +309,7 @@ const JoinUs = () => {
             <div className="ba-content">
               <div className="testimonial-placeholder">
                 <h4>Testimonial 1</h4>
-                <p>"180° DC MSU provided me with invaluable experience that directly contributed to my success at my internship with Cherry Republic. The hands-on projects and mentorship were game-changers for my career development."</p>
+                <p>"180 DC MSU provided me with invaluable experience that directly contributed to my success at my internship with Cherry Republic. The hands-on projects and mentorship were game-changers for my career development."</p>
                 <span className="testimonial-author">- Andrew Mossington</span>
               </div>
               
@@ -316,7 +321,7 @@ const JoinUs = () => {
               
               <div className="testimonial-placeholder">
                 <h4>Testimonial 3</h4>
-                <p>"Being part of 180° DC MSU's Business Analyst team taught me how to think strategically and communicate complex ideas effectively. The experience was transformative for my professional growth."</p>
+                <p>"Being part of 180 DC MSU's Business Analyst team taught me how to think strategically and communicate complex ideas effectively. The experience was transformative for my professional growth."</p>
                 <span className="testimonial-author">- Neha Khedekar</span>
               </div>
             </div>
@@ -334,7 +339,7 @@ const JoinUs = () => {
             className="section-header"
           >
             <h2>Roles & Progression</h2>
-            <p>Explore the different roles and how you can grow within 180° DC MSU</p>
+            <p>Explore the different roles and how you can grow within 180 DC MSU</p>
           </motion.div>
 
           <div className="roles-grid">

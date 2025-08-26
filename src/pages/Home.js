@@ -90,7 +90,7 @@ const Home = () => {
     },
     {
       icon: <FaHandshake />,
-      title: "Integrity",
+      title: "Ethical",
       description:
         "We work with transparency and accountability across every engagement.",
     },

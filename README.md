@@ -9,7 +9,7 @@ A modern, responsive website for 180 Degrees Consulting MSU, built with React.js
 - **Responsive Design**: Fully responsive across desktop, tablet, and mobile devices
 - **Smooth Animations**: Framer Motion animations for enhanced user experience
 - **Interactive Elements**: Hover effects, scroll-based animations, and parallax effects
-- **Professional Branding**: Consistent 180° DC MSU branding throughout
+- **Professional Branding**: Consistent 180 DC MSU branding throughout
 
 ### Pages & Sections
 1. **Home Page**

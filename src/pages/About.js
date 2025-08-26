@@ -74,7 +74,7 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="about-hero-content"
           >
-            <h1>About 180° DC MSU</h1>
+            <h1>About 180 DC MSU</h1>
             <p>Empowering organizations through student-driven consulting excellence</p>
           </motion.div>
         </div>
@@ -169,7 +169,7 @@ const About = () => {
             className="section-header"
           >
             <h2>What Makes Us Different</h2>
-            <p>The unique advantages that set 180° DC MSU apart from traditional consulting firms</p>
+            <p>The unique advantages that set 180 DC MSU apart from traditional consulting firms</p>
           </motion.div>
 
           <div className="differences-grid">
@@ -254,10 +254,10 @@ const About = () => {
               viewport={{ once: true }}
               className="gallery-item"
             >
-              <img src="/minskoff.jpg" alt="Collaboration" />
+              <img src="/mmm.jpeg" alt="Mass Member Meetings" />
               <div className="gallery-caption">
-                <h4>Collaboration</h4>
-                <p>Working together to deliver exceptional results for our clients</p>
+                <h4>Mass Member Meetings</h4>
+                <p>Our MMM's are always a fun time to touchbase and explore the progress of other teams.</p>
               </div>
             </motion.div>
 

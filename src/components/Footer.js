@@ -66,7 +66,7 @@ const Footer = () => {
             {/* Organization Info */}
             <div className="footer-section">
               <div className="footer-logo">
-                <span className="logo-text">180°</span>
+                <span className="logo-text">180</span>
                 <span className="logo-subtext">DC MSU</span>
               </div>
               <p className="footer-description">

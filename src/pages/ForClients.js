@@ -157,7 +157,7 @@ const ForClients = () => {
             viewport={{ once: true }}
             className="section-header"
           >
-            <h2 style={{ color: "#94C973" }}>Why Choose 180° DC MSU?</h2>
+            <h2 style={{ color: "#94C973" }}>Why Choose 180 DC MSU?</h2>
             <p>
               Comprehensive consulting expertise across all key business areas
             </p>
