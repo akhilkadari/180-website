@@ -66,7 +66,7 @@ const Team = () => {
     },
     {
       id: 5,
-      name: "Ava Solysiak",
+      name: "Ava Soltysiak",
       role: "Vice President of Events",
       image: "/eboard headshots/ava.jpeg",
       bio: "Financial expert ensuring sustainable growth and responsible resource management for our organization.",
