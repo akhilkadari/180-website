@@ -30,7 +30,7 @@ const Team = () => {
       name: "Puja Patel",
       role: "Vice President",
       image: "/eboard headshots/puja.JPG",
-      bio: "Dedicated to fostering innovation and excellence in our consulting projects and team development.",
+      bio: "Puja is a senior who joined 180 in Fall '23. She has a background in technology consulting through her experience at Plante Moran the past two summers.",
       major: "Finance",
       year: "Senior",
       social: {
@@ -43,7 +43,7 @@ const Team = () => {
       name: "Ethan Oliven",
       role: "Vice President of External Affairs",
       image: "/eboard headshots/Ethan Oliven Headshot.jpg",
-      bio: "Ensuring smooth operations and maintaining the highest standards of project delivery and client satisfaction.",
+      bio: "Ethan is a junior who joined 180 in Spring '24. He has gained in experience in the accounting and consulting fields, interning at KPMG in audit and Plante Moran in national tax in Chicago.",
       major: "Accounting",
       year: "Junior",
       social: {
@@ -56,7 +56,7 @@ const Team = () => {
       name: "Rucha Deshpande",
       role: "Vice President of Operations",
       image: "/eboard headshots/rucha.jpg",
-      bio: "Creative strategist focused on building our brand and expanding our reach in the consulting community.",
+      bio: "Rucha is a senior who joined 180 in Fall '23. She has worked in different areas of supply chain, most recently as a supply chain capabilities intern at Nike.",
       major: "Supply Chain Management",
       year: "Senior",
       social: {
@@ -69,7 +69,7 @@ const Team = () => {
       name: "Ava Soltysiak",
       role: "Vice President of Events",
       image: "/eboard headshots/ava.jpeg",
-      bio: "Financial expert ensuring sustainable growth and responsible resource management for our organization.",
+      bio: "Ava is a junior who joined 180 in Spring 2024. She has experience in commercial banking at Mercantile Bank and in alternative investments at Proteus. On campus, Ava is involved in research with the Department of Finance.",
       major: "Finance",
       year: "Junior",
       social: {
@@ -82,7 +82,7 @@ const Team = () => {
       name: "Shivang Kapoor",
       role: "Vice President of Recruitment and Training",
       image: "/eboard headshots/shiv.jpeg",
-      bio: "Passionate about attracting and developing the next generation of consulting talent at MSU.",
+      bio: "Shivang is a senior who joined 180 in Fall '23. He has a background in digital transformations and sustainable solutions, most recently working as a Consultant at KPMG Chicago this past summer.",
       major: "Supply Chain Management",
       year: "Senior",
       social: {
@@ -95,7 +95,7 @@ const Team = () => {
       name: "Pranav Bellad",
       role: "Vice President of Quality Assurance",
       image: "/eboard headshots/pranav.jpeg",
-      bio: "Passionate about attracting and developing the next generation of consulting talent at MSU.",
+      bio: "Pranav is a senior who joined 180 in Spring '23. He has a background in Electronics and was most recently a summer engineering sales internship at Texas Instruments.",
       major: "Computer Engineering",
       year: "Senior",
       social: {
@@ -144,7 +144,6 @@ const Team = () => {
               >
                 <div className="member-image">
                   <img src={member.image} alt={member.name} />
-                  {/* Bio overlay - commented out for later addition
                   <div className="member-overlay">
                     <div className="member-bio">
                       <p>{member.bio}</p>
@@ -154,7 +153,6 @@ const Team = () => {
                       </div>
                     </div>
                   </div>
-                  */}
                 </div>
                 
                 <div className="member-info">
