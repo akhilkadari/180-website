@@ -1,8 +1,7 @@
 /* Clients Hero Section */
 .clients-hero {
   position: relative;
-  background: linear-gradient(135deg, #94c973 0%, rgba(45, 55, 72, 0.8) 100%),
-    url("../assets/MSU_Broad_College_of_Business_Pavilion_01.jpg");
+  background: linear-gradient(135deg, #94c973 0%, rgba(45, 55, 72, 0.8) 100%);
   background-size: cover;
   background-position: bottom;
   background-attachment: fixed;

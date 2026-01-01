@@ -17,6 +17,7 @@ import {
 } from "react-icons/fa";
 import "./ForClients.css";
 import MinskoffPavilion from "../assets/Minskoff-Pavilion-Lawn.jpg";
+import PavilionImage from "../assets/MSU_Broad_College_of_Business_Pavilion_01.jpg";
 
 const ForClients = () => {
   const timelineRef = useRef(null);
@@ -130,7 +131,12 @@ const ForClients = () => {
     <div className="for-clients">
       {/* Hero Section */}
 
-      <section className="clients-hero">
+      <section 
+        className="clients-hero"
+        style={{
+          backgroundImage: `linear-gradient(135deg, #94c973 0%, rgba(45, 55, 72, 0.8) 100%), url(${PavilionImage})`
+        }}
+      >
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
