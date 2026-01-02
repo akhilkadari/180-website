@@ -138,16 +138,16 @@ const JoinUs = () => {
     {
       id: 3,
       title: "First Round Interview",
-      description: "Behavioral interview with our recruitment team.",
-      tips: "Prepare examples of your leadership and teamwork experiences. Also make sure to attend our behavioral interview workshop for the utmost preparation.",
+      description: "45-minute behavioral and case interview with our recruitment team.",
+      tips: "Prepare clear examples for behavioral questions and practice walking through your thinking out loud during cases. Focus on structure, communication, and logic rather than perfection.",
       date: "October 8-15",
       icon: <FaHandshake />
     },
     {
       id: 4,
       title: "Second Round Interview",
-      description: "Case study interview with our recruitment team.",
-      tips: "Practice doing consulting case studies on youtube. Don't panic and just do your best, you got this! Nobody is expected to be perfect at casing but come in confident and be able to explain your ideas thoroughly. Make sure to take advantage of our case study workshop as it will give you a good idea of what to expect.",
+      description: "Individual take-home case with a short presentation.",
+      tips: "Be clear and structured. Focus on your recommendation, key insights, and be ready to explain your assumptions during Q&A.",
       date: "October 16-22",
       icon: <FaUserTie />
     },
@@ -155,7 +155,7 @@ const JoinUs = () => {
       id: 5,
       title: "Final Round Interview",
       description: "Group case study interview with our recruitment team.",
-      tips: "Make sure to come in with a positive attitude and be able to work well with others. Make sure to do some practice case studies with friends to best equip yourself for the group case setting.",
+      tips: "Make sure to come in with a positive attitude and be able to work well with others. Do some practice case studies with friends to best equip yourself for the group case setting.",
       date: "October 23-25",
       icon: <FaStar />
     },
@@ -225,7 +225,7 @@ const JoinUs = () => {
               <p>Become part of the premier student consulting organization at MSU</p>
               <p>We're looking for passionate students who want to make a real impact in the business world while developing their professional skills.</p>
               <a 
-                href="https://docs.google.com/forms/d/e/1FAIpQLSed2NBqFvHgO8Ys5m-HixlTEYLsU7ZMKqy03ye0KuthZcfOMg/viewform?pli=1" 
+                href="https://forms.gle/a1w3L12YNuQKwdtn8" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="btn btn-primary"
@@ -325,6 +325,55 @@ const JoinUs = () => {
                 <span className="testimonial-author">- Neha Khedekar</span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Application Timeline */}
+      <section id="timeline-section" ref={timelineRef} className="timeline-section">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isTimelineInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="section-header"
+          >
+            <h2>Application Process</h2>
+            
+          </motion.div>
+
+          <div className="timeline-cards">
+            {timelineSteps.map((step, index) => (
+              <motion.div
+                key={step.id}
+                className="timeline-card"
+                initial={{ opacity: 0, y: 30 }}
+                animate={isTimelineInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+              >
+                <div className="timeline-card-header">
+                  <div className="step-number">{step.id}</div>
+                  <div className="step-icon">{step.icon}</div>
+                </div>
+                <div className="timeline-card-content">
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                  {step.tips && (
+                    <div className="timeline-tips">
+                      <h4>Tips:</h4>
+                      <p>{step.tips}</p>
+                    </div>
+                  )}
+                </div>
+                {index < timelineSteps.length - 1 && (
+                  <div className="timeline-connector">
+                    <div className="connector-line"></div>
+                    <div className="connector-arrow">→</div>
+                  </div>
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -443,55 +492,6 @@ const JoinUs = () => {
                 </button>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Application Timeline */}
-      <section id="timeline-section" ref={timelineRef} className="timeline-section">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isTimelineInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="section-header"
-          >
-            <h2>Application Process</h2>
-            
-          </motion.div>
-
-          <div className="timeline-cards">
-            {timelineSteps.map((step, index) => (
-              <motion.div
-                key={step.id}
-                className="timeline-card"
-                initial={{ opacity: 0, y: 30 }}
-                animate={isTimelineInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.02 }}
-              >
-                <div className="timeline-card-header">
-                  <div className="step-number">{step.id}</div>
-                  <div className="step-icon">{step.icon}</div>
-                </div>
-                <div className="timeline-card-content">
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                  {step.tips && (
-                    <div className="timeline-tips">
-                      <h4>Tips:</h4>
-                      <p>{step.tips}</p>
-                    </div>
-                  )}
-                </div>
-                {index < timelineSteps.length - 1 && (
-                  <div className="timeline-connector">
-                    <div className="connector-line"></div>
-                    <div className="connector-arrow">→</div>
-                  </div>
-                )}
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
