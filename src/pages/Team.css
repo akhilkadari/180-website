@@ -306,6 +306,10 @@
     border-radius: 12px 12px 0 0;
   }
   
+  .member-image img {
+    object-position: center 20%;
+  }
+  
   .member-info {
     padding: 1.5rem;
   }
@@ -388,6 +392,10 @@
   .member-image {
     height: 240px;
     border-radius: 10px 10px 0 0;
+  }
+  
+  .member-image img {
+    object-position: center 25%;
   }
   
   .member-overlay {
