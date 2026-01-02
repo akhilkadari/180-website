@@ -32,6 +32,15 @@
   gap: 2.5rem;
 }
 
+/* Center the last item (VP of Q&A) on larger screens when it's alone in a row */
+@media (min-width: 768px) {
+  .team-grid .team-card:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 350px;
+  }
+}
+
 .team-card {
   background: white;
   border-radius: 15px;
@@ -90,11 +99,14 @@
   opacity: 0;
   transition: opacity 0.3s ease;
   padding: 2rem;
+  /* Temporarily disabled - keeping code for future use */
+  pointer-events: none;
 }
 
-.team-card:hover .member-overlay {
+/* Temporarily disabled hover effect - keeping code for future use */
+/* .team-card:hover .member-overlay {
   opacity: 1;
-}
+} */
 
 .member-bio {
   text-align: center;

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { 
-  FaUsers, 
+import {  
   FaCalendarAlt,
   FaChevronDown,
   FaChevronUp,
@@ -11,14 +10,8 @@ import {
   FaStar,
   FaGraduationCap,
   FaHandshake,
-  FaClipboardList,
-  FaComments,
   FaUserTie,
-  FaNewspaper,
-  FaPagelines,
-  FaParagraph,
   FaAddressCard,
-  FaTrain,
   FaChalkboardTeacher,
   FaNetworkWired,
   FaWrench

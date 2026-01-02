@@ -14,93 +14,93 @@ const Team = () => {
   const executiveBoard = [
     {
       id: 1,
-      name: "Sahib Sekhon",
-      role: "President",
-      image: "/eboard headshots/sahib.webp",
-      bio: "Sahib is a senior who joined 180 in Spring '23. He has a background in investment banking and was most recently a summer restructuring analyst at Alvarez & Marsal!",
-      major: "Finance",
-      year: "Senior",
-      social: {
-        linkedin: "https://www.linkedin.com/in/sahibsekhon/",
-        email: "sekhons1@msu.edu"
-      }
-    },
-    {
-      id: 2,
-      name: "Puja Patel",
-      role: "Vice President",
-      image: "/eboard headshots/puja.JPG",
-      bio: "Puja is a senior who joined 180 in Fall '23. She has a background in technology consulting through her experience at Plante Moran the past two summers.",
-      major: "Finance",
-      year: "Senior",
-      social: {
-        linkedin: "https://www.linkedin.com/in/pujapatel2026/",
-        email: "patelpu6@msu.edu"
-      }
-    },
-    {
-      id: 3,
       name: "Ethan Oliven",
-      role: "Vice President of External Affairs",
-      image: "/eboard headshots/Ethan Oliven Headshot.jpg",
-      bio: "Ethan is a junior who joined 180 in Spring '24. He has gained in experience in the accounting and consulting fields, interning at KPMG in audit and Plante Moran in national tax in Chicago.",
+      role: "President",
+      image: "/eboard headshots/1.png",
+      bio: "Sahib is a senior who joined 180 in Spring '23. He has a background in investment banking and was most recently a summer restructuring analyst at Alvarez & Marsal!",
       major: "Accounting",
-      year: "Junior",
+      year: "Senior",
       social: {
         linkedin: "https://www.linkedin.com/in/ethanoliven/",
         email: "olivenet@msu.edu"
       }
     },
     {
-      id: 4,
-      name: "Rucha Deshpande",
-      role: "Vice President of Operations",
-      image: "/eboard headshots/rucha.jpg",
-      bio: "Rucha is a senior who joined 180 in Fall '23. She has worked in different areas of supply chain, most recently as a supply chain capabilities intern at Nike.",
-      major: "Supply Chain Management",
-      year: "Senior",
-      social: {
-        linkedin: "https://www.linkedin.com/in/rucha-deshpande-/",
-        email: "deshpa48@msu.edu"
-      }
-    },
-    {
-      id: 5,
+      id: 2,
       name: "Ava Soltysiak",
-      role: "Vice President of Events",
-      image: "/eboard headshots/ava.jpeg",
-      bio: "Ava is a junior who joined 180 in Spring 2024. She has experience in commercial banking at Mercantile Bank and in alternative investments at Proteus. On campus, Ava is involved in research with the Department of Finance.",
+      role: "Vice President",
+      image: "/eboard headshots/2.png",
+      bio: "Puja is a senior who joined 180 in Fall '23. She has a background in technology consulting through her experience at Plante Moran the past two summers.",
       major: "Finance",
-      year: "Junior",
+      year: "Senior",
       social: {
         linkedin: "https://www.linkedin.com/in/ava-soltysiak/",
         email: "soltysi9@msu.edu"
       }
     },
     {
+      id: 3,
+      name: "Anirudh Jillellamudi",
+      role: "Vice President of External Affairs",
+      image: "/eboard headshots/5.png",
+      bio: "Ethan is a junior who joined 180 in Spring '24. He has gained in experience in the accounting and consulting fields, interning at KPMG in audit and Plante Moran in national tax in Chicago.",
+      major: "Accounting",
+      year: "Junior",
+      social: {
+        linkedin: "http://www.linkedin.com/in/anirudhjill",
+        email: "jillell2@msu.edu"
+      }
+    },
+    {
+      id: 4,
+      name: "Caleb Brown",
+      role: "Vice President of Operations",
+      image: "/eboard headshots/4.png",
+      bio: "Rucha is a senior who joined 180 in Fall '23. She has worked in different areas of supply chain, most recently as a supply chain capabilities intern at Nike.",
+      major: "Supply Chain Management",
+      year: "Senior",
+      social: {
+        linkedin: "https://www.linkedin.com/in/calebwbrown/",
+        email: "brow1274@msu.edu"
+      }
+    },
+    {
+      id: 5,
+      name: "Jack Zhang",
+      role: "Vice President of Events",
+      image: "/eboard headshots/6.png",
+      bio: "Ava is a junior who joined 180 in Spring 2024. She has experience in commercial banking at Mercantile Bank and in alternative investments at Proteus. On campus, Ava is involved in research with the Department of Finance.",
+      major: "Finance",
+      year: "Junior",
+      social: {
+        linkedin: "http://www.linkedin.com/in/-jackzhang-",
+        email: "zhangjac@msu.edu"
+      }
+    },
+    {
       id: 6,
-      name: "Shivang Kapoor",
+      name: "Anvi Thakur",
       role: "Vice President of Recruitment and Training",
-      image: "/eboard headshots/shiv.jpeg",
+      image: "/eboard headshots/7.png",
       bio: "Shivang is a senior who joined 180 in Fall '23. He has a background in digital transformations and sustainable solutions, most recently working as a Consultant at KPMG Chicago this past summer.",
       major: "Supply Chain Management",
       year: "Senior",
       social: {
-        linkedin: "https://www.linkedin.com/in/shivangkapoor1/",
-        email: "kapoors6@msu.edu"
+        linkedin: "https://www.linkedin.com/in/anvithakur/",
+        email: "thakura2@msu.edu"
       }
     },
     {
       id: 7,
-      name: "Pranav Bellad",
+      name: "Yash Chainani",
       role: "Vice President of Quality Assurance",
-      image: "/eboard headshots/pranav.jpeg",
+      image: "/eboard headshots/3.png",
       bio: "Pranav is a senior who joined 180 in Spring '23. He has a background in Electronics and was most recently a summer engineering sales internship at Texas Instruments.",
       major: "Computer Engineering",
       year: "Senior",
       social: {
-        linkedin: "https://www.linkedin.com/in/pranav-bellad/",
-        email: "belladpr@msu.edu"
+        linkedin: "https://www.linkedin.com/in/yash-chainani/",
+        email: "chainan1@msu.edu"
       }
     }
   ];
