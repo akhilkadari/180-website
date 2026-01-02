@@ -28,7 +28,7 @@ const Team = () => {
     {
       id: 2,
       name: "Ava Soltysiak",
-      role: "Vice President",
+      role: "Senior Vice President",
       image: "/eboard headshots/2.png",
       bio: "Puja is a senior who joined 180 in Fall '23. She has a background in technology consulting through her experience at Plante Moran the past two summers.",
       major: "Finance",
@@ -67,7 +67,7 @@ const Team = () => {
     {
       id: 5,
       name: "Jack Zhang",
-      role: "Vice President of Events",
+      role: "Vice President of Events and Marketing",
       image: "/eboard headshots/6.png",
       bio: "Ava is a junior who joined 180 in Spring 2024. She has experience in commercial banking at Mercantile Bank and in alternative investments at Proteus. On campus, Ava is involved in research with the Department of Finance.",
       major: "Finance",

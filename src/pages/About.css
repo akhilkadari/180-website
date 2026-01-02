@@ -8,6 +8,29 @@
   color: white;
   padding: 14rem 0 5rem;
   text-align: center;
+  position: relative;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.about-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.about-hero-content {
+  padding: 2rem 3rem;
+  display: inline-block;
+  max-width: 800px;
 }
 
 .about-hero-content h1 {
@@ -49,7 +72,7 @@
   max-width: 400px;
   height: 500px;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 0;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
@@ -226,7 +249,7 @@
 
 .gallery-item {
   background: white;
-  border-radius: 15px;
+  border-radius: 0;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
@@ -364,32 +387,31 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .about-hero,
-  .about-hero.about-hero {
-    background: linear-gradient(135deg, #94C973 0%, rgba(45, 55, 72, 0.8) 100%) !important;
-    background-image: none !important;
-    background-size: auto !important;
-    background-position: auto !important;
-    background-attachment: auto !important;
-    background-repeat: no-repeat !important;
+  .about-hero {
+    background-attachment: scroll !important;
   }
   
   .about-hero::before {
-    display: none !important;
+    background: rgba(0, 0, 0, 0.3);
   }
   
   .about-hero::after {
     display: none !important;
   }
   
+  .about-hero-content {
+    padding: 1.5rem 2rem;
+    max-width: 90%;
+  }
+  
   .about-hero-content h1 {
     font-size: 2.5rem;
-    color: #94C973 !important;
+    color: white !important;
   }
   
   .about-hero-content p {
     font-size: 1.1rem;
-    color: #94C973 !important;
+    color: white !important;
   }
   
   .president-grid {
@@ -450,22 +472,26 @@
 @media (max-width: 480px) {
   .about-hero {
     padding: 6rem 0 3rem;
-    background: linear-gradient(135deg, #94C973 0%, rgba(45, 55, 72, 0.8) 100%) !important;
-    background-image: none !important;
-    background-size: auto !important;
-    background-position: auto !important;
-    background-attachment: auto !important;
-    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+  }
+  
+  .about-hero::before {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  .about-hero-content {
+    padding: 1.25rem 1.5rem;
+    max-width: 95%;
   }
   
   .about-hero-content h1 {
     font-size: 2rem;
-    color: #94C973 !important;
+    color: white !important;
   }
   
   .about-hero-content p {
     font-size: 1rem;
-    color: #94C973 !important;
+    color: white !important;
   }
   
   .president-content h2 {
@@ -555,7 +581,7 @@
 
 .gallery-item {
   position: relative;
-  border-radius: 15px;
+  border-radius: 0;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;

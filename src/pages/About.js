@@ -74,8 +74,8 @@ const About = () => {
             transition={{ duration: 0.8 }}
             className="about-hero-content"
           >
-            <h1>About 180 DC MSU</h1>
-            <p>Empowering organizations through student-driven consulting excellence</p>
+            <h1>About Us</h1>
+            <p>Empowering organizations worldwide through student-driven consulting excellence</p>
           </motion.div>
         </div>
       </section>
@@ -91,8 +91,8 @@ const About = () => {
               className="president-image"
             >
               <img 
-                src="/sahib.webp" 
-                alt="President Sahib" 
+                src="/eboard headshots/1.png" 
+                alt="Ethan Oliven" 
                 className="president-photo"
               />
             </motion.div>
@@ -104,7 +104,7 @@ const About = () => {
               className="president-content"
             >
               <h2>President's Welcome</h2>
-              <p className="president-name">Sahib Sekhon</p>
+              <p className="president-name">Ethan Oliven</p>
               <p>
               Welcome to 180 Degrees Consulting at Michigan State University. As President, I’m proud to lead a diverse and driven team of students who are passionate about creating real-world impact through strategic problem solving.
               </p>
