@@ -4,18 +4,11 @@ import { useRef } from 'react';
 import { 
   FaBullseye, 
   FaEye, 
-  FaRocket, 
   FaUsers, 
   FaChartLine, 
-  FaLightbulb, 
   FaGlobe,
-  FaHands,
-  FaWrench,
-  FaBuilding,
   FaHandsHelping,
-  FaForward,
-  FaLongArrowAltRight,
-  FaRegArrowAltCircleRight
+  FaForward
 } from 'react-icons/fa';
 import './About.css';
 
@@ -23,12 +16,10 @@ const About = () => {
   const presidentRef = useRef(null);
   const missionRef = useRef(null);
   const differenceRef = useRef(null);
-  const galleryRef = useRef(null);
   
   const isPresidentInView = useInView(presidentRef, { once: true });
   const isMissionInView = useInView(missionRef, { once: true });
   const isDifferenceInView = useInView(differenceRef, { once: true });
-  const isGalleryInView = useInView(galleryRef, { once: true });
 
   const differences = [
     {

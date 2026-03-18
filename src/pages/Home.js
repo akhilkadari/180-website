@@ -6,7 +6,6 @@ import {
   FaChartLine,
   FaLightbulb,
   FaHandshake,
-  FaStar,
   FaArrowRight,
   FaChevronLeft,
   FaChevronRight,
@@ -21,11 +20,9 @@ const heroImages = ["/all_girls_2026.jpeg", Pic2, Pic3, "/new_org_2026.jpeg"];
 const Home = () => {
   const statsRef = useRef(null);
   const valuesRef = useRef(null);
-  const testimonialsRef = useRef(null);
 
   const isStatsInView = useInView(statsRef, { once: true });
   const isValuesInView = useInView(valuesRef, { once: true });
-  const isTestimonialsInView = useInView(testimonialsRef, { once: true });
 
   const [stats, setStats] = useState({
     projects: 0,
@@ -91,30 +88,6 @@ const Home = () => {
       title: "Ethical",
       description:
         "We work with transparency and accountability across every engagement.",
-    },
-  ];
-
-  const testimonials = [
-    {
-      name: "Sarah Johnson",
-      role: "CEO, TechStart Inc.",
-      content:
-        "180 DC MSU transformed our business strategy and helped us increase revenue by 40% in just 6 months.",
-      rating: 5,
-    },
-    {
-      name: "Rusty Singh",
-      role: "CEO, BTS Carrier",
-      content:
-        "The team at 180 Degrees Consulting combined strategic analysis with practical solutions. Their work helped us identify inefficiencies in our digital strategy and offered concrete steps to enhance both our internal operations and external visibility.",
-      rating: 5,
-    },
-    {
-      name: "Emily Rodriguez",
-      role: "Director, CommunityFirst",
-      content:
-        "Working with 180 DC MSU was a game-changer for our nonprofit organization. Their insights were invaluable.",
-      rating: 5,
     },
   ];
 

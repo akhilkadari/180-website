@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 import { 
   FaLinkedin, 
   FaInstagram, 
-  FaTwitter, 
   FaEnvelope, 
-  FaPhone,
   FaMapMarkerAlt
 } from 'react-icons/fa';
 import './Footer.css';

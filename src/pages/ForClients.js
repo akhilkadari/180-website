@@ -1,13 +1,6 @@
 import React from "react";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import {
-  FaCalendarAlt,
-  FaUsers,
-  FaChartLine,
-  FaLightbulb,
-  FaCheckCircle,
-  FaArrowRight,
   FaDollarSign,
   FaSearch,
   FaExpand,
@@ -16,117 +9,9 @@ import {
   FaLaptopCode,
 } from "react-icons/fa";
 import "./ForClients.css";
-import MinskoffPavilion from "../assets/Minskoff-Pavilion-Lawn.jpg";
 import PavilionImage from "../assets/MSU_Broad_College_of_Business_Pavilion_01.jpg";
 
 const ForClients = () => {
-  const timelineRef = useRef(null);
-  const projectsRef = useRef(null);
-
-  const isTimelineInView = useInView(timelineRef, { once: true });
-  const isProjectsInView = useInView(projectsRef, { once: true });
-
-  const timelineSteps = [
-    {
-      id: 1,
-      title: "Initial Consultation",
-      description:
-        "We will get to know your organization, its mission, operations, and both short-term and long-term goals. We will also discuss any challenges you're facing and how we can assist.",
-      duration: "1-2 weeks",
-      icon: <FaUsers />,
-    },
-    {
-      id: 2,
-      title: "Team Introduction",
-      description:
-        "Meet the team who will work with you over the next 7–9 weeks. This first call will involve introductions, discussions about pain points, clarifying questions, and drafting a project roadmap and framework.",
-      duration: "1 week",
-      icon: <FaCalendarAlt />,
-    },
-    {
-      id: 3,
-      title: "Development Phase",
-      description:
-        "The team works to develop personalized recommendations through ideation, research, data analysis, and synthesis, with weekly updates on their progress.",
-      duration: "4-6 weeks",
-      icon: <FaChartLine />,
-    },
-    {
-      id: 4,
-      title: "Mid-Project Check-In",
-      description:
-        "A formal review to ensure the team is on track, followed by a presentation or written deliverable, providing enough time to adjust strategy if needed.",
-      duration: "3-4 weeks",
-      icon: <FaLightbulb />,
-    },
-    {
-      id: 5,
-      title: "Final Presentation",
-      description:
-        "After review by the Director of Quality Assurance, E-Board, and Project Advisors, the team will present their findings and recommendations.",
-      duration: "2-3 weeks",
-      icon: <FaCheckCircle />,
-    },
-    {
-      id: 6,
-      title: "Feedback Collection",
-      description:
-        "We will obtain feedback on the team's performance, our branch's onboarding process, communication, and the quality deliverables.",
-      duration: "1 week",
-      icon: <FaCheckCircle />,
-    },
-  ];
-
-  const projectCards = [
-    {
-      id: 1,
-      clientName: "TechStart Inc.",
-      clientLogo: "https://via.placeholder.com/100x100/1a365d/ffffff?text=TS",
-      challenge:
-        "Struggling with market expansion and customer acquisition in competitive tech sector",
-      solution:
-        "Developed comprehensive market entry strategy with targeted customer segmentation and digital marketing optimization",
-      impact:
-        "40% increase in customer acquisition, 25% improvement in market share within 6 months",
-      industry: "Technology",
-    },
-    {
-      id: 2,
-      clientName: "GreenSolutions",
-      clientLogo: "https://via.placeholder.com/100x100/38b2ac/ffffff?text=GS",
-      challenge:
-        "Needed to optimize supply chain operations and reduce environmental impact",
-      solution:
-        "Implemented sustainable supply chain practices with cost optimization and carbon footprint reduction strategies",
-      impact:
-        "30% reduction in operational costs, 50% decrease in carbon emissions",
-      industry: "Sustainability",
-    },
-    {
-      id: 3,
-      clientName: "CommunityFirst",
-      clientLogo: "https://via.placeholder.com/100x100/f6ad55/ffffff?text=CF",
-      challenge:
-        "Required strategic planning for nonprofit growth and donor engagement",
-      solution:
-        "Created comprehensive fundraising strategy with donor relationship management and program expansion plan",
-      impact:
-        "60% increase in donor contributions, 35% growth in program reach",
-      industry: "Nonprofit",
-    },
-    {
-      id: 4,
-      clientName: "Local Retail Chain",
-      clientLogo: "https://via.placeholder.com/100x100/e53e3e/ffffff?text=LR",
-      challenge: "Facing declining sales and need for digital transformation",
-      solution:
-        "Developed omnichannel retail strategy with e-commerce integration and customer experience optimization",
-      impact:
-        "45% increase in online sales, 20% improvement in customer retention",
-      industry: "Retail",
-    },
-  ];
-
   return (
     <div className="for-clients">
       {/* Hero Section */}
