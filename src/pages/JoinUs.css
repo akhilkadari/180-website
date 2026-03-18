@@ -966,4 +966,44 @@
   font-weight: 600;
   display: block;
   text-align: right;
-} 
+}
+
+/* BA image + testimonials layout */
+.ba-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.ba-image {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* center photo above testimonials */
+}
+
+.ba-content {
+  width: 100%;
+}
+
+.ba-photo {
+  display: block;
+  width: auto;          /* don't stretch to fill */
+  height: auto;         /* keep natural proportions */
+  max-width: 900px;     /* make it bigger without filling space */
+  max-height: 70vh;     /* prevent taking over the whole screen */
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 900px) {
+  .ba-grid {
+    max-width: 700px;
+  }
+
+  .ba-photo {
+    max-width: 100%;
+  }
+}

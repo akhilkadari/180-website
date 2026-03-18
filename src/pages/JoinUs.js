@@ -294,7 +294,7 @@ const JoinUs = () => {
           <div className="ba-grid">
             <div className="ba-image">
               <img 
-                src="/ba_pic.jpeg" 
+                src="/2026_bas.jpeg" 
                 alt="Business Analyst Team" 
                 className="ba-photo"
               />

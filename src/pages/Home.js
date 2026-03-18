@@ -12,13 +12,11 @@ import {
   FaChevronRight,
 } from "react-icons/fa";
 import "./Home.css";
-import Pic1 from "../assets/180Pic1.jpg";
 import Pic2 from "../assets/180Pic2.jpg";
 import Pic3 from "../assets/180Pic3.jpg";
-import Pic4 from "../assets/180Pic4.jpg";
 import MinskoffPavilion from "../assets/MinskoffPavilion.jpg";
 
-const heroImages = [Pic1, Pic2, Pic3, Pic4];
+const heroImages = ["/all_girls_2026.jpeg", Pic2, Pic3, "/new_org_2026.jpeg"];
 
 const Home = () => {
   const statsRef = useRef(null);
