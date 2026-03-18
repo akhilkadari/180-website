@@ -57,7 +57,10 @@ const About = () => {
   return (
     <div className="about">
       {/* Hero Section */}
-      <section className="about-hero">
+      <section
+        className="about-hero"
+        style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/new_org_silly.jpeg)` }}
+      >
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 50 }}

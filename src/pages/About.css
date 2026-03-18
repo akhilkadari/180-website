@@ -1,12 +1,12 @@
 /* About Hero Section */
 .about-hero {
-  background-image: url('/public/silly_group_pic.jpeg'); 
-  background-position: center;
+  /* Offset so image starts below fixed navbar (70px tall) */
+  background-position: center 70px;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed; 
   color: white;
-  padding: 14rem 0 5rem;
+  padding: 18rem 0 8rem;
   text-align: center;
   position: relative;
 }
