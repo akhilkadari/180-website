@@ -8,8 +8,6 @@ import {
   FaGlobe,
   FaHandsHelping,
   FaForward,
-  FaLightbulb,
-  FaHandshake,
 } from "react-icons/fa";
 import GlowCard from "../components/GlowCard";
 import InteractiveSelector from "../components/InteractiveSelector";
@@ -65,32 +63,6 @@ const differences = [
     title: "Long-Term Growth",
     description:
       "Final recommendations come with an implementation roadmap, so the value compounds well after the engagement ends. Never a slide deck on a shelf.",
-  },
-];
-
-const pillars = [
-  {
-    icon: <FaChartLine />,
-    title: "Impact-Driven",
-    description: "Every engagement is scoped around measurable change - not slide volume.",
-  },
-  {
-    icon: <FaUsers />,
-    title: "Collaborative",
-    description:
-      "Interdisciplinary teams from engineering, business, pre-med, and design.",
-  },
-  {
-    icon: <FaLightbulb />,
-    title: "Learning-Oriented",
-    description:
-      "Members work on live problems with senior mentorship, not case-prep busywork.",
-  },
-  {
-    icon: <FaHandshake />,
-    title: "Ethical",
-    description:
-      "Transparent scoping, honest deliverables, accountable handoff.",
   },
 ];
 
@@ -233,96 +205,56 @@ const About = () => {
         </div>
       </section>
 
-      {/* Pillars - the four principles that shape every engagement. */}
-      <section className="pillars-section">
-        <div className="container">
-          <motion.div
-            className="pillars-header"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="section-eyebrow">What we're built on</span>
-            <h2 className="pillars-title">
-              Four <span className="accent">principles.</span>
-            </h2>
-            <p className="pillars-sub">
-              The shared mindset behind every project we deliver.
-            </p>
-          </motion.div>
-
-          <div className="pillars-grid">
-            {pillars.map((p, i) => (
-              <motion.div
-                key={p.title}
-                className="pillar-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-              >
-                <span className="pillar-num">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div className="pillar-icon">{p.icon}</div>
-                <h3 className="pillar-title">{p.title}</h3>
-                <p className="pillar-desc">{p.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
+      {/* Mission & Vision - the four pillars block was removed at user
+          request; mission/vision now carry the "what we believe" weight
+          on this page. Plain light cards (no GlowCard backdrop) so the
+          warm-paper section reads soft, not heavy. */}
       <section ref={missionRef} className="mission-section-v2">
         <div className="page-hero-orb page-hero-orb-1" />
         <div className="page-hero-orb page-hero-orb-2" />
         <div className="container mission-inner">
           <div className="mission-grid-v2">
             <motion.div
+              className="mission-card-v2"
               initial={{ opacity: 0, y: 30 }}
               animate={isMissionInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
-              <GlowCard glowColor="green" className="mission-card-v2">
-                <div className="mission-icon-v2">
-                  <FaBullseye />
-                </div>
-                <span className="mission-eyebrow">Our Mission</span>
-                <h3 className="mission-card-title">
-                  Strategy that builds capacity.
-                </h3>
-                <p className="mission-card-text">
-                  We provide mission-driven organizations with high-quality
-                  consulting services that help them overcome challenges, scale
-                  their impact, and operate more effectively. Our team is
-                  committed to producing work that is thoughtful, well-researched,
-                  and actionable.
-                </p>
-              </GlowCard>
+              <div className="mission-icon-v2">
+                <FaBullseye />
+              </div>
+              <span className="mission-eyebrow">Our Mission</span>
+              <h3 className="mission-card-title">
+                Strategy that builds capacity.
+              </h3>
+              <p className="mission-card-text">
+                We provide mission-driven organizations with high-quality
+                consulting services that help them overcome challenges, scale
+                their impact, and operate more effectively. Our team is
+                committed to producing work that is thoughtful, well-researched,
+                and actionable.
+              </p>
             </motion.div>
 
             <motion.div
+              className="mission-card-v2"
               initial={{ opacity: 0, y: 30 }}
               animate={isMissionInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
-              <GlowCard glowColor="green" className="mission-card-v2">
-                <div className="mission-icon-v2">
-                  <FaEye />
-                </div>
-                <span className="mission-eyebrow">Our Vision</span>
-                <h3 className="mission-card-title">
-                  Strategy without barriers.
-                </h3>
-                <p className="mission-card-text">
-                  We envision a world where every organization driving positive
-                  social change, regardless of size, sector, or location, has
-                  access to high-quality strategic support that empowers them to
-                  maximize their impact and achieve lasting transformation.
-                </p>
-              </GlowCard>
+              <div className="mission-icon-v2">
+                <FaEye />
+              </div>
+              <span className="mission-eyebrow">Our Vision</span>
+              <h3 className="mission-card-title">
+                Strategy without barriers.
+              </h3>
+              <p className="mission-card-text">
+                We envision a world where every organization driving positive
+                social change, regardless of size, sector, or location, has
+                access to high-quality strategic support that empowers them to
+                maximize their impact and achieve lasting transformation.
+              </p>
             </motion.div>
           </div>
         </div>

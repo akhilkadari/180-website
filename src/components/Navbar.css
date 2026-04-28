@@ -164,20 +164,48 @@
     display: none;
   }
 
+  /* Mobile layout per user request: hamburger on the LEFT, logo on the
+     RIGHT. Achieved by reordering the flex children — hamburger gets
+     order:0, logo gets order:1. Margin on the logo flips so the right
+     edge sits flush with the container padding. */
+  .nav-container {
+    padding: 0 1rem;
+    height: 60px;
+  }
+
   .nav-toggle {
     display: block;
+    order: 0;
+    margin-right: auto;
+    font-size: 1.25rem;
+    padding: 0.4rem;
+    /* Larger tap target than the icon glyph alone, important for thumb
+       reach on a phone. */
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-logo {
+    order: 1;
+    margin: 0;
+  }
+
+  .logo-img {
+    height: 38px;
+    max-width: 180px;
   }
 
   .mobile-menu.active {
     display: block;
   }
+}
 
-  .nav-container {
-    padding: 0 1rem;
-  }
-
+@media (max-width: 380px) {
   .logo-img {
-    height: 52px;
-    max-width: 240px;
+    height: 32px;
+    max-width: 150px;
   }
 }

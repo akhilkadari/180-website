@@ -14,7 +14,7 @@ import StatNum from "../components/StatNum";
 // baked-in sky), logo is the brand mark mid-layer, and the back layer
 // is a CSS gradient sky so any parallax overflow stays continuous.
 const HERO_LAYERS = {
-  building: "/images/backgrounds/Hero%201%20GLow.png",
+  building: "/images/backgrounds/Hero%201%20GLow.jpg",
   logo: "/images/backgrounds/Hero%201%20Glow%20Logo.png",
 };
 
