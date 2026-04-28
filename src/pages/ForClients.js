@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import {
   FaDollarSign,
   FaSearch,
@@ -7,306 +7,274 @@ import {
   FaCogs,
   FaSitemap,
   FaLaptopCode,
+  FaArrowRight,
+  FaPaperPlane,
+  FaUsers,
+  FaCheckCircle,
+  FaSeedling,
 } from "react-icons/fa";
+import GlowCard from "../components/GlowCard";
+import StatNum from "../components/StatNum";
 import "./ForClients.css";
-import PavilionImage from "../assets/MSU_Broad_College_of_Business_Pavilion_01.jpg";
+
+const advantages = [
+  {
+    icon: <FaDollarSign />,
+    title: "Revenue Generation",
+    description:
+      "Strategic pricing models, sales funnel optimization, and new revenue stream identification to maximize your organization's financial performance.",
+  },
+  {
+    icon: <FaSearch />,
+    title: "Market Research",
+    description:
+      "Competitive analysis, consumer behavior studies, and market opportunity assessment to inform strategic decision-making.",
+  },
+  {
+    icon: <FaExpand />,
+    title: "Expansion Strategy",
+    description:
+      "Market entry planning, growth opportunity analysis, and scalability assessment to drive sustainable business expansion.",
+  },
+  {
+    icon: <FaCogs />,
+    title: "Operational Efficiency",
+    description:
+      "Process optimization, resource allocation, and cost reduction strategies to streamline operations and improve productivity.",
+  },
+  {
+    icon: <FaSitemap />,
+    title: "Organization",
+    description:
+      "Organizational structure design, team development strategies, and change management to optimize your human capital.",
+  },
+  {
+    icon: <FaLaptopCode />,
+    title: "Technology",
+    description:
+      "Digital transformation, tech stack assessment, and implementation roadmap to modernize your technological infrastructure.",
+  },
+];
+
+const processSteps = [
+  {
+    n: "01",
+    icon: <FaPaperPlane />,
+    title: "Initial inquiry",
+    detail: "You reach out, we set up a call to understand your organization and the challenge you're facing.",
+  },
+  {
+    n: "02",
+    icon: <FaUsers />,
+    title: "Project scoping",
+    detail: "We define deliverables, timeline, and team composition together. No fees, ever, just a clear plan.",
+  },
+  {
+    n: "03",
+    icon: <FaCheckCircle />,
+    title: "Engagement",
+    detail: "A 4–6 person team works with you over the semester: research, analysis, weekly check-ins, full transparency.",
+  },
+  {
+    n: "04",
+    icon: <FaSeedling />,
+    title: "Recommendation & handoff",
+    detail: "Final presentation with actionable recommendations, a written report, and an implementation roadmap.",
+  },
+];
 
 const ForClients = () => {
+  const advRef = useRef(null);
+  const procRef = useRef(null);
+  const isAdvInView = useInView(advRef, { once: true, margin: "-80px" });
+  const isProcInView = useInView(procRef, { once: true, margin: "-80px" });
+
   return (
     <div className="for-clients">
-      {/* Hero Section */}
-
-      <section 
-        className="clients-hero"
-        style={{
-          backgroundImage: `linear-gradient(135deg, #94c973 0%, rgba(45, 55, 72, 0.8) 100%), url(${PavilionImage})`
-        }}
+      {/* Hero - split layout: left text, right deliverables card.
+          --hero-bg is consumed by the .clients-hero-v2::before pseudo
+          element to render the Minskoff Pavilion photo behind the dim
+          overlay. */}
+      <section
+        className="page-hero clients-hero-v2"
+        style={{ "--hero-bg": "url('/images/backgrounds/minskoff-atrium.jpg')" }}
       >
-        <div className="container">
+        <div className="page-hero-orb page-hero-orb-1" />
+        <div className="page-hero-orb page-hero-orb-2" />
+        <div className="container clients-hero-grid">
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="clients-hero-content"
+            className="clients-hero-text"
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h1>For Clients</h1>
-            <p>
-              Transform your organization with student-driven consulting
-              excellence
+            <span className="page-hero-eyebrow">For Clients</span>
+            <h1 className="page-hero-title page-hero-title-left">
+              Strategic consulting,
+              <br />
+              <span className="accent">built around your goals.</span>
+            </h1>
+            <p className="page-hero-sub page-hero-sub-left">
+              We work with nonprofits, social enterprises, startups, and
+              established organizations across industries. Rigorous, always
+              student-led, always partner-mentored.
             </p>
+            <div className="page-hero-cta page-hero-cta-left">
+              <a href="/contact" className="btn btn-primary">
+                Start a project <FaArrowRight />
+              </a>
+              <a href="#why-choose-section" className="btn btn-secondary">
+                See what we do
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="clients-hero-card"
+            initial={{ opacity: 0, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className="clients-hero-card-label">What you get</span>
+            <ol className="clients-hero-list">
+              <li>Multidisciplinary 4–6 person team</li>
+              <li>8–12 week engagement</li>
+              <li>Senior partner mentorship</li>
+              <li>Tailored research &amp; analysis</li>
+              <li>Final report + implementation roadmap</li>
+            </ol>
           </motion.div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section id="why-choose-section" className="why-choose-section">
+      {/* Process timeline */}
+      <section ref={procRef} className="process-section">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="process-header"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isProcInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="section-header"
           >
-            <h2 style={{ color: "#94C973" }}>Why Choose 180 DC MSU?</h2>
-            <p>
-              Comprehensive consulting expertise across all key business areas
+            <span className="section-eyebrow">How it works</span>
+            <h2 className="section-title">
+              From inquiry to <span className="accent">impact.</span>
+            </h2>
+            <p className="process-subtitle">
+              An 8–12 week engagement with a dedicated student team backed by
+              senior mentors.
             </p>
           </motion.div>
 
-          <div className="advantages-grid">
-            <motion.div
-              className="advantage-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className="advantage-icon">
-                <FaDollarSign />
-              </div>
-              <h3>Revenue Generation</h3>
-              <p>
-                Strategic pricing models, sales funnel optimization, and new
-                revenue stream identification to maximize your organization's
-                financial performance.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="advantage-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className="advantage-icon">
-                <FaSearch />
-              </div>
-              <h3>Market Research</h3>
-              <p>
-                Competitive analysis, consumer behavior studies, and market
-                opportunity assessment to inform strategic decision-making.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="advantage-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <div className="advantage-icon">
-                <FaExpand />
-              </div>
-              <h3>Expansion Strategy</h3>
-              <p>
-                Market entry planning, growth opportunity analysis, and
-                scalability assessment to drive sustainable business expansion.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="advantage-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <div className="advantage-icon">
-                <FaCogs />
-              </div>
-              <h3>Operational Efficiency</h3>
-              <p>
-                Process optimization, resource allocation, and cost reduction
-                strategies to streamline operations and improve productivity.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="advantage-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <div className="advantage-icon">
-                <FaSitemap />
-              </div>
-              <h3>Organization</h3>
-              <p>
-                Organizational structure design, team development strategies,
-                and change management to optimize your human capital.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className="advantage-card"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <div className="advantage-icon">
-                <FaLaptopCode />
-              </div>
-              <h3>Technology</h3>
-              <p>
-                Digital transformation, tech stack assessment, and
-                implementation roadmap to modernize your technological
-                infrastructure.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Project Timeline */}
-      {/* <section ref={timelineRef} className="timeline-section">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isTimelineInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="section-header"
-        >
-          <h2>Our Project Journey</h2>
-          <p>
-            Experience our streamlined approach to delivering exceptional
-            results
-          </p>
-        </motion.div>
-
-        <div className="modern-timeline">
-          <div className="timeline-progress-container">
-            <motion.div
-              className="timeline-progress-bar"
-              initial={{ width: 0 }}
-              animate={isTimelineInView ? { width: "100%" } : {}}
-              transition={{ duration: 2, delay: 0.5 }}
-            />
-          </div>
-
-          <div className="timeline-steps-container">
-            {timelineSteps.map((step, index) => (
+          <div className="process-grid">
+            {processSteps.map((step, idx) => (
               <motion.div
-                key={step.id}
-                className="modern-timeline-step"
-                initial={{ opacity: 0, y: 50, scale: 0.8 }}
-                animate={isTimelineInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                transition={{
-                  duration: 0.7,
-                  delay: index * 0.15,
-                  type: "spring",
-                  stiffness: 100,
-                }}
-                whileHover={{
-                  y: -10,
-                  scale: 1.05,
-                  transition: { duration: 0.2 },
-                }}
-              >
-                <div className="step-number">{step.id}</div>
-                <div className="modern-step-content">
-                  <div className="step-icon-modern">{step.icon}</div>
-                  <h3>{step.title}</h3>
-                  <p>{step.description}</p>
-                  <div className="step-duration-modern">
-                    <span>{step.duration}</span>
-                  </div>
-                </div>
-                <div className="step-connector">
-                  <motion.div
-                    className="connector-dot"
-                    initial={{ scale: 0 }}
-                    animate={isTimelineInView ? { scale: 1 } : {}}
-                    transition={{ delay: index * 0.15 + 0.3, type: "spring" }}
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* Project Cards */}
-      {/* <section ref={projectsRef} className="projects-section">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isProjectsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-            className="section-header"
-          >
-            <h2>Success Stories</h2>
-            <p>Real results from organizations we've helped transform</p>
-          </motion.div>
-
-          <div className="projects-grid">
-            {projectCards.map((project, index) => (
-              <motion.div
-                key={project.id}
-                className="project-card"
+                key={step.n}
+                className="process-step"
                 initial={{ opacity: 0, y: 30 }}
-                animate={isProjectsInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
+                animate={isProcInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
               >
-                <div className="project-header">
-                  <div className="client-logo">
-                    <img src={project.clientLogo} alt={project.clientName} />
-                  </div>
-                  <div className="client-info">
-                    <h3>{project.clientName}</h3>
-                    <span className="industry">{project.industry}</span>
-                  </div>
-                </div>
-
-                <div className="project-content">
-                  <div className="project-section">
-                    <h4>Challenge</h4>
-                    <p>{project.challenge}</p>
-                  </div>
-
-                  <div className="project-section">
-                    <h4>Our Solution</h4>
-                    <p>{project.solution}</p>
-                  </div>
-
-                  <div className="project-section impact">
-                    <h4>Impact</h4>
-                    <p>{project.impact}</p>
-                  </div>
-                </div>
-
-                <div className="project-footer">
-                  <a href="/contact" className="learn-more">
-                    Learn More <FaArrowRight />
-                  </a>
-                </div>
+                <div className="process-step-num">{step.n}</div>
+                <div className="process-step-icon">{step.icon}</div>
+                <h3 className="process-step-title">{step.title}</h3>
+                <p className="process-step-detail">{step.detail}</p>
               </motion.div>
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
 
-      {/* CTA Section */}
-      <section className="cta-section">
+      {/* Why Choose / Advantages */}
+      <section
+        id="why-choose-section"
+        ref={advRef}
+        className="advantages-section"
+      >
+        <div className="page-hero-orb page-hero-orb-1" />
+        <div className="page-hero-orb page-hero-orb-2" />
+        <div className="container advantages-inner">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isAdvInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="advantages-header"
+          >
+            <span className="page-hero-eyebrow">Our expertise</span>
+            <h2 className="advantages-title">
+              Six practice areas, <span className="accent">one team.</span>
+            </h2>
+          </motion.div>
+
+          <div className="advantages-grid-v2">
+            {advantages.map((a, idx) => (
+              <motion.div
+                key={a.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isAdvInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: idx * 0.08 }}
+              >
+                <GlowCard glowColor="green" className="advantage-card-v2">
+                  <div className="advantage-icon-v2">{a.icon}</div>
+                  <h3 className="advantage-title-v2">{a.title}</h3>
+                  <p className="advantage-desc-v2">{a.description}</p>
+                </GlowCard>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats strip */}
+      <section className="clients-stats">
+        <div className="container">
+          <div className="clients-stats-grid">
+            <div className="clients-stat">
+              <span className="clients-stat-num">
+                <StatNum value={50} suffix="+" />
+              </span>
+              <span className="clients-stat-label">Projects delivered</span>
+            </div>
+            <div className="clients-stat">
+              <span className="clients-stat-num">8–12</span>
+              <span className="clients-stat-label">Week engagements</span>
+            </div>
+            <div className="clients-stat">
+              <span className="clients-stat-num">
+                <StatNum value={4} suffix="–6" />
+              </span>
+              <span className="clients-stat-label">Consultants per project</span>
+            </div>
+            <div className="clients-stat">
+              <span className="clients-stat-num">
+                <StatNum value={6} suffix="" />
+              </span>
+              <span className="clients-stat-label">Practice areas</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="clients-cta">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            className="clients-cta-card"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="cta-content"
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7 }}
           >
-            <h2>Ready to Transform Your Organization?</h2>
-            <p>
-              Let's discuss how our student consulting team can help you achieve
-              your goals.
+            <span className="page-hero-eyebrow">Get started</span>
+            <h2 className="clients-cta-title">
+              Tell us about your <span className="accent">organization.</span>
+            </h2>
+            <p className="clients-cta-sub">
+              Whether you have a defined challenge or just a hunch something
+              could be better, we'd love to talk. Reply within 24 hours.
             </p>
             <a href="/contact" className="btn btn-primary">
-              Get Started
+              Start a conversation <FaArrowRight />
             </a>
           </motion.div>
         </div>

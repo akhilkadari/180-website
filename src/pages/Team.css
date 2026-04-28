@@ -1,456 +1,429 @@
-/* Team Hero Section */
-.team .team-hero {
-  background: linear-gradient(135deg, #94C973 0%, rgba(45, 55, 72, 0.8) 100%) !important;
-  color: white;
-  padding: 4rem 0 2rem;
-  text-align: center;
+.team {
+  background: var(--paper);
 }
 
-.team-hero-content h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.team-hero-content p {
-  font-size: 1.3rem;
-  color: #94C973;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-/* Team Section */
-.team-section {
-  padding: 5rem 0;
-  background: white;
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2.5rem;
-}
-
-/* Center the last item (VP of Q&A) on larger screens when it's alone in a row */
-@media (min-width: 768px) {
-  .team-grid .team-card:last-child {
-    grid-column: 1 / -1;
-    justify-self: center;
-    max-width: 350px;
-  }
-}
-
-.team-card {
-  background: white;
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  border: 1px solid #94C973;
-}
-
-.team-card:hover {
-  box-shadow: 0 20px 40px rgba(148, 201, 115, 0.3);
-  border-color: #7ba05b;
-}
-
-.member-image {
+/* ============ Hero - center-aligned with eboard avatar peek ============ */
+.team-hero-v2 {
   position: relative;
-  height: 300px;
-  overflow: hidden;
+  isolation: isolate;
+  /* Trim the top padding (default .page-hero is 8rem) so the headline
+     lands near the top of the visible area instead of sitting under a
+     thick band of empty dim photo. */
+  padding: 4.5rem 0 4rem;
 }
 
-.member-image img {
+/* E-Board photo as deep background texture. Heavy blur + 95% dark overlay
+   so the team's silhouette barely glints through, no longer competing
+   with the headline. Negative inset + scale prevents blur edge bleed.
+   bg URL comes via --hero-bg custom property set inline on the section
+   in Team.js (CRA webpack tries to resolve url() paths in CSS). */
+.team-hero-v2::before {
+  content: '';
+  position: absolute;
+  inset: -30px;
+  background-image: var(--hero-bg);
+  background-size: cover;
+  background-position: center 35%;
+  filter: grayscale(0.4) saturate(0.7) blur(6px) brightness(0.7);
+  transform: scale(1.06);
+  z-index: 0;
+  opacity: 0.55;
+}
+
+.team-hero-v2::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(6, 9, 6, 0.92) 0%, rgba(6, 9, 6, 0.97) 100%),
+    radial-gradient(ellipse at 50% 50%, rgba(148, 201, 115, 0.10), transparent 70%);
+  z-index: 1;
+}
+
+/* Lift the inner content above the ::before photo + ::after dim overlay
+   stack. The orbs intentionally stay at their global `.page-hero-orb`
+   defaults (position: absolute, z-index: 1) - overriding them to
+   position: relative was making the 480/560 px sized empty divs take up
+   flow space and push the actual hero content off-screen. */
+.team-hero-v2 .page-hero-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-hero-avatars {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2.25rem;
+  padding: 0.5rem 1.25rem 0.5rem 0.85rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(148, 201, 115, 0.22);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+.team-hero-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--ink);
+  outline: 1px solid rgba(148, 201, 115, 0.4);
+  overflow: hidden;
+  margin-left: -14px;
+  background: #2a2a2a;
+  display: inline-block;
+  position: relative;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.team-hero-avatar:first-child {
+  margin-left: 0;
+}
+
+.team-hero-avatar:hover {
+  transform: translateY(-3px) scale(1.08);
+  z-index: 9999 !important;
+}
+
+.team-hero-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-/* Adjust specific headshot positioning to show more of the picture */
-.member-image img[alt="Puja Patel"] {
-  object-position: center 5%;
-}
-
-.member-image img[alt="Rucha Deshpande"] {
-  object-position: center 10%;
-}
-
-.member-image img[alt="Pranav Bellad"] {
-  object-position: center 30%;
-}
-
-.team-card:hover .member-image img {
-  transform: scale(1.05);
-}
-
-.member-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(148, 201, 115, 0.9);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  padding: 2rem;
-  /* Temporarily disabled - keeping code for future use */
-  pointer-events: none;
-}
-
-/* Temporarily disabled hover effect - keeping code for future use */
-/* .team-card:hover .member-overlay {
-  opacity: 1;
-} */
-
-.member-bio {
-  text-align: center;
-}
-
-.member-bio p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-}
-
-.member-details {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-}
-
-.member-info {
-  padding: 2rem;
-}
-
-.member-header {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
-
-
-.team .member-details h3 {
-  font-size: 1.5rem;
-  color: #000000 !important;
-  margin-bottom: 0.25rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-.role {
-  color: #94C973;
-  font-weight: 500;
-  font-size: 1rem;
-  text-align: center;
   display: block;
 }
 
-.member-social {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
+.team-hero-avatars-caption {
+  margin-left: 1rem;
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+  white-space: nowrap;
 }
 
-.social-link {
+@media (max-width: 600px) {
+  .team-hero-avatar {
+    width: 36px;
+    height: 36px;
+    margin-left: -12px;
+  }
+  .team-hero-avatars-caption {
+    display: none;
+  }
+}
+
+/* ============ Team Grid ============ */
+.team-section-v2 {
+  padding: 5rem 0 6rem;
+  background: var(--paper);
+}
+
+.team-grid-v2 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  /* Cap the row width so the centered orphan card on row 3 visually
+     hangs together with the two rows of three above it. */
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* 7 cards = 3 + 3 + 1 (centered). Place the 7th card in the middle
+   column so it doesn't sit alone on the left. */
+.team-grid-v2 > *:nth-child(7) {
+  grid-column: 2;
+}
+
+@media (max-width: 1024px) {
+  .team-grid-v2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* On 2-col layouts an odd 7th card centers across both columns. */
+  .team-grid-v2 > *:nth-child(7) {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    justify-self: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .team-grid-v2 {
+    grid-template-columns: 1fr;
+  }
+  .team-grid-v2 > *:nth-child(7) {
+    grid-column: 1;
+    max-width: none;
+  }
+}
+
+.team-card-wrap {
+  display: block;
+}
+
+.team-card-featured {
+  grid-column: span 1;
+}
+
+.team-card-v2 {
   display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  color: white;
+}
+
+.team-card-img-wrap {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.team-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.team-card-wrap:hover .team-card-img-wrap img {
+  transform: scale(1.05);
+}
+
+.team-card-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 30%, rgba(0, 0, 0, 0.92) 100%);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out);
+}
+
+.team-card-wrap:hover .team-card-img-overlay {
+  opacity: 1;
+}
+
+.team-card-bio {
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.5;
+  margin: 0 0 1rem;
+}
+
+.team-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.team-card-meta strong {
+  color: var(--brand-bright);
+  font-weight: 700;
+  margin-right: 0.4em;
+}
+
+.team-card-info {
+  padding: 1.25rem 1.4rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  position: relative;
+  z-index: 1;
+}
+
+.team-card-role {
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brand-bright);
+}
+
+.team-card-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: white;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.team-card-social {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+}
+
+.team-card-social a {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
-  color: white;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  transition: all 0.3s ease;
-  font-size: 1.1rem;
+  font-size: 0.85rem;
+  transition: all 0.25s var(--ease-out);
 }
 
-.social-link.linkedin {
-  background: #0077b5;
-}
-
-.social-link.email {
-  background: #ea4335;
-}
-
-
-
-.social-link:hover {
+.team-card-social a:hover {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: white;
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  filter: brightness(1.1);
 }
 
-/* Team Stats */
-.team-stats {
-  padding: 5rem 0;
-  background: rgba(148, 201, 115, 0.1);
+/* ============ Stats ============ */
+.team-stats-v2 {
+  position: relative;
+  background: var(--ink);
+  color: white;
+  padding: 6rem 0;
+  overflow: hidden;
 }
 
-.stats-content {
+.team-stats-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.team-stats-header {
   text-align: center;
+  margin-bottom: 3.5rem;
 }
 
-.stats-content h2 {
-  font-size: 2.5rem;
-  color: #94C973;
-  margin-bottom: 3rem;
-  font-weight: 600;
+.team-stats-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: white;
+  margin: 0.5rem 0 0;
+  line-height: 1.05;
 }
 
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 2rem;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(148, 201, 115, 0.2);
-  border: 1px solid rgba(148, 201, 115, 0.3);
-}
-
-.stat-number {
-  font-size: 3rem;
+.team-stats-title .accent {
+  color: var(--brand-bright);
+  font-style: italic;
   font-weight: 700;
-  color: #94C973;
+}
+
+.team-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 720px) {
+  .team-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.team-stat {
+  text-align: center;
+  padding: 2rem 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  transition: all 0.35s var(--ease-out);
+}
+
+.team-stat:hover {
+  border-color: rgba(148, 201, 115, 0.4);
+  background: rgba(148, 201, 115, 0.05);
+  transform: translateY(-4px);
+}
+
+.team-stat-num {
+  display: block;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--brand-bright);
+  letter-spacing: -0.04em;
   margin-bottom: 0.5rem;
 }
 
-.stat-label {
-  font-size: 1.1rem;
-  color: white;
+.team-stat-label {
+  font-family: var(--font-label);
+  font-size: 0.78rem;
   font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-/* Join Team CTA */
-.join-team-cta {
-  padding: 5rem 0;
-  background: linear-gradient(135deg, #94C973 0%, #7ba05b 100%);
-  color: white;
+/* ============ CTA ============ */
+.team-cta-v2 {
+  padding: 5rem 0 6rem;
+  background: var(--paper);
+}
+
+.team-cta-card {
+  background: linear-gradient(135deg, var(--ink) 0%, #1a1f1a 100%);
+  border: 1px solid rgba(148, 201, 115, 0.18);
+  border-radius: 24px;
+  padding: 4rem 2rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.cta-content h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  font-weight: 600;
+.team-cta-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--brand-glow), transparent 70%);
+  filter: blur(60px);
+  opacity: 0.5;
+  pointer-events: none;
 }
 
-.cta-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+.team-cta-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.team-cta-title {
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: white;
+  margin: 0.75rem 0 1rem;
+  line-height: 1.05;
+}
+
+.team-cta-title .accent {
+  color: var(--brand-bright);
+  font-style: italic;
+  font-weight: 700;
+}
+
+.team-cta-sub {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 540px;
+  margin: 0 auto 2rem;
   line-height: 1.6;
 }
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.btn-primary {
-  background: white;
-  color: #94C973;
-}
-
-.btn-primary:hover {
-  background: #f7fafc;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .team-hero-content h1 {
-    font-size: 2.5rem;
-  }
-  
-  .team-hero-content p {
-    font-size: 1.1rem;
-  }
-  
-  .team-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 0 1rem;
-  }
-  
-  .team-card {
-    border-radius: 12px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .member-image {
-    height: 280px;
-    border-radius: 12px 12px 0 0;
-  }
-  
-  .member-image img {
-    object-position: center 20%;
-  }
-  
-  .member-info {
-    padding: 1.5rem;
-  }
-  
-  .member-header {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.75rem;
-    margin-bottom: 1.25rem;
-  }
-  
-  .team .member-details h3 {
-    font-size: 1.4rem;
-    color: #000000 !important;
-    margin-bottom: 0.5rem;
-    text-align: center;
-  }
-  
-  .role {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .member-social {
-    gap: 1.25rem;
-    margin-top: 1rem;
-  }
-  
-  .social-link {
-    width: 45px;
-    height: 45px;
-    font-size: 1.2rem;
-  }
-  
-  .stats-content h2 {
-    font-size: 2rem;
-  }
-  
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  
-  .stat-number {
-    font-size: 2.5rem;
-  }
-  
-  .cta-content h2 {
-    font-size: 2rem;
-  }
-  
-  .cta-content p {
-    font-size: 1.1rem;
-  }
-  
-  .container {
-    padding: 0 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .team-hero-content h1 {
-    font-size: 2rem;
-  }
-  
-  .team-hero-content p {
-    font-size: 1rem;
-  }
-  
-  .team-grid {
-    gap: 1.25rem;
-    padding: 0 0.75rem;
-  }
-  
-  .team-card {
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  }
-  
-  .member-image {
-    height: 240px;
-    border-radius: 10px 10px 0 0;
-  }
-  
-  .member-image img {
-    object-position: center 25%;
-  }
-  
-  .member-overlay {
-    padding: 1rem;
-  }
-  
-  .member-bio p {
-    font-size: 0.9rem;
-  }
-  
-  .member-info {
-    padding: 1.25rem;
-  }
-  
-  .member-header {
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .team .member-details h3 {
-    font-size: 1.3rem;
-    color: #000000 !important;
-    margin-bottom: 0.4rem;
-    text-align: center;
-  }
-  
-  .role {
-    font-size: 1rem;
-    margin-bottom: 0.4rem;
-  }
-  
-  .member-social {
-    gap: 1rem;
-    margin-top: 0.75rem;
-  }
-  
-  .social-link {
-    width: 40px;
-    height: 40px;
-    font-size: 1.1rem;
-  }
-  
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .stat-number {
-    font-size: 2rem;
-  }
-  
-  .cta-content h2 {
-    font-size: 1.8rem;
-  }
-  
-  .cta-content p {
-    font-size: 1rem;
-  }
-} 

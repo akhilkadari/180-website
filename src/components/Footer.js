@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  FaLinkedin, 
-  FaInstagram, 
-  FaEnvelope, 
-  FaMapMarkerAlt
+import {
+  FaLinkedin,
+  FaInstagram,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaArrowRight
 } from 'react-icons/fa';
 import './Footer.css';
+
+const FOOTER_LOGO = '/images/logos/landscape-white.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -58,14 +61,38 @@ const Footer = () => {
 
   return (
     <footer className="footer">
+      <div className="footer-cta">
+        <div className="container">
+          <div className="footer-cta-inner">
+            <div>
+              <p className="footer-cta-eyebrow">Ready to make an impact?</p>
+              <h2 className="footer-cta-title">
+                Let's build something <span className="accent">meaningful</span>.
+              </h2>
+            </div>
+            <div className="footer-cta-actions">
+              <Link to="/for-clients" className="btn btn-primary">
+                Work with us <FaArrowRight />
+              </Link>
+              <Link to="/join-us" className="btn btn-secondary">
+                Join the team <FaArrowRight />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="footer-content">
         <div className="container">
           <div className="footer-grid">
             {/* Organization Info */}
             <div className="footer-section">
-              <div className="footer-logo">
-                <span className="logo-text">180</span>
-                <span className="logo-subtext">DC MSU</span>
+              <div className="footer-brand">
+                <img
+                  src={FOOTER_LOGO}
+                  alt="180 Degrees Consulting at Michigan State"
+                  className="footer-logo-img"
+                />
               </div>
               <p className="footer-description">
                 Empowering organizations through student-driven consulting excellence. 

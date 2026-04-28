@@ -1,18 +1,56 @@
+:root {
+  /* Brand */
+  --brand: #94c973;
+  --brand-bright: #b3e092;
+  --brand-dark: #6fa651;
+  --brand-glow: rgba(148, 201, 115, 0.35);
+
+  /* Neutrals */
+  --ink: #0a0a0a;
+  --ink-soft: #1a1a1a;
+  --ink-mid: #2d3748;
+  --ink-muted: #6b7280;
+  --line: #e5e7eb;
+  --line-soft: #f3f4f6;
+  --paper: #ffffff;
+  --paper-warm: #fafaf9;
+
+  /* Type - single primary font across the entire site for consistency. */
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  --font-label: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+
+  /* Elevation */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.12);
+  --shadow-brand: 0 12px 32px var(--brand-glow);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-body);
+  font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #ffffff;
-  color: #2d3748;
+  background-color: var(--paper);
+  color: var(--ink-soft);
   line-height: 1.6;
+  letter-spacing: -0.005em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  font-weight: 700;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 * {
@@ -23,26 +61,30 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom Scrollbar Styles */
+::selection {
+  background: var(--brand);
+  color: white;
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--line-soft);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #94C973;
+  background: var(--brand);
   border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7ba05b;
+  background: var(--brand-dark);
 }
 
-/* Firefox scrollbar styles */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #94C973 #f1f1f1;
+  scrollbar-color: var(--brand) var(--line-soft);
 }

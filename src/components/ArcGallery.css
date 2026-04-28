@@ -1,0 +1,116 @@
+.arc-gallery {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 0 6rem;
+}
+
+.arc-gallery-stage {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.arc-gallery-pivot {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+/* Cards start hidden + slid down. Final transform (translate -50%/+50%)
+   centers them on their computed (left, bottom) anchor on the arc. The
+   transition only triggers once the parent gets `.arc-gallery-in-view`
+   from the IntersectionObserver, so cards aren't already animated in
+   before the user has scrolled the section into view. */
+.arc-gallery-card-wrap {
+  position: absolute;
+  transform: translate(-50%, 70%);
+  opacity: 0;
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--card-delay, 0ms),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--card-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.arc-gallery-in-view .arc-gallery-card-wrap {
+  opacity: 1;
+  transform: translate(-50%, 50%);
+}
+
+.arc-gallery-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #161716;
+  border: 1px solid rgba(148, 201, 115, 0.25);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.55),
+    0 0 26px rgba(148, 201, 115, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.arc-gallery-card:hover {
+  transform: scale(1.08) !important;
+  box-shadow:
+    0 24px 50px rgba(0, 0, 0, 0.65),
+    0 0 40px rgba(148, 201, 115, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  z-index: 9999;
+}
+
+.arc-gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Content sits inside the arc opening - pulled up so the fan frames it.
+   Same scroll-triggered pattern as the cards: invisible until
+   .arc-gallery-in-view lights up, then fades in after the cards have
+   started landing. */
+.arc-gallery-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  margin: -10rem auto 0;
+  padding: 0 1.5rem;
+  max-width: 720px;
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s,
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s;
+}
+
+.arc-gallery-in-view .arc-gallery-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1024px) {
+  .arc-gallery-content {
+    margin-top: -7rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .arc-gallery-content {
+    margin-top: -4.5rem;
+    max-width: 480px;
+  }
+}
+
+/* Old @keyframes (arcCardIn / arcContentIn) removed - the entrance is
+   now driven by transition + the .arc-gallery-in-view class toggle, so
+   we get the same visual but gated on scroll position. */

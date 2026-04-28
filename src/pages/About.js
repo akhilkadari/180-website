@@ -1,293 +1,296 @@
-import React from 'react';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import { 
-  FaBullseye, 
-  FaEye, 
-  FaUsers, 
-  FaChartLine, 
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import {
+  FaBullseye,
+  FaEye,
+  FaUsers,
+  FaChartLine,
   FaGlobe,
   FaHandsHelping,
-  FaForward
-} from 'react-icons/fa';
-import './About.css';
+  FaForward,
+  FaArrowRight,
+} from "react-icons/fa";
+import GlowCard from "../components/GlowCard";
+import InteractiveSelector from "../components/InteractiveSelector";
+import "./About.css";
+
+// Each card leads with a tangible metric so the section reads
+// quantitative instead of vibes-based.
+const differences = [
+  {
+    icon: <FaGlobe />,
+    metric: "200+",
+    metricLabel: "branches in 40+ countries",
+    title: "Global Network, Local Focus",
+    description:
+      "Part of the world's largest student consulting network, with project insights and alumni connections spanning six continents, applied to every East Lansing engagement.",
+  },
+  {
+    icon: <FaUsers />,
+    metric: "10+",
+    metricLabel: "majors on active teams",
+    title: "Interdisciplinary Teams",
+    description:
+      "From engineering and pre-med to business and computer science, every project team is staffed across disciplines so clients get the perspective their problem actually needs.",
+  },
+  {
+    icon: <FaHandsHelping />,
+    metric: "100%",
+    metricLabel: "on live engagements",
+    title: "Hands-On Leadership",
+    description:
+      "Nobody sits on the bench. Every member, including first-semester analysts, contributes directly to client deliverables with real ownership.",
+  },
+  {
+    icon: <FaForward />,
+    metric: "<5%",
+    metricLabel: "applicant acceptance rate",
+    title: "Best Foot Forward",
+    description:
+      "A selective multi-round recruitment process ensures the team that shows up to your project is sharp, prepared, and ready to deliver from day one.",
+  },
+  {
+    icon: <FaBullseye />,
+    metric: "8–12",
+    metricLabel: "week tailored engagements",
+    title: "Client-Centered Approach",
+    description:
+      "Scope, deliverables, and timeline are co-designed with every client. No boilerplate decks, no off-the-shelf playbooks, just work built around your capacity.",
+  },
+  {
+    icon: <FaChartLine />,
+    metric: "100+",
+    metricLabel: "projects delivered to date",
+    title: "Long-Term Growth",
+    description:
+      "Final recommendations come with an implementation roadmap, so the value compounds well after the engagement ends. Never a slide deck on a shelf.",
+  },
+];
 
 const About = () => {
   const presidentRef = useRef(null);
   const missionRef = useRef(null);
   const differenceRef = useRef(null);
-  
-  const isPresidentInView = useInView(presidentRef, { once: true });
-  const isMissionInView = useInView(missionRef, { once: true });
-  const isDifferenceInView = useInView(differenceRef, { once: true });
-
-  const differences = [
-    {
-      icon: <FaGlobe />,
-      title: "Global Network, Local Focus",
-      description: "We’re part of a global consulting network, but tailor every project to meet the needs of our diverse clients."
-    },
-    {
-      icon: <FaUsers />,
-      title: "Interdisciplinary Teams",
-      description: "Our members come from diverse academic backgrounds—engineering, pre-med, business, and more—bringing unique perspectives to each project."
-    },
-    {
-      icon: <FaHandsHelping />,
-      title: "Hands-On Leadership",
-      description: "All team members contribute directly to projects with real responsibility and opportunities to grow."
-    },
-    {
-      icon: <FaForward />,
-      title: "Best Foot Forward",
-      description: "We maintain high standards for recruitment, with an extremely selective application process to ensure quality across every engagement."
-    },
-    {
-      icon: <FaBullseye />,
-      title: "Client-Centered Approach",
-      description: "We structure our work around the goals and capacity of each client with every solution is tailored and actionable."
-    },
-    {
-      icon: <FaChartLine />,
-      title: "Long-Term Growth",
-      description: "We go beyond deliverables to help organizations build sustainable strategies and roadmaps for the future."
-    }
-  ];
+  const isPresidentInView = useInView(presidentRef, { once: true, margin: "-80px" });
+  const isMissionInView = useInView(missionRef, { once: true, margin: "-80px" });
+  const isDifferenceInView = useInView(differenceRef, { once: true, margin: "-80px" });
 
   return (
     <div className="about">
-      {/* Hero Section */}
-      <section
-        className="about-hero"
-        style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/new_org_silly.jpeg)` }}
-      >
+      {/* President's Welcome - first thing on the page */}
+      <section ref={presidentRef} className="president-section-v2">
         <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="about-hero-content"
-          >
-            <h1>About Us</h1>
-            <p>Empowering organizations worldwide through student-driven consulting excellence</p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* President's Welcome Section */}
-      <section ref={presidentRef} className="president-section">
-        <div className="container">
-          <div className="president-grid">
+          <div className="president-grid-v2">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              className="president-photo-wrap"
+              initial={{ opacity: 0, x: -30 }}
               animate={isPresidentInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6 }}
-              className="president-image"
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
-              <img 
-                src="/eboard headshots/1.png" 
-                alt="Ethan Oliven" 
-                className="president-photo"
-              />
+              <GlowCard glowColor="green" className="president-glow">
+                <img
+                  src="/images/team/eboard-headshots/1.png"
+                  alt="Ethan Oliven, President"
+                  className="president-img"
+                />
+                {/* Removed the floating PRESIDENT / Ethan Oliven caption -
+                    it duplicated the President title on the right column
+                    and read as templated. The photo now stands clean. */}
+              </GlowCard>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              className="president-content-v2"
+              initial={{ opacity: 0, x: 30 }}
               animate={isPresidentInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="president-content"
+              transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <h2>President's Welcome</h2>
-              <p className="president-name">Ethan Oliven</p>
-              <p>
-              Welcome to 180 Degrees Consulting at Michigan State University. As President, I’m proud to lead a diverse and driven team of students who are passionate about creating real-world impact through strategic problem solving.
-              </p>
-              <p>
-              Offering the best of the best at MSU, what makes 180DC MSU unique is the way we bridge academic insight with hands-on consulting experience. Our members don’t just learn in the classroom—they apply those lessons to help startups, nonprofits, and businesses tackle real challenges across industries.
-              </p>
-              <p>
-              Every project is an opportunity to generate meaningful results for our clients while developing the next generation of leaders. We take pride not only in the work we deliver, but in the collaborative, growth-focused environment we’ve built for our team.
-              </p>
-              <p>
-              Whether you’re a prospective client, a student interested in joining, or simply curious about our work, I invite you to explore our website and discover what makes 180DC MSU one of the most impactful organizations on campus.
-              </p>
+              <span className="section-eyebrow">A message from</span>
+              <h2 className="section-title">
+                Our <span className="accent">President.</span>
+              </h2>
+              <div className="president-letter">
+                <p>
+                  Welcome to 180 Degrees Consulting at Michigan State University.
+                  As President, I'm proud to lead a diverse and driven team of
+                  students who are passionate about creating real-world impact
+                  through strategic problem solving.
+                </p>
+                <p>
+                  Offering the best of the best at MSU, what makes 180DC MSU
+                  unique is the way we bridge academic insight with hands-on
+                  consulting experience. Our members don't just learn in the
+                  classroom; they apply those lessons to help startups,
+                  nonprofits, and businesses tackle real challenges across
+                  industries.
+                </p>
+                <p>
+                  Whether you're a prospective client, a student interested in
+                  joining, or simply curious about our work, I invite you to
+                  explore our website and discover what makes 180DC MSU one of
+                  the most impactful organizations on campus.
+                </p>
+              </div>
+              <p className="president-sign">Ethan Oliven, President</p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Mission & Vision Section */}
-      <section ref={missionRef} className="mission-section">
-        <div className="container">
-          <div className="mission-grid">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={isMissionInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6 }}
-              className="mission-card"
-            >
-              <div className="mission-icon">
-                <FaBullseye />
-              </div>
-              <h2>Our Mission</h2>
-              <p>
-              We provide mission-driven organizations with high-quality consulting services that help them overcome challenges, scale their impact, and operate more effectively. Our team is committed to producing work that is thoughtful, well-researched, and actionable.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={isMissionInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="vision-card"
-            >
-              <div className="vision-icon">
-                <FaEye />
-              </div>
-              <h2>Our Vision</h2>
-              <p>
-              We envision a world where every organization driving positive social change—regardless of size, sector, or location—has access to high-quality strategic support that empowers them to maximize their impact and achieve lasting transformation.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* What Makes Us Different Section */}
-      <section ref={differenceRef} className="difference-section">
+      {/* What Makes Us Different - moved up so the metrics-led pitch sits
+          right under the President's Letter, where users land first. */}
+      <section ref={differenceRef} className="difference-section-v2">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            className="difference-header"
+            initial={{ opacity: 0, y: 20 }}
             animate={isDifferenceInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="section-header"
           >
-            <h2>What Makes Us Different</h2>
-            <p>The unique advantages that set 180 DC MSU apart from traditional consulting firms</p>
+            <span className="section-eyebrow">What sets us apart</span>
+            <h2 className="section-title">
+              Six things we do <span className="accent">differently.</span>
+            </h2>
           </motion.div>
 
-          <div className="differences-grid">
-            {differences.map((difference, index) => (
+          <div className="difference-grid-v2">
+            {differences.map((d, idx) => (
               <motion.div
-                key={index}
-                className="difference-card"
+                key={d.title}
+                className="difference-card-v2"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isDifferenceInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: idx * 0.08 }}
               >
-                <div className="difference-icon">{difference.icon}</div>
-                <h3>{difference.title}</h3>
-                <p>{difference.description}</p>
+                <div className="difference-num">{String(idx + 1).padStart(2, "0")}</div>
+                <div className="difference-icon-v2">{d.icon}</div>
+                {/* Lead with a hard metric instead of just an adjective. */}
+                <div className="difference-metric">
+                  <span className="difference-metric-num">{d.metric}</span>
+                  <span className="difference-metric-label">{d.metricLabel}</span>
+                </div>
+                <h3 className="difference-card-title">{d.title}</h3>
+                <p className="difference-card-text">{d.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Fun Moments Section */}
-      <section className="fun-moments-section">
+      {/* Events - Interactive Selector */}
+      <section className="events-section">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            className="events-header"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="section-header"
           >
-            <h2>Fun Moments</h2>
-            <p>Capturing the memories and experiences that make our team special</p>
+            <span className="section-eyebrow">Behind the scenes</span>
+            <h2 className="section-title">
+              The team, <span className="accent">in motion.</span>
+            </h2>
+            <p className="events-sub">
+              From bid night to retreats, click a panel to explore.
+            </p>
           </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+          >
+            <InteractiveSelector />
+          </motion.div>
+        </div>
+      </section>
 
-          <div className="fun-moments-gallery">
+      {/* Mission & Vision */}
+      <section ref={missionRef} className="mission-section-v2">
+        <div className="page-hero-orb page-hero-orb-1" />
+        <div className="page-hero-orb page-hero-orb-2" />
+        <div className="container mission-inner">
+          <div className="mission-grid-v2">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="gallery-item"
+              animate={isMissionInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
-              <img src="/bidnight.jpeg" alt="Bid Night" />
-              <div className="gallery-caption">
-                <h4>Bid Night</h4>
-                <p>Celebrating our new members is a huge part of our culture.</p>
-              </div>
+              <GlowCard glowColor="green" className="mission-card-v2">
+                <div className="mission-icon-v2">
+                  <FaBullseye />
+                </div>
+                <span className="mission-eyebrow">Our Mission</span>
+                <h3 className="mission-card-title">
+                  Strategy that builds capacity.
+                </h3>
+                <p className="mission-card-text">
+                  We provide mission-driven organizations with high-quality
+                  consulting services that help them overcome challenges, scale
+                  their impact, and operate more effectively. Our team is
+                  committed to producing work that is thoughtful, well-researched,
+                  and actionable.
+                </p>
+              </GlowCard>
             </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="gallery-item"
+              animate={isMissionInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
-              <img src="/chicago.jpeg" alt="Chicago Roadshow" />
-              <div className="gallery-caption">
-                <h4>Chicago Roadshow</h4>
-                <p>We take many trips to places like Chicago to network with top firms and other consulting organizations.</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="gallery-item"
-            >
-              <img src="/bcg.jpeg" alt="BCG Visit" />
-              <div className="gallery-caption">
-                <h4>Company Visits</h4>
-                <p>We visit firms like BCG to learn more about their processes and culture.</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="gallery-item"
-            >
-              <img src="/mmm.jpeg" alt="Mass Member Meetings" />
-              <div className="gallery-caption">
-                <h4>Mass Member Meetings</h4>
-                <p>Our MMM's are always a fun time to touchbase and explore the progress of other teams.</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              viewport={{ once: true }}
-              className="gallery-item"
-            >
-              <img src="/eboardbanquet.JPG" alt="E-board Banquet" />
-              <div className="gallery-caption">
-                <h4>Banquet</h4>
-                <p>We always have a great time at our annual end of year banquet.</p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: true }}
-              className="gallery-item"
-            >
-              <img src="/retreat.JPG" alt="Retreat" />
-              <div className="gallery-caption">
-                <h4>Team Retreat</h4>
-                <p>From gingerbread houses to team bonding activities, our retreats are always a blast.</p>
-              </div>
+              <GlowCard glowColor="green" className="mission-card-v2">
+                <div className="mission-icon-v2">
+                  <FaEye />
+                </div>
+                <span className="mission-eyebrow">Our Vision</span>
+                <h3 className="mission-card-title">
+                  Strategy without barriers.
+                </h3>
+                <p className="mission-card-text">
+                  We envision a world where every organization driving positive
+                  social change, regardless of size, sector, or location, has
+                  access to high-quality strategic support that empowers them to
+                  maximize their impact and achieve lasting transformation.
+                </p>
+              </GlowCard>
             </motion.div>
           </div>
         </div>
       </section>
 
+      {/* CTA */}
+      <section className="about-cta">
+        <div className="container">
+          <motion.div
+            className="about-cta-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7 }}
+          >
+            <span className="page-hero-eyebrow">Get involved</span>
+            <h2 className="about-cta-title">
+              Two ways to <span className="accent">work with us.</span>
+            </h2>
+            <p className="about-cta-sub">
+              Whether you want to apply your skills or get strategic support
+              for your organization, we'd love to hear from you.
+            </p>
+            <div className="about-cta-actions">
+              <a href="/join-us" className="btn btn-primary">
+                Apply now <FaArrowRight />
+              </a>
+              <a href="/for-clients" className="btn btn-secondary">
+                Work with us <FaArrowRight />
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 };
 
-export default About; 
+export default About;
