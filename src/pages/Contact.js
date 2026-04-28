@@ -73,7 +73,7 @@ const Contact = () => {
     {
       icon: <FaLinkedin />,
       name: "LinkedIn",
-      url: "https://www.linkedin.com/company/180-degrees-consulting-msu/",
+      url: "https://www.linkedin.com/company/180-degrees-consulting-michigan-state-university",
     },
     {
       icon: <FaInstagram />,

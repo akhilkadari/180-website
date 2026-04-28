@@ -243,7 +243,10 @@ const JoinUs = () => {
   return (
     <div className="join-us">
       {/* Hero */}
-      <section className="page-hero join-hero-v2">
+      <section
+        className="page-hero join-hero-v2 join-hero-v2--light"
+        style={{ "--hero-bg": "url('/images/backgrounds/minskoff.jpg')" }}
+      >
         <div className="page-hero-orb page-hero-orb-1" />
         <div className="page-hero-orb page-hero-orb-2" />
         <div className="container join-hero-grid">
@@ -253,17 +256,20 @@ const JoinUs = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="page-hero-eyebrow">Now recruiting</span>
+            <span className="page-hero-eyebrow">
+              <span className="join-hero-pulse" /> Now recruiting
+            </span>
             <h1 className="page-hero-title page-hero-title-left">
-              Build your career
+              Become a consultant.
               <br />
-              <span className="accent">on real work.</span>
+              <span className="accent">Join our team.</span>
             </h1>
             <p className="page-hero-sub page-hero-sub-left">
-              Join Michigan State's premier student consulting organization
-              and work with real clients, alongside a team of driven peers,
-              backed by a global network.
+              We are MSU's premier student consulting organization. Work with
+              real clients, learn alongside a team of driven peers, and tap
+              into a global network of 180+ chapters.
             </p>
+
             <div className="page-hero-cta page-hero-cta-left">
               <a
                 href="https://forms.gle/a1w3L12YNuQKwdtn8"
@@ -271,10 +277,10 @@ const JoinUs = () => {
                 rel="noopener noreferrer"
                 className="btn btn-primary"
               >
-                Apply now <FaArrowRight />
+                Start your application <FaArrowRight />
               </a>
               <a href="#faq-section" className="btn btn-secondary">
-                See FAQ
+                Read the FAQ <FaArrowRight />
               </a>
             </div>
           </motion.div>
@@ -427,7 +433,6 @@ const JoinUs = () => {
                     <span>{step.id}</span>
                   </div>
                   <div className="timeline-step-card">
-                    <span className="timeline-step-date">{step.date}</span>
                     <div className="timeline-step-icon">{step.icon}</div>
                     <h3 className="timeline-step-title">{step.title}</h3>
                     <p className="timeline-step-desc">{step.description}</p>

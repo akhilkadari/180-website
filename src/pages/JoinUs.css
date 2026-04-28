@@ -4,7 +4,42 @@
 
 /* ============ Hero ============ */
 .join-hero-v2 {
+  position: relative;
+  isolation: isolate;
   padding: 6rem 0 5rem;
+  overflow: hidden;
+}
+
+/* Broad photo as deep background texture - same treatment as the
+   Team and For Clients heroes so all three page-tops feel cohesive.
+   bg URL comes via --hero-bg custom property set inline in JoinUs.js
+   (CRA webpack chokes on url() paths inside .css files). */
+.join-hero-v2::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+/* Dark overlay - dim the photo so the headline reads white-on-dark
+   matching the Home and Team page heroes. */
+.join-hero-v2::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 12, 8, 0.78) 0%, rgba(8, 12, 8, 0.88) 100%),
+    radial-gradient(ellipse at 50% 50%, rgba(148, 201, 115, 0.12), transparent 70%);
+  z-index: 1;
+}
+
+.join-hero-v2 > .container {
+  position: relative;
+  z-index: 2;
 }
 
 .join-hero-grid {
@@ -25,6 +60,70 @@
 
 .join-hero-text {
   text-align: left;
+}
+
+/* Pulsing dot prefix on the eyebrow signals "live recruiting" without
+   needing a chip background. Just a small green ping. */
+.join-hero-pulse {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand-bright);
+  margin-right: 0.55rem;
+  vertical-align: middle;
+  position: relative;
+  box-shadow: 0 0 0 0 rgba(148, 201, 115, 0.7);
+  animation: joinPulse 1.8s ease-out infinite;
+}
+
+@keyframes joinPulse {
+  0% { box-shadow: 0 0 0 0 rgba(148, 201, 115, 0.6); }
+  70% { box-shadow: 0 0 0 10px rgba(148, 201, 115, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(148, 201, 115, 0); }
+}
+
+/* Quick-fact chip row between the sub-headline and the CTA buttons.
+   Tightens the value prop and adds visual rhythm without a heavy
+   stat block. */
+.join-hero-chips {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.join-hero-chips li {
+  font-family: var(--font-label);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(148, 201, 115, 0.32);
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.join-hero-chips strong {
+  color: var(--brand-bright);
+  font-weight: 700;
+  margin-right: 0.3em;
+}
+
+/* Make sure the two CTAs align flush and have matching heights so the
+   "Read the FAQ →" button reads as a real partner to the primary CTA. */
+.join-hero-text .page-hero-cta {
+  align-items: center;
+}
+
+.join-hero-text .page-hero-cta .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
 }
 
 .page-hero-title-left {
@@ -57,7 +156,7 @@
   padding: 0;
   overflow: hidden;
   width: 100%;
-  max-width: 500px;
+  max-width: 460px;
   background: #050505;
 }
 
@@ -65,7 +164,7 @@
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 4/5;
+  aspect-ratio: 4/3;
   object-fit: cover;
   border-radius: calc(var(--radius) * 1px);
 }
@@ -73,7 +172,7 @@
 /* ============ Benefits ============ */
 .benefits-section-v2 {
   padding: 6rem 0;
-  background: var(--paper);
+  background: var(--paper-warm);
 }
 
 .benefits-header {
@@ -95,11 +194,13 @@
 
 .benefit-card-v2 {
   padding: 2.25rem 2rem;
-  color: white;
+  color: var(--ink);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   height: 100%;
+  background: var(--paper);
+  border: 1px solid var(--line);
 }
 
 .benefit-icon-v2 {
@@ -119,14 +220,14 @@
 .benefit-title-v2 {
   font-size: 1.3rem;
   font-weight: 800;
-  color: white;
+  color: var(--ink);
   margin: 0;
   letter-spacing: -0.02em;
 }
 
 .benefit-desc-v2 {
   font-size: 0.98rem;
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--ink-muted);
   line-height: 1.6;
   margin: 0.25rem 0 0;
 }
@@ -134,7 +235,7 @@
 /* ============ Timeline ============ */
 .timeline-section-v2 {
   padding: 6rem 0;
-  background: var(--paper-warm);
+  background: var(--paper);
 }
 
 .timeline-header {
@@ -313,8 +414,8 @@
 /* ============ BA Testimonials ============ */
 .ba-section-v2 {
   position: relative;
-  background: var(--ink);
-  color: white;
+  background: var(--paper-warm);
+  color: var(--ink);
   padding: 6rem 0;
   overflow: hidden;
 }
@@ -333,13 +434,13 @@
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 800;
   letter-spacing: -0.035em;
-  color: white;
+  color: var(--ink);
   margin: 0.5rem 0 0;
   line-height: 1.05;
 }
 
 .ba-title .accent {
-  color: var(--brand-bright);
+  color: var(--brand);
   font-style: italic;
   font-weight: 700;
 }
@@ -381,7 +482,8 @@
 
 .ba-testimonial {
   padding: 1.5rem 1.75rem;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--paper);
+  border: 1px solid var(--line);
   border-left: 3px solid var(--brand);
   border-radius: 0 14px 14px 0;
   margin: 0;
@@ -389,7 +491,7 @@
 
 .ba-testimonial p {
   font-size: 1rem;
-  color: rgba(255, 255, 255, 0.88);
+  color: var(--ink-mid);
   line-height: 1.65;
   margin: 0 0 0.85rem;
   font-style: italic;
@@ -404,7 +506,7 @@
 .ba-testimonial-name {
   font-size: 0.95rem;
   font-weight: 700;
-  color: white;
+  color: var(--ink);
 }
 
 .ba-testimonial-role {
@@ -413,7 +515,7 @@
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--brand-bright);
+  color: var(--brand);
 }
 
 /* ============ Roles - promotion-ladder stepper ============

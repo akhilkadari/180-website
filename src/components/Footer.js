@@ -34,7 +34,7 @@ const Footer = () => {
     {
       icon: <FaLinkedin />,
       name: 'LinkedIn',
-      url: 'https://www.linkedin.com/company/180-degrees-consulting-msu/',
+      url: 'https://www.linkedin.com/company/180-degrees-consulting-michigan-state-university',
       color: '#0077b5'
     },
     {
@@ -61,7 +61,10 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <div className="footer-cta">
+      <div
+        className="footer-cta"
+        style={{ "--footer-cta-bg": "url('/images/backgrounds/donor-wall.jpg')" }}
+      >
         <div className="container">
           <div className="footer-cta-inner">
             <div>
@@ -75,7 +78,7 @@ const Footer = () => {
                 Work with us <FaArrowRight />
               </Link>
               <Link to="/join-us" className="btn btn-secondary">
-                Join the team <FaArrowRight />
+                Apply <FaArrowRight />
               </Link>
             </div>
           </div>

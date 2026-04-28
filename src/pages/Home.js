@@ -2,10 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  FaUsers,
-  FaChartLine,
-  FaLightbulb,
-  FaHandshake,
   FaArrowRight,
   FaTrophy,
 } from "react-icons/fa";
@@ -14,19 +10,26 @@ import ArcGallery from "../components/ArcGallery";
 import Globe from "../components/Globe";
 import StatNum from "../components/StatNum";
 
-const HERO_BG = "/images/backgrounds/hero-new-4.jpg";
+// Three-layer hero. Building is the foreground scene (campus + its own
+// baked-in sky), logo is the brand mark mid-layer, and the back layer
+// is a CSS gradient sky so any parallax overflow stays continuous.
+const HERO_LAYERS = {
+  building: "/images/backgrounds/Hero%201%20GLow.png",
+  logo: "/images/backgrounds/Hero%201%20Glow%20Logo.png",
+};
 
 // Curated event photos for the arc gallery - all newly uploaded labeled
 // shots first, then a few legacy ones for variety. Spaces are URL-encoded
 // because filenames preserve them as-is.
 const ARC_PHOTOS = [
-  "/images/events/E-Board%20Photo.JPEG",
+  "/images/events/st-jude-basketball.jpg",
   "/images/events/Spring%202026%20BA%20Class.JPEG",
   "/images/events/Women%20in%20180.JPEG",
   "/images/events/gala2026.jpg",
   "/images/events/Chicago%20trip%20-%20social.JPEG",
   "/images/events/Social%20party.JPEG",
   "/images/events/retreat.JPG",
+  "/images/events/E-Board%20Photo.JPEG",
 ];
 
 
@@ -71,37 +74,8 @@ const branchMarkers = [
 ];
 
 const Home = () => {
-  // Four pillars + four numbers - combined into a single editorial
-  // "manifesto" section below so they reinforce each other instead of
-  // sitting in two separate generic blocks.
-  const pillars = [
-    {
-      icon: <FaChartLine />,
-      title: "Impact-Driven",
-      description: "Every engagement is scoped around measurable change - not slide volume.",
-    },
-    {
-      icon: <FaUsers />,
-      title: "Collaborative",
-      description:
-        "Interdisciplinary teams from engineering, business, pre-med, and design.",
-    },
-    {
-      icon: <FaLightbulb />,
-      title: "Learning-Oriented",
-      description:
-        "Members work on live problems with senior mentorship, not case-prep busywork.",
-    },
-    {
-      icon: <FaHandshake />,
-      title: "Ethical",
-      description:
-        "Transparent scoping, honest deliverables, accountable handoff.",
-    },
-  ];
-
   const headlineStats = [
-    { num: 50, suffix: "+", label: "Projects delivered" },
+    { num: 100, suffix: "+", label: "Projects delivered" },
     { num: 45, suffix: "", label: "Active members" },
     { num: 500, suffix: "+", label: "180DC alumni" },
     { num: 6, suffix: "", label: "Practice areas" },
@@ -110,11 +84,39 @@ const Home = () => {
   return (
     <div className="home">
       {/* Hero Reveal */}
-      <section className="hero-reveal">
-        <div
-          className="hero-reveal-bg"
-          style={{ backgroundImage: `url(${HERO_BG})` }}
-        />
+      <section
+        className="hero-reveal"
+        onMouseMove={(e) => {
+          const r = e.currentTarget.getBoundingClientRect();
+          const nx = (e.clientX - r.left) / r.width - 0.5;
+          const ny = (e.clientY - r.top) / r.height - 0.5;
+          e.currentTarget.style.setProperty("--nx", nx.toFixed(3));
+          e.currentTarget.style.setProperty("--ny", ny.toFixed(3));
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.setProperty("--nx", "0");
+          e.currentTarget.style.setProperty("--ny", "0");
+        }}
+      >
+        <div className="hero-layer hero-layer-sky" aria-hidden="true" />
+        {/* Building + logo layers ride inside a `.hero-rise` wrapper that
+            slides up from below on mount. The inner `.hero-layer` keeps its
+            scale(1.06) + cursor-parallax transform untouched, so entrance
+            and parallax compose without fighting each other. */}
+        <div className="hero-rise hero-rise-building">
+          <div
+            className="hero-layer hero-layer-building"
+            style={{ backgroundImage: `url('${HERO_LAYERS.building}')` }}
+            aria-hidden="true"
+          />
+        </div>
+        <div className="hero-rise hero-rise-logo">
+          <div
+            className="hero-layer hero-layer-logo"
+            style={{ backgroundImage: `url('${HERO_LAYERS.logo}')` }}
+            aria-hidden="true"
+          />
+        </div>
         <div className="hero-reveal-vignette" />
 
         <div className="hero-reveal-content">
@@ -122,7 +124,7 @@ const Home = () => {
             className="hero-reveal-headline"
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.9, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="line-bold">180 Degrees Consulting</span>
             <span className="line-accent">
@@ -138,7 +140,7 @@ const Home = () => {
             className="hero-reveal-tagline"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.7 }}
+            transition={{ duration: 0.7, delay: 1.3 }}
           >
             We're the MSU chapter of the world's largest student-run
             consulting network, delivering pro-bono strategy work for
@@ -149,7 +151,7 @@ const Home = () => {
             className="hero-reveal-buttons"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.85 }}
+            transition={{ duration: 0.7, delay: 1.45 }}
           >
             <Link to="/for-clients" className="btn btn-primary">
               Start a project <FaArrowRight />
@@ -163,7 +165,7 @@ const Home = () => {
             className="hero-reveal-stats"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 1.0 }}
+            transition={{ duration: 0.7, delay: 1.6 }}
           >
             <div className="hero-stat">
               <span className="hero-stat-num">
@@ -192,7 +194,7 @@ const Home = () => {
           className="hero-reveal-scroll-hint"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2.4, duration: 0.6 }}
+          transition={{ delay: 2.8, duration: 0.6 }}
         >
           <span>Scroll</span>
           <div className="scroll-line" />
@@ -207,30 +209,18 @@ const Home = () => {
         />
         <div className="award-strip-overlay" />
         <div className="container award-creative-stage">
-          <motion.div
-            className="award-photo-stack"
-            initial={{ opacity: 0, y: 30, rotate: -4 }}
-            whileInView={{ opacity: 1, y: 0, rotate: -2 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          >
+          {/* Award block deliberately renders static — no entrance animation
+              per user request. Photo just sits at its tilt; copy is pinned
+              from first paint. */}
+          <div className="award-photo-stack">
             <img
               className="award-photo-img"
               src="/images/events/gala2026.jpg"
               alt="180DC MSU receiving the Consulting Organization of the Year award at the 2026 Gala"
             />
-            {/* Removed the #1 corner seal - user wanted the photo to stand on
-                its own with the trophy mention living in the eyebrow on the
-                right column. */}
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="award-creative-text"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          >
+          <div className="award-creative-text">
             {/* Editorial meta block - replaced the trophy-in-a-pill chip
                 (which read as templated/AI) with a structured masthead-style
                 label: vertical brand rule + small label / source line. */}
@@ -252,7 +242,7 @@ const Home = () => {
               Recognized for excellence in delivering measurable impact across
               Michigan State's nonprofits and social enterprises.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -348,16 +338,19 @@ const Home = () => {
         cardSizeSm={84}
       >
         <h2 className="arc-gallery-title">
-          Real consulting. <span className="accent">Real impact.</span>
+          The people behind <span className="accent">the work.</span>
         </h2>
         <p className="arc-gallery-sub">
-          Bid nights, banquets, retreats, Chicago. The team behind every
-          deck we ship.
+          Forty-plus members across business, engineering, design, and
+          pre-med.
         </p>
       </ArcGallery>
 
       {/* By the numbers - hard stats in a centered horizontal strip. */}
-      <section className="stats-strip">
+      <section
+        className="stats-strip"
+        style={{ "--stats-bg": "url('/images/backgrounds/donor-wall.jpg')" }}
+      >
         <div className="container">
           <motion.div
             className="stats-strip-header"
@@ -368,7 +361,7 @@ const Home = () => {
           >
             <span className="section-eyebrow">By the numbers</span>
             <h2 className="stats-strip-title">
-              The receipts, <span className="accent">at a glance.</span>
+              The proof, <span className="accent">at a glance.</span>
             </h2>
           </motion.div>
 
@@ -386,47 +379,6 @@ const Home = () => {
                   <StatNum value={s.num} suffix={s.suffix} />
                 </span>
                 <span className="stats-strip-label">{s.label}</span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pillars - the four principles that shape every engagement. */}
-      <section className="pillars-section">
-        <div className="container">
-          <motion.div
-            className="pillars-header"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="section-eyebrow">What we're built on</span>
-            <h2 className="pillars-title">
-              Four <span className="accent">principles.</span>
-            </h2>
-            <p className="pillars-sub">
-              The shared mindset behind every project we deliver.
-            </p>
-          </motion.div>
-
-          <div className="pillars-grid">
-            {pillars.map((p, i) => (
-              <motion.div
-                key={p.title}
-                className="pillar-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-              >
-                <span className="pillar-num">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div className="pillar-icon">{p.icon}</div>
-                <h3 className="pillar-title">{p.title}</h3>
-                <p className="pillar-desc">{p.description}</p>
               </motion.div>
             ))}
           </div>

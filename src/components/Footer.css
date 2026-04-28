@@ -41,11 +41,12 @@
   opacity: 0.5;
 }
 
-/* CTA Strip */
+/* CTA Strip - plain dark band; the donor-wall photo now lives on the
+   By-the-Numbers section above so this strip reads as a clean black. */
 .footer-cta {
   position: relative;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   padding: 4rem 0;
+  background-color: #000;
 }
 
 .footer-cta-inner {
@@ -134,25 +135,37 @@
 }
 
 /* Brand */
+/* Same lockup CSS as the navbar (height-driven, object-fit: contain).
+   The PNG has a lot of transparent padding around the glyphs, so the
+   parent .footer-brand clips to the height of the visible logo and
+   center-aligns the img inside, which crops the phantom whitespace and
+   pulls the description right under the lockup with no gap. */
 .footer-brand {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 56px;
+  overflow: hidden;
   margin: 0;
 }
 
 .footer-logo-img {
-  /* Big enough to read at a glance, small enough not to overwhelm the
-     column. The landscape-white.png lockup is wide, so we size by width
-     and let height scale naturally. */
-  width: 100%;
-  max-width: 320px;
-  height: auto;
+  height: 180px;
+  width: auto;
   display: block;
+  object-fit: contain;
+  max-width: 360px;
+  flex-shrink: 0;
   filter: drop-shadow(0 3px 12px var(--brand-glow));
 }
 
 @media (max-width: 768px) {
+  .footer-brand {
+    height: 48px;
+  }
   .footer-logo-img {
-    max-width: 240px;
+    height: 150px;
+    max-width: 300px;
   }
 }
 

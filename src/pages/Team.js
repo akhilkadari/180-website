@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { FaLinkedin, FaEnvelope, FaArrowRight } from "react-icons/fa";
+import { FaLinkedin, FaEnvelope } from "react-icons/fa";
 import GlowCard from "../components/GlowCard";
 import StatNum from "../components/StatNum";
 import "./Team.css";
@@ -110,7 +110,7 @@ const Team = () => {
           .team-hero-v2::before in Team.css). */}
       <section
         className="page-hero team-hero-v2"
-        style={{ "--hero-bg": "url('/images/events/E-Board%20Photo.JPEG')" }}
+        style={{ "--hero-bg": "url('/images/backgrounds/donor-wall-close.jpg')" }}
       >
         <div className="page-hero-orb page-hero-orb-1" />
         <div className="page-hero-orb page-hero-orb-2" />
@@ -180,7 +180,7 @@ const Team = () => {
                   delay: index * 0.08,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className={`team-card-wrap ${index === 0 ? "team-card-featured" : ""}`}
+                className="team-card-wrap"
               >
                 <GlowCard glowColor="green" className="team-card-v2">
                   <div className="team-card-img-wrap">
@@ -257,38 +257,14 @@ const Team = () => {
             </div>
             <div className="team-stat">
               <span className="team-stat-num">
-                <StatNum value={50} suffix="+" />
+                <StatNum value={180} suffix="+" />
               </span>
-              <span className="team-stat-label">Projects delivered</span>
+              <span className="team-stat-label">Global branches</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Join CTA */}
-      <section className="team-cta-v2">
-        <div className="container">
-          <motion.div
-            className="team-cta-card"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7 }}
-          >
-            <span className="page-hero-eyebrow">Join the team</span>
-            <h2 className="team-cta-title">
-              Ready to make an <span className="accent">impact?</span>
-            </h2>
-            <p className="team-cta-sub">
-              We're always looking for talented students who want to do real
-              consulting work for organizations that matter.
-            </p>
-            <a href="/join-us" className="btn btn-primary">
-              Apply now <FaArrowRight />
-            </a>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 };

@@ -97,7 +97,7 @@ const ForClients = () => {
           overlay. */}
       <section
         className="page-hero clients-hero-v2"
-        style={{ "--hero-bg": "url('/images/backgrounds/minskoff-atrium.jpg')" }}
+        style={{ "--hero-bg": "url('/images/backgrounds/donor-wall-close.jpg')" }}
       >
         <div className="page-hero-orb page-hero-orb-1" />
         <div className="page-hero-orb page-hero-orb-2" />
@@ -231,7 +231,7 @@ const ForClients = () => {
           <div className="clients-stats-grid">
             <div className="clients-stat">
               <span className="clients-stat-num">
-                <StatNum value={50} suffix="+" />
+                <StatNum value={100} suffix="+" />
               </span>
               <span className="clients-stat-label">Projects delivered</span>
             </div>
@@ -255,30 +255,6 @@ const ForClients = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="clients-cta">
-        <div className="container">
-          <motion.div
-            className="clients-cta-card"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7 }}
-          >
-            <span className="page-hero-eyebrow">Get started</span>
-            <h2 className="clients-cta-title">
-              Tell us about your <span className="accent">organization.</span>
-            </h2>
-            <p className="clients-cta-sub">
-              Whether you have a defined challenge or just a hunch something
-              could be better, we'd love to talk. Reply within 24 hours.
-            </p>
-            <a href="/contact" className="btn btn-primary">
-              Start a conversation <FaArrowRight />
-            </a>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 };

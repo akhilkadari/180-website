@@ -8,7 +8,8 @@ import {
   FaGlobe,
   FaHandsHelping,
   FaForward,
-  FaArrowRight,
+  FaLightbulb,
+  FaHandshake,
 } from "react-icons/fa";
 import GlowCard from "../components/GlowCard";
 import InteractiveSelector from "../components/InteractiveSelector";
@@ -64,6 +65,32 @@ const differences = [
     title: "Long-Term Growth",
     description:
       "Final recommendations come with an implementation roadmap, so the value compounds well after the engagement ends. Never a slide deck on a shelf.",
+  },
+];
+
+const pillars = [
+  {
+    icon: <FaChartLine />,
+    title: "Impact-Driven",
+    description: "Every engagement is scoped around measurable change - not slide volume.",
+  },
+  {
+    icon: <FaUsers />,
+    title: "Collaborative",
+    description:
+      "Interdisciplinary teams from engineering, business, pre-med, and design.",
+  },
+  {
+    icon: <FaLightbulb />,
+    title: "Learning-Oriented",
+    description:
+      "Members work on live problems with senior mentorship, not case-prep busywork.",
+  },
+  {
+    icon: <FaHandshake />,
+    title: "Ethical",
+    description:
+      "Transparent scoping, honest deliverables, accountable handoff.",
   },
 ];
 
@@ -192,7 +219,7 @@ const About = () => {
               The team, <span className="accent">in motion.</span>
             </h2>
             <p className="events-sub">
-              From bid night to retreats, click a panel to explore.
+              From celebrations to retreats, the moments that shape our team.
             </p>
           </motion.div>
           <motion.div
@@ -203,6 +230,47 @@ const About = () => {
           >
             <InteractiveSelector />
           </motion.div>
+        </div>
+      </section>
+
+      {/* Pillars - the four principles that shape every engagement. */}
+      <section className="pillars-section">
+        <div className="container">
+          <motion.div
+            className="pillars-header"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="section-eyebrow">What we're built on</span>
+            <h2 className="pillars-title">
+              Four <span className="accent">principles.</span>
+            </h2>
+            <p className="pillars-sub">
+              The shared mindset behind every project we deliver.
+            </p>
+          </motion.div>
+
+          <div className="pillars-grid">
+            {pillars.map((p, i) => (
+              <motion.div
+                key={p.title}
+                className="pillar-card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+              >
+                <span className="pillar-num">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div className="pillar-icon">{p.icon}</div>
+                <h3 className="pillar-title">{p.title}</h3>
+                <p className="pillar-desc">{p.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -260,35 +328,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="about-cta">
-        <div className="container">
-          <motion.div
-            className="about-cta-card"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7 }}
-          >
-            <span className="page-hero-eyebrow">Get involved</span>
-            <h2 className="about-cta-title">
-              Two ways to <span className="accent">work with us.</span>
-            </h2>
-            <p className="about-cta-sub">
-              Whether you want to apply your skills or get strategic support
-              for your organization, we'd love to hear from you.
-            </p>
-            <div className="about-cta-actions">
-              <a href="/join-us" className="btn btn-primary">
-                Apply now <FaArrowRight />
-              </a>
-              <a href="/for-clients" className="btn btn-secondary">
-                Work with us <FaArrowRight />
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 };

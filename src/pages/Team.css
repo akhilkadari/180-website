@@ -1,5 +1,5 @@
 .team {
-  background: var(--paper);
+  background: var(--ink);
 }
 
 /* ============ Hero - center-aligned with eboard avatar peek ============ */
@@ -9,7 +9,7 @@
   /* Trim the top padding (default .page-hero is 8rem) so the headline
      lands near the top of the visible area instead of sitting under a
      thick band of empty dim photo. */
-  padding: 4.5rem 0 4rem;
+  padding: 4.5rem 0 2rem;
 }
 
 /* E-Board photo as deep background texture. Heavy blur + 95% dark overlay
@@ -24,10 +24,10 @@
   background-image: var(--hero-bg);
   background-size: cover;
   background-position: center 35%;
-  filter: grayscale(0.4) saturate(0.7) blur(6px) brightness(0.7);
+  filter: grayscale(0.35) saturate(0.7) blur(5px) brightness(0.75);
   transform: scale(1.06);
   z-index: 0;
-  opacity: 0.55;
+  opacity: 0.62;
 }
 
 .team-hero-v2::after {
@@ -35,7 +35,7 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(6, 9, 6, 0.92) 0%, rgba(6, 9, 6, 0.97) 100%),
+    linear-gradient(180deg, rgba(6, 9, 6, 0.88) 0%, rgba(6, 9, 6, 0.94) 100%),
     radial-gradient(ellipse at 50% 50%, rgba(148, 201, 115, 0.10), transparent 70%);
   z-index: 1;
 }
@@ -118,35 +118,44 @@
 
 /* ============ Team Grid ============ */
 .team-section-v2 {
-  padding: 5rem 0 6rem;
-  background: var(--paper);
+  padding: 2rem 0 6rem;
+  background: var(--ink);
 }
 
 .team-grid-v2 {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
-  /* Cap the row width so the centered orphan card on row 3 visually
-     hangs together with the two rows of three above it. */
-  max-width: 1100px;
+  /* 8-col base lets us do 4 cards on row 1 (each 2 cols) and 3 cards
+     centered on row 2 (each 2 cols, offset by 1 col on each side). */
+  grid-template-columns: repeat(8, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-/* 7 cards = 3 + 3 + 1 (centered). Place the 7th card in the middle
-   column so it doesn't sit alone on the left. */
-.team-grid-v2 > *:nth-child(7) {
-  grid-column: 2;
+.team-grid-v2 > * {
+  grid-column: span 2;
+}
+
+/* 7 cards = 4 + 3 (centered). The 5th card jumps into col 2 so the
+   bottom row sits in cols 2-7, leaving col 1 and col 8 empty for the
+   centered effect. */
+.team-grid-v2 > *:nth-child(5) {
+  grid-column: 2 / span 2;
 }
 
 @media (max-width: 1024px) {
   .team-grid-v2 {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
-  /* On 2-col layouts an odd 7th card centers across both columns. */
+  .team-grid-v2 > * {
+    grid-column: span 2;
+  }
+  .team-grid-v2 > *:nth-child(5) {
+    grid-column: 1 / span 2;
+  }
+  /* 2-col layouts: orphan 7th card centers across both columns. */
   .team-grid-v2 > *:nth-child(7) {
-    grid-column: 1 / -1;
-    max-width: 50%;
-    justify-self: center;
+    grid-column: 2 / span 2;
   }
 }
 
@@ -154,18 +163,15 @@
   .team-grid-v2 {
     grid-template-columns: 1fr;
   }
+  .team-grid-v2 > *,
+  .team-grid-v2 > *:nth-child(5),
   .team-grid-v2 > *:nth-child(7) {
     grid-column: 1;
-    max-width: none;
   }
 }
 
 .team-card-wrap {
   display: block;
-}
-
-.team-card-featured {
-  grid-column: span 1;
 }
 
 .team-card-v2 {
@@ -373,30 +379,33 @@
 /* ============ CTA ============ */
 .team-cta-v2 {
   padding: 5rem 0 6rem;
-  background: var(--paper);
+  background: var(--ink);
 }
 
 .team-cta-card {
-  background: linear-gradient(135deg, var(--ink) 0%, #1a1f1a 100%);
+  background: var(--ink);
+  background-image: var(--cta-bg);
+  background-size: cover;
+  background-position: center;
   border: 1px solid rgba(148, 201, 115, 0.18);
   border-radius: 24px;
   padding: 4rem 2rem;
   text-align: center;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
+/* Dim+brand-tinted overlay so the Broad photo reads as atmospheric
+   texture and the white CTA copy stays readable. */
 .team-cta-card::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, var(--brand-glow), transparent 70%);
-  filter: blur(60px);
-  opacity: 0.5;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(8, 12, 8, 0.86) 0%, rgba(8, 12, 8, 0.94) 100%),
+    radial-gradient(circle at 50% 0%, rgba(148, 201, 115, 0.18), transparent 60%);
+  z-index: 0;
   pointer-events: none;
 }
 

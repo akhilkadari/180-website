@@ -21,6 +21,7 @@ const ArcGallery = ({
   cardSizeMd = 118,
   cardSizeSm = 86,
   className = "",
+  style,
   children,
 }) => {
   const [dims, setDims] = useState({ radius: radiusLg, cardSize: cardSizeLg });
@@ -65,6 +66,7 @@ const ArcGallery = ({
     <section
       ref={sectionRef}
       className={`arc-gallery ${className} ${inView ? "arc-gallery-in-view" : ""}`}
+      style={style}
     >
       <div
         className="arc-gallery-stage"

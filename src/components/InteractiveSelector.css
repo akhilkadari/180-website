@@ -1,180 +1,137 @@
-.interactive-selector {
+/* Bento mosaic gallery for the About page events section.
+   Layout: 4-column grid, two rows of tiles. The first tile spans cols
+   1-2 to read as a featured hero; the remaining six tiles are square
+   1x1 cells filling out the grid. Caption sits on a soft gradient at
+   the bottom of each tile, icon pin top-right. */
+.event-mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 230px;
+  gap: 1rem;
   width: 100%;
-  display: flex;
-  justify-content: center;
+  max-width: 1180px;
+  margin: 0 auto;
 }
 
-.is-options {
-  display: flex;
-  width: 100%;
-  max-width: 1100px;
-  height: 460px;
-  align-items: stretch;
+.mosaic-tile {
   position: relative;
-  gap: 0;
+  background-size: cover;
+  background-position: center;
   border-radius: 18px;
   overflow: hidden;
-}
-
-.is-option {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  flex: 1 1 0%;
-  min-width: 60px;
-  background-color: #18181b;
-  background-size: auto 120%;
-  background-position: center;
-  border: 2px solid #292929;
+  isolation: isolate;
   cursor: pointer;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-  font: inherit;
-  color: white;
-  opacity: 0;
-  transform: translateX(-60px);
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* St. Jude basketball photo: shift the background crop left so the
+   players on the left side of the photo stay in frame inside the
+   square mosaic tile, matching the home arc gallery treatment. */
+.mosaic-tile[aria-label="St. Jude Basketball Tournament"] {
+  background-position: 12% center;
+}
+
+.mosaic-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
+}
+
+.mosaic-tile-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.78) 0%,
+    rgba(0, 0, 0, 0.25) 35%,
+    rgba(0, 0, 0, 0) 60%
+  );
   z-index: 1;
-  transition:
-    flex-grow 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    background-size 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    background-position 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.4s ease,
-    opacity 0.7s ease,
-    transform 0.7s ease;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: background 0.4s var(--ease-out);
 }
 
-.is-option.is-loaded {
-  opacity: 1;
-  transform: translateX(0);
+.mosaic-tile:hover .mosaic-tile-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.4) 45%,
+    rgba(0, 0, 0, 0.05) 75%
+  );
 }
 
-.is-option.is-active {
-  flex: 7 1 0%;
-  background-size: auto 100%;
-  border-color: rgba(148, 201, 115, 0.6);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(148, 201, 115, 0.2);
-  z-index: 10;
-}
-
-.is-shadow {
+.mosaic-tile-icon {
   position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -40px;
-  height: 140px;
-  pointer-events: none;
-  box-shadow:
-    inset 0 -120px 0px -120px #000,
-    inset 0 -120px 0px -80px #000;
-  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.is-option.is-active .is-shadow {
-  bottom: 0;
-  box-shadow:
-    inset 0 -140px 140px -100px rgba(0, 0, 0, 0.95),
-    inset 0 -140px 140px -60px rgba(0, 0, 0, 0.85);
-}
-
-.is-label {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  padding: 0 1.1rem;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.is-icon {
-  flex-shrink: 0;
-  width: 44px;
-  height: 44px;
+  top: 0.85rem;
+  right: 0.85rem;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: rgba(20, 20, 20, 0.85);
-  backdrop-filter: blur(10px);
-  border: 1.5px solid rgba(255, 255, 255, 0.15);
-  display: inline-flex;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 1.05rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  transition: all 0.4s ease;
-}
-
-.is-option.is-active .is-icon {
-  background: linear-gradient(135deg, var(--brand-bright), var(--brand));
-  border-color: rgba(255, 255, 255, 0.25);
-  color: var(--ink);
-  box-shadow: 0 6px 20px var(--brand-glow);
-}
-
-.is-info {
-  white-space: nowrap;
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-  overflow: hidden;
-}
-
-.is-main {
-  font-size: 1.1rem;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  color: white;
-  opacity: 0;
-  transform: translateX(25px);
-  transition: opacity 0.7s 0.1s ease, transform 0.7s 0.1s ease;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-}
-
-.is-sub {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.78);
-  opacity: 0;
-  transform: translateX(25px);
-  transition: opacity 0.7s 0.18s ease, transform 0.7s 0.18s ease;
-  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+  z-index: 2;
 }
 
-.is-option.is-active .is-main,
-.is-option.is-active .is-sub {
-  opacity: 1;
-  transform: translateX(0);
+.mosaic-tile-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.25rem 1.15rem 1rem;
+  z-index: 2;
+  color: white;
 }
 
-@media (max-width: 900px) {
-  .is-options {
-    height: 380px;
+.mosaic-tile-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.mosaic-tile--wide .mosaic-tile-title {
+  font-size: 1.55rem;
+  margin-bottom: 0.4rem;
+}
+
+.mosaic-tile-desc {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.45;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+.mosaic-tile--wide .mosaic-tile-desc {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 1024px) {
+  .event-mosaic {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 200px;
+  }
+  .mosaic-tile--wide {
+    grid-column: span 3;
+    grid-row: span 1;
   }
 }
 
-@media (max-width: 600px) {
-  .is-options {
-    flex-direction: column;
-    height: auto;
-    max-width: 100%;
+@media (max-width: 640px) {
+  .event-mosaic {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
   }
-  .is-option {
-    min-height: 80px;
-    height: 80px;
-    background-size: cover;
-  }
-  .is-option.is-active {
-    height: 320px;
-    flex: 0 0 320px;
-    background-size: cover;
-  }
-  .is-label {
-    bottom: 1rem;
+  .mosaic-tile--wide {
+    grid-column: span 2;
   }
 }

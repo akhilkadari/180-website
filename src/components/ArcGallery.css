@@ -75,6 +75,13 @@
   -webkit-user-drag: none;
 }
 
+/* St. Jude basketball photo: shift the crop window left so the players
+   on the left side of the photo stay visible inside the small arc card.
+   Default center crop was clipping them out. */
+.arc-gallery-card img[src*="st-jude-basketball"] {
+  object-position: 5% center;
+}
+
 /* Content sits inside the arc opening - pulled up so the fan frames it.
    Same scroll-triggered pattern as the cards: invisible until
    .arc-gallery-in-view lights up, then fades in after the cards have

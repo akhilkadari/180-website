@@ -105,11 +105,11 @@
   font-weight: 600;
 }
 
-/* ============ Mission / Vision (dark) ============ */
+/* ============ Mission / Vision ============ */
 .mission-section-v2 {
   position: relative;
-  background: var(--ink);
-  color: white;
+  background: var(--paper-warm);
+  color: var(--ink);
   padding: 6rem 0;
   overflow: hidden;
 }
@@ -428,26 +428,29 @@
 }
 
 .about-cta-card {
-  background: linear-gradient(135deg, var(--ink) 0%, #1a1f1a 100%);
+  background: var(--ink);
+  background-image: var(--cta-bg);
+  background-size: cover;
+  background-position: center;
   border: 1px solid rgba(148, 201, 115, 0.18);
   border-radius: 24px;
   padding: 4.5rem 2rem;
   text-align: center;
   position: relative;
   overflow: hidden;
+  isolation: isolate;
 }
 
+/* Dim+brand-tinted overlay so the Broad photo reads as atmospheric
+   texture and the white CTA copy stays readable. */
 .about-cta-card::before {
   content: '';
   position: absolute;
-  top: -50%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, var(--brand-glow), transparent 70%);
-  filter: blur(60px);
-  opacity: 0.45;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(8, 12, 8, 0.86) 0%, rgba(8, 12, 8, 0.94) 100%),
+    radial-gradient(circle at 50% 0%, rgba(148, 201, 115, 0.18), transparent 60%);
+  z-index: 0;
   pointer-events: none;
 }
 
@@ -484,4 +487,134 @@
   gap: 0.85rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+/* ============ Pillars Section - the four principles ============
+   Shares the warm-paper background with the Mission/Vision section
+   below so the bottom of the page reads as one continuous block. */
+.pillars-section {
+  padding: 6rem 0 4rem;
+  background: var(--paper-warm);
+  position: relative;
+  overflow: hidden;
+}
+
+.pillars-section + .mission-section-v2 {
+  padding-top: 2rem;
+}
+
+.pillars-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.pillars-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.pillars-title {
+  font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin: 0.4rem 0 1rem;
+}
+
+.pillars-title .accent {
+  color: var(--brand);
+  font-style: italic;
+  font-weight: 800;
+}
+
+.pillars-sub {
+  font-size: 1.02rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 980px) {
+  .pillars-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pillar-card {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.6rem 1.4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all 0.35s var(--ease-out);
+}
+
+.pillar-card:hover {
+  border-color: var(--brand);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(148, 201, 115, 0.18);
+}
+
+.pillar-num {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.3rem;
+  font-family: var(--font-label);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--line);
+  transition: color 0.35s var(--ease-out);
+}
+
+.pillar-card:hover .pillar-num {
+  color: var(--brand);
+}
+
+.pillar-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--brand-bright), var(--brand));
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  margin-bottom: 0.35rem;
+  box-shadow: 0 6px 14px var(--brand-glow);
+}
+
+.pillar-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.pillar-desc {
+  font-size: 0.92rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  margin: 0;
 }
