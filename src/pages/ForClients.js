@@ -13,7 +13,6 @@ import {
   FaCheckCircle,
   FaSeedling,
 } from "react-icons/fa";
-import GlowCard from "../components/GlowCard";
 import StatNum from "../components/StatNum";
 import "./ForClients.css";
 
@@ -22,37 +21,37 @@ const advantages = [
     icon: <FaDollarSign />,
     title: "Revenue Generation",
     description:
-      "Strategic pricing models, sales funnel optimization, and new revenue stream identification to maximize your organization's financial performance.",
+      "Pricing models, where the leaks are in your sales funnel, and where the next dollar of revenue could come from.",
   },
   {
     icon: <FaSearch />,
     title: "Market Research",
     description:
-      "Competitive analysis, consumer behavior studies, and market opportunity assessment to inform strategic decision-making.",
+      "Who you're really competing with, what your customers actually want, and which segments are open to grow into.",
   },
   {
     icon: <FaExpand />,
     title: "Expansion Strategy",
     description:
-      "Market entry planning, growth opportunity analysis, and scalability assessment to drive sustainable business expansion.",
+      "Where to grow next, whether the unit economics hold up at 5x, and what it takes to enter a new market.",
   },
   {
     icon: <FaCogs />,
     title: "Operational Efficiency",
     description:
-      "Process optimization, resource allocation, and cost reduction strategies to streamline operations and improve productivity.",
+      "Where time and money leak in day-to-day ops, and how to plug it without growing headcount.",
   },
   {
     icon: <FaSitemap />,
     title: "Organization",
     description:
-      "Organizational structure design, team development strategies, and change management to optimize your human capital.",
+      "Org charts that match what the team actually does, and how to roll out a change without losing people.",
   },
   {
     icon: <FaLaptopCode />,
     title: "Technology",
     description:
-      "Digital transformation, tech stack assessment, and implementation roadmap to modernize your technological infrastructure.",
+      "Whether the tools you're using are still the right ones, and what to swap or build next.",
   },
 ];
 
@@ -202,7 +201,7 @@ const ForClients = () => {
           >
             <span className="page-hero-eyebrow">Our expertise</span>
             <h2 className="advantages-title">
-              Six practice areas, <span className="accent">one team.</span>
+              Where projects <span className="accent">usually start.</span>
             </h2>
           </motion.div>
 
@@ -210,15 +209,14 @@ const ForClients = () => {
             {advantages.map((a, idx) => (
               <motion.div
                 key={a.title}
+                className="advantage-card-v2"
                 initial={{ opacity: 0, y: 30 }}
                 animate={isAdvInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: idx * 0.08 }}
               >
-                <GlowCard glowColor="green" className="advantage-card-v2">
-                  <div className="advantage-icon-v2">{a.icon}</div>
-                  <h3 className="advantage-title-v2">{a.title}</h3>
-                  <p className="advantage-desc-v2">{a.description}</p>
-                </GlowCard>
+                <div className="advantage-icon-v2">{a.icon}</div>
+                <h3 className="advantage-title-v2">{a.title}</h3>
+                <p className="advantage-desc-v2">{a.description}</p>
               </motion.div>
             ))}
           </div>

@@ -14,7 +14,12 @@ import StatNum from "../components/StatNum";
 // baked-in sky), logo is the brand mark mid-layer, and the back layer
 // is a CSS gradient sky so any parallax overflow stays continuous.
 const HERO_LAYERS = {
-  building: "/images/backgrounds/Hero%201%20GLow.jpg",
+  // WebP, not JPG — the source PNG has a transparent sky region so the
+  // sky-gradient CSS layer can show through the top half of the photo.
+  // Converting to JPG flattens that alpha to black, which is what made
+  // the live hero look like a black slab. WebP keeps the alpha at
+  // a fraction of the PNG's weight (~540 KB vs 54 MB).
+  building: "/images/backgrounds/Hero%201%20GLow.webp",
   logo: "/images/backgrounds/Hero%201%20Glow%20Logo.png",
 };
 
@@ -239,8 +244,8 @@ const Home = () => {
               <span className="accent">of the Year.</span>
             </h3>
             <p className="award-creative-sub">
-              Recognized for excellence in delivering measurable impact across
-              Michigan State's nonprofits and social enterprises.
+              Voted by the Broad Student Senate for the work we delivered to
+              MSU nonprofits and student ventures over the past year.
             </p>
           </div>
         </div>

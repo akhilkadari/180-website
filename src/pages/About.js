@@ -227,12 +227,13 @@ const About = () => {
               <h3 className="mission-card-title">
                 Strategy that builds capacity.
               </h3>
+              <p className="mission-card-subhead">Why we exist.</p>
               <p className="mission-card-text">
-                We provide mission-driven organizations with high-quality
-                consulting services that help them overcome challenges, scale
-                their impact, and operate more effectively. Our team is
-                committed to producing work that is thoughtful, well-researched,
-                and actionable.
+                We work with East Lansing nonprofits and student-led ventures
+                that can't afford a strategy firm. The deliverables they leave
+                with are the ones an internal strategy team would have built —
+                financial models, market sizing, go-to-market plans — written
+                for the people who actually have to execute them.
               </p>
             </motion.div>
 
@@ -249,11 +250,12 @@ const About = () => {
               <h3 className="mission-card-title">
                 Strategy without barriers.
               </h3>
+              <p className="mission-card-subhead">Where we're headed.</p>
               <p className="mission-card-text">
-                We envision a world where every organization driving positive
-                social change, regardless of size, sector, or location, has
-                access to high-quality strategic support that empowers them to
-                maximize their impact and achieve lasting transformation.
+                Strategy work shouldn't only be priced for Fortune 500s. The
+                organizations doing the most good usually can't afford the
+                consulting that would help them scale. 180DC exists to close
+                that gap — for free, by students, on real projects.
               </p>
             </motion.div>
           </div>

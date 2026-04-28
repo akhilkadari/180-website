@@ -187,11 +187,24 @@
   line-height: 1.1;
 }
 
+/* One-line clarifier between the title and the body so the reader knows
+   what kind of statement they're looking at (mission = why we exist,
+   vision = where we're headed). Lighter weight than the title so it
+   reads as a deck/tagline, not a competing heading. */
+.mission-card-subhead {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--brand-dark);
+  letter-spacing: -0.005em;
+  margin: 0.4rem 0 0.25rem;
+  font-style: italic;
+}
+
 .mission-card-text {
   font-size: 1rem;
   color: var(--ink-muted);
   line-height: 1.65;
-  margin: 0.5rem 0 0;
+  margin: 0.4rem 0 0;
 }
 
 /* ============ Differences ============ */

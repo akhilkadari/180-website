@@ -26,25 +26,25 @@ const benefits = [
     icon: <FaWrench />,
     title: "Real-World Experience",
     description:
-      "Our teams don't work on hypotheticals. We've helped startups refine go-to-market strategies, guided nonprofits through growth planning, and delivered client-ready solutions implemented within weeks.",
+      "Teams don't work on hypotheticals. We've helped startups refine go-to-market plans, mapped growth strategies for nonprofits, and shipped recommendations clients actually used the next month.",
   },
   {
     icon: <FaNetworkWired />,
     title: "Global & Local Networks",
     description:
-      "With 180+ branches worldwide, you'll join a consulting ecosystem spanning six continents. From project mentorship to alumni chats with consultants around the globe, the connections extend far beyond East Lansing.",
+      "180+ chapters across six continents. Project mentors, alumni chats, and summer connections at branches you didn't know existed — the network reaches well past East Lansing.",
   },
   {
     icon: <FaGraduationCap />,
     title: "Growth & Leadership",
     description:
-      "You'll learn to lead client calls, build models, and present to real executives. Many of our consultants take on leadership roles in their second semester.",
+      "You'll learn to lead client calls, build financial models, and present to real executives. Many BAs take on leadership roles by their second semester.",
   },
   {
     icon: <FaChalkboardTeacher />,
     title: "Tailored Training",
     description:
-      "From pre-med to computer science to business, our onboarding is designed to match your background and build your confidence. Hands-on training customized to your experience.",
+      "From pre-med to CS to business, the BA semester meets you where your background is. By the end of it you can run a client call and own a model.",
   },
 ];
 
@@ -360,40 +360,6 @@ const JoinUs = () => {
         </div>
       </section>
 
-      {/* Benefits */}
-      <section ref={benefitsRef} className="benefits-section-v2">
-        <div className="container">
-          <motion.div
-            className="benefits-header"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isBenefitsInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="section-eyebrow">Why join</span>
-            <h2 className="section-title">
-              Four reasons it's <span className="accent">worth it.</span>
-            </h2>
-          </motion.div>
-
-          <div className="benefits-grid-v2">
-            {benefits.map((b, idx) => (
-              <motion.div
-                key={b.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isBenefitsInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
-              >
-                <GlowCard glowColor="green" className="benefit-card-v2">
-                  <div className="benefit-icon-v2">{b.icon}</div>
-                  <h3 className="benefit-title-v2">{b.title}</h3>
-                  <p className="benefit-desc-v2">{b.description}</p>
-                </GlowCard>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Timeline */}
       <section
         id="timeline-section"
@@ -610,6 +576,42 @@ const JoinUs = () => {
                 <FaArrowRight />
               </button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits — moved here per user request so the "Four reasons it's
+          worth it" payoff sits right above the FAQ. Plain light cards
+          (GlowCard wrapper removed) so the section reads soft instead of
+          a wall of dark slabs. */}
+      <section ref={benefitsRef} className="benefits-section-v2">
+        <div className="container">
+          <motion.div
+            className="benefits-header"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isBenefitsInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="section-eyebrow">Why join</span>
+            <h2 className="section-title">
+              Four reasons it's <span className="accent">worth it.</span>
+            </h2>
+          </motion.div>
+
+          <div className="benefits-grid-v2">
+            {benefits.map((b, idx) => (
+              <motion.div
+                key={b.title}
+                className="benefit-card-v2"
+                initial={{ opacity: 0, y: 30 }}
+                animate={isBenefitsInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+              >
+                <div className="benefit-icon-v2">{b.icon}</div>
+                <h3 className="benefit-title-v2">{b.title}</h3>
+                <p className="benefit-desc-v2">{b.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
