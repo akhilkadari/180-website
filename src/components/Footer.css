@@ -156,7 +156,6 @@
   object-fit: contain;
   max-width: 360px;
   flex-shrink: 0;
-  filter: drop-shadow(0 3px 12px var(--brand-glow));
 }
 
 @media (max-width: 768px) {
