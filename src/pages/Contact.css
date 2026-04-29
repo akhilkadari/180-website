@@ -93,8 +93,32 @@
 }
 
 /* ============ Contact Hero - left-aligned with info chips (business-card feel) ============ */
+/* Photo background — Minskoff atrium (the building 180DC MSU works
+   out of). The actual image URL comes in via the `--hero-bg` inline
+   style on the JSX, since CRA's css-loader can't resolve absolute
+   /images/ paths inside CSS files. Layered: a heavy dark/brand
+   gradient overlay first so the white headline + chips stay legible,
+   then the photo underneath tinted with the brand glow. Replaces the
+   flat `--ink` black that the page-hero base sets. */
 .contact-hero-v2 {
   padding: 7rem 0 5rem;
+  background-color: var(--ink);
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(8, 12, 8, 0.85) 0%,
+      rgba(8, 12, 8, 0.7) 60%,
+      rgba(8, 12, 8, 0.92) 100%
+    ),
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(148, 201, 115, 0.18),
+      transparent 55%
+    ),
+    var(--hero-bg);
+  background-size: auto, auto, cover;
+  background-position: center, center, center 35%;
+  background-repeat: no-repeat;
 }
 
 .contact-hero-inner {

@@ -133,11 +133,27 @@ const Home = () => {
           >
             <span className="line-bold">180 Degrees Consulting</span>
             <span className="line-accent">
-              {/* "at" stays plain white, "Michigan State" gets a brand-green
-                  gradient so the school name visually pops as the hero's
-                  payoff line. */}
+              {/* "at" rides as a small italic connector, "Michigan State"
+                  is the payoff line — bold white with a hand-drawn green
+                  brush underline that draws in on load. */}
               <span className="line-accent-prefix">at </span>
-              <span className="line-accent-msu">Michigan State</span>
+              <span className="line-accent-msu">
+                Michigan State
+                <svg
+                  className="msu-stroke"
+                  viewBox="0 0 320 18"
+                  preserveAspectRatio="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 11 C 60 4, 130 15, 210 7 S 308 13, 316 9"
+                    stroke="currentColor"
+                    strokeWidth="5"
+                    strokeLinecap="round"
+                    fill="none"
+                  />
+                </svg>
+              </span>
             </span>
           </motion.h1>
 

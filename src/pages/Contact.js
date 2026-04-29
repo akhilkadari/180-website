@@ -85,7 +85,12 @@ const Contact = () => {
   return (
     <div className="contact">
       {/* Hero - left-aligned with inline info chips (business-card feel) */}
-      <section className="page-hero contact-hero-v2">
+      <section
+        className="page-hero contact-hero-v2"
+        style={{
+          "--hero-bg": "url('/images/backgrounds/minskoff-atrium.jpg')",
+        }}
+      >
         <div className="page-hero-orb page-hero-orb-1" />
         <div className="page-hero-orb page-hero-orb-2" />
         <div className="container contact-hero-inner">
