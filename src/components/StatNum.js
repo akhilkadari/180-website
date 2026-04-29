@@ -29,14 +29,13 @@ const StatNum = ({ value, suffix = "+", prefix = "", duration = 1500, decimals =
       if (startedRef.current) return;
       startedRef.current = true;
       const start = performance.now();
-      let raf;
       const tick = (now) => {
         const t = Math.min(1, (now - start) / duration);
         const eased = 1 - Math.pow(1 - t, 3);
         setCount(value * eased);
-        if (t < 1) raf = requestAnimationFrame(tick);
+        if (t < 1) requestAnimationFrame(tick);
       };
-      raf = requestAnimationFrame(tick);
+      requestAnimationFrame(tick);
     };
 
     // Always-on safety net: regardless of which path triggers (or
