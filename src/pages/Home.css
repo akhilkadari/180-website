@@ -252,19 +252,59 @@
   padding-bottom: 0.05em;
 }
 
-/* "at Michigan State" - back to the original treatment per user request.
-   Both halves are italic + brand-bright, with a single clean text-shadow
-   for legibility against the hero background. The gradient/shimmer
-   experiment was creating awkward shadowing artifacts (drop-shadow on a
-   transparent text-fill stacks weirdly), so it's gone. Same simple style
-   on both spans so the line reads as one unified italic phrase. */
-.hero-reveal-headline .line-accent-prefix,
-.hero-reveal-headline .line-accent-msu {
+/* "at" stays as a small Inter italic in brand-bright — short connector
+   that lets the eye fly through it onto the school name. */
+.hero-reveal-headline .line-accent-prefix {
   display: inline;
+  font-family: var(--font-display);
   font-style: italic;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--brand-bright);
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+  font-size: 0.78em;
+  margin-right: 0.08em;
+  letter-spacing: -0.005em;
+  vertical-align: 0.04em;
+}
+
+/* "Michigan State" gets the editorial treatment — Fraunces serif italic
+   (more personality than Inter italic), a brand-green gradient clipped
+   to the text, and a soft halo so it lifts off the campus photo behind
+   it. Gradient runs from pale mint at the start to deep brand green at
+   the end; the hex stops were chosen to stay legible on both sky and
+   foliage in the hero photo. */
+.hero-reveal-headline .line-accent-msu {
+  display: inline;
+  font-family: "Fraunces", "Playfair Display", Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  letter-spacing: -0.025em;
+  background: linear-gradient(
+    105deg,
+    #d6f5ad 0%,
+    var(--brand-bright) 28%,
+    var(--brand) 62%,
+    #5b8a3c 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* drop-shadow on the element survives the transparent text-fill the
+     way text-shadow wouldn't. Two shadows: a dark halo for legibility
+     on the campus photo, plus a soft brand glow for personality. */
+  filter: drop-shadow(0 2px 18px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 0 8px rgba(148, 201, 115, 0.35));
+  padding-bottom: 0.04em;
+}
+
+@supports not (background-clip: text) {
+  /* Fallback for older browsers — solid bright green so the line stays
+     readable without the gradient effect. */
+  .hero-reveal-headline .line-accent-msu {
+    color: var(--brand-bright);
+    -webkit-text-fill-color: currentColor;
+  }
 }
 
 .hero-reveal-stats {

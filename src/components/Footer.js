@@ -98,8 +98,9 @@ const Footer = () => {
                 />
               </div>
               <p className="footer-description">
-                Empowering organizations through student-driven consulting excellence. 
-                We provide innovative solutions while developing the next generation of business leaders.
+                The MSU chapter of 180 Degrees Consulting. Pro-bono strategy
+                work for nonprofits and student ventures, delivered by
+                undergrads across business, engineering, design, and pre-med.
               </p>
               <div className="social-links">
                 {socialLinks.map((social, index) => (
