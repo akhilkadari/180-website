@@ -4,10 +4,30 @@
 
 /* ============ President's Letter ============ */
 /* First section on the About page - extra top padding so content clears the
-   fixed navbar (~68px) since the page no longer has a dark hero. */
+   fixed navbar (~68px) since the page no longer has a dark hero.
+   Background: the donor-wall photo (Minskoff atrium glass + plaque
+   wall) heavily washed with white so it reads as a textural light
+   tint, not a competing photo. URL comes in via --section-bg inline
+   style on the JSX (CRA's css-loader can't resolve absolute /images/
+   paths inside CSS files). */
 .president-section-v2 {
   padding: 8.5rem 0 6rem;
-  background: var(--paper);
+  position: relative;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.93),
+      rgba(255, 255, 255, 0.93)
+    ),
+    var(--section-bg);
+  background-size: auto, cover;
+  background-position: center, center 35%;
+  background-repeat: no-repeat;
+}
+
+.president-section-v2 .container {
+  position: relative;
+  z-index: 1;
 }
 
 .president-grid-v2 {

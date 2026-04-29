@@ -77,7 +77,13 @@ const About = () => {
   return (
     <div className="about">
       {/* President's Welcome - first thing on the page */}
-      <section ref={presidentRef} className="president-section-v2">
+      <section
+        ref={presidentRef}
+        className="president-section-v2"
+        style={{
+          "--section-bg": "url('/images/backgrounds/donor-wall.jpg')",
+        }}
+      >
         <div className="container">
           <div className="president-grid-v2">
             <motion.div
