@@ -321,6 +321,22 @@
   }
 }
 
+/* Mobile treatment per user request: drop the brush underline and the
+   white text, revert to plain brand-bright green italic so the line
+   stays simple at small sizes. The brush stroke can read crowded on
+   narrow phones, especially when the headline wraps. */
+@media (max-width: 768px) {
+  .hero-reveal-headline .line-accent-msu {
+    color: var(--brand-bright);
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+    padding-bottom: 0;
+  }
+
+  .msu-stroke {
+    display: none;
+  }
+}
+
 .hero-reveal-stats {
   display: flex;
   align-items: center;

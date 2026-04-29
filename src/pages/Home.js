@@ -133,9 +133,9 @@ const Home = () => {
           >
             <span className="line-bold">180 Degrees Consulting</span>
             <span className="line-accent">
-              {/* "at" rides as a small italic connector, "Michigan State"
-                  is the payoff line — bold white with a hand-drawn green
-                  brush underline that draws in on load. */}
+              {/* Desktop: white italic with a green hand-drawn brush
+                  underline. Mobile: drops the underline and the white,
+                  reverts to plain green italic (handled in CSS). */}
               <span className="line-accent-prefix">at </span>
               <span className="line-accent-msu">
                 Michigan State

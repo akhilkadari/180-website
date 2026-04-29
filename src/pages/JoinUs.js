@@ -169,19 +169,19 @@ const testimonials = [
     quote:
       "180 DC MSU provided me with invaluable experience that directly contributed to my success at my internship with Cherry Republic. The hands-on projects and mentorship were game-changers for my career development.",
     name: "Andrew Mossington",
-    role: "Class of 2025",
+    role: "Class of 2028",
   },
   {
     quote:
       "My semester as a Business Analyst at 180 Degrees Consulting gave me hands-on experience solving real client challenges, sharpening the problem-solving and data skills that prepared me to hit the ground running at Delta Dental.",
     name: "Kavin Chana",
-    role: "Class of 2025",
+    role: "Class of 2028",
   },
   {
     quote:
       "Being part of 180 DC MSU's Business Analyst team taught me how to think strategically and communicate complex ideas effectively. The experience was transformative for my professional growth.",
     name: "Neha Khedekar",
-    role: "Class of 2026",
+    role: "Class of 2028",
   },
 ];
 
