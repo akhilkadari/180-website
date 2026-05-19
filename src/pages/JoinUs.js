@@ -167,20 +167,20 @@ const timelineSteps = [
 const testimonials = [
   {
     quote:
-      "180 DC MSU provided me with invaluable experience that directly contributed to my success at my internship with Cherry Republic. The hands-on projects and mentorship were game-changers for my career development.",
-    name: "Andrew Mossington",
-    role: "Class of 2028",
+      "Being part of 180 Degrees Consulting MSU’s Business Analyst team pushed me to think outside the box and approach problems with strong analytical reasoning. It helped me build structured problem-solving skills and communicate ideas in a clear, professional way, which has been a big part of my overall professional development.",
+    name: "Sophia El-Bogdadi",
+    role: "Class of 2029",
   },
   {
     quote:
-      "My semester as a Business Analyst at 180 Degrees Consulting gave me hands-on experience solving real client challenges, sharpening the problem-solving and data skills that prepared me to hit the ground running at Delta Dental.",
-    name: "Kavin Chana",
-    role: "Class of 2028",
+      "Being a Business Analyst at 180 Degrees Consulting is an experience where you are constantly learning from others and gaining invaluable opportunities, regardless of your major. I gained real-world experience with client projects while building my resume and sharpening skills like public speaking, presenting, and casing.",
+    name: "Rhea Bhattacharya",
+    role: "Class of 2029",
   },
   {
     quote:
-      "Being part of 180 DC MSU's Business Analyst team taught me how to think strategically and communicate complex ideas effectively. The experience was transformative for my professional growth.",
-    name: "Neha Khedekar",
+      "Being part of 180 Degrees Consulting as a Business Analyst has been a transformative experience for my career development and strategic problem-solving skills. One of the most valuable aspects has been being surrounded by a like-minded, collaborative community that consistently encourages growth and supports one another.",
+    name: "Ferdinand Viereck",
     role: "Class of 2028",
   },
 ];
