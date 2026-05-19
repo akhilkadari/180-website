@@ -167,7 +167,7 @@ const timelineSteps = [
 const testimonials = [
   {
     quote:
-      "Being part of 180 Degrees Consulting MSU’s Business Analyst team pushed me to think outside the box and approach problems with strong analytical reasoning. It helped me build structured problem-solving skills and communicate ideas in a clear, professional way, which has been a big part of my overall professional development.",
+      "Being part of 180 Degrees Consulting's Business Analyst team pushed me to think outside the box and approach problems with strong analytical reasoning. It helped me build structured problem-solving skills and communicate ideas in a clear, professional way, which has been a big part of my overall professional development.",
     name: "Sophia El-Bogdadi",
     role: "Class of 2029",
   },
