@@ -196,8 +196,8 @@ This project is created for 180 Degrees Consulting MSU. All rights reserved.
 ## 📞 Support
 
 For questions or support, please contact:
-- Email: contact@180dcmsu.org
-- Website: [180 Degrees Consulting MSU](https://180dcmsu.org)
+- Email: msu@180dc.org
+- Website: [180 Degrees Consulting MSU](https://www.180dcmichstate.com)
 
 ---
 
