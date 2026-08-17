@@ -27,3 +27,18 @@ yarn-error.log*
 dev-server.log
 dev-server-err.log
 .claude/
+
+# Internal chapter material — casebook decks, outreach scripts, client docs.
+# ~210MB of .pptx and NOT for a public repo.
+docs/
+
+# Unused image discards (superseded drafts, duplicate "original" files).
+# Live site images are served from the msu180/Image-Holder repo.
+public/images/**/original.jpg
+public/images/backgrounds/Hero 1 Glow Sky.png
+public/images/backgrounds/Hero Bacground Slide 2.jpg
+public/images/backgrounds/Hero Backgroidn Slide 3.jpg
+public/images/backgrounds/Hero Background Slide 3.jpeg
+public/images/backgrounds/Hero Glow 2.png
+public/images/backgrounds/Light background.png
+public/images/team/Hero Background Slide 3.jpeg
