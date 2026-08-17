@@ -272,7 +272,7 @@ const JoinUs = () => {
 
             <div className="page-hero-cta page-hero-cta-left">
               <a
-                href="https://forms.gle/a1w3L12YNuQKwdtn8"
+                href="https://forms.gle/8iCGuu4DVqrYPh2L8"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-primary"
